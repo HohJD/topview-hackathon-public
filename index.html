@@ -523,12 +523,14 @@
   /* ---------- criteria ---------- */
 
   .criteria { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: 1px; background: var(--rule); border: 1px solid var(--rule); border-radius: 14px; overflow: hidden; }
-  @media (min-width: 720px) { .criteria { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-  .criteria li { background: var(--surface); padding: 1.5rem 1.6rem 1.65rem; display: flex; flex-direction: column; gap: 0.4rem; }
-  .criteria .weight { font-family: var(--mono); font-variant-numeric: tabular-nums; font-size: 0.8rem; letter-spacing: 0.1em; color: var(--violet-lift); }
+  @media (min-width: 760px) { .criteria { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+  .criteria li { background: var(--surface); padding: 1.6rem 1.6rem 1.75rem; display: flex; flex-direction: column; gap: 0.4rem; }
+  .criteria .num {
+    font-family: var(--mono); font-variant-numeric: tabular-nums;
+    font-size: 0.78rem; letter-spacing: 0.14em; color: var(--violet-lift);
+    margin-bottom: 0.35rem;
+  }
   .criteria p { font-size: 0.92rem; color: var(--ink-2); }
-  .bar { height: 4px; border-radius: 999px; background: var(--surface-2); margin-top: 0.55rem; overflow: hidden; }
-  .bar i { display: block; height: 100%; background: var(--violet); border-radius: 999px; }
 
   /* ---------- cols / ticks ---------- */
 
@@ -991,34 +993,25 @@
     </div>
     <div class="split">
       <div data-reveal>
-        <h2>Four things,<br>weighted.</h2>
-        <p class="prose" style="margin-top:1.5rem;">Judges watch the film first, then read the build note. Only what is on screen counts.</p>
+        <h2>Three things,<br>weighted equally.</h2>
+        <p class="prose" style="margin-top:1.5rem;">Judges watch the film, then read your build note. The prompts and sketches behind it count as much as the final cut.</p>
         <p class="prose"><span class="tbc">TBC</span> Panel to be confirmed.</p>
       </div>
       <ul class="criteria" data-reveal>
         <li>
-          <span class="weight">30%</span>
-          <h3>Emotion</h3>
-          <p>Does it land. The room can tell within ten seconds.</p>
-          <div class="bar"><i style="width:30%"></i></div>
+          <span class="num">01</span>
+          <h3>Design Process</h3>
+          <p>AI prompts, sketches, and clarity of design thinking.</p>
         </li>
         <li>
-          <span class="weight">25%</span>
-          <h3>Craft</h3>
-          <p>Pacing, sound, cuts, and whether the shots belong in the same film.</p>
-          <div class="bar"><i style="width:25%"></i></div>
+          <span class="num">02</span>
+          <h3>Creativity &amp; Innovation</h3>
+          <p>Originality and response to sustainability and inclusivity.</p>
         </li>
         <li>
-          <span class="weight">25%</span>
-          <h3>Pipeline</h3>
-          <p>How much the machine did, and how cleverly. Ambition beats polish here.</p>
-          <div class="bar"><i style="width:25%"></i></div>
-        </li>
-        <li>
-          <span class="weight">20%</span>
-          <h3>Idea</h3>
-          <p>Worth watching twice. A rough idea with teeth beats a pretty empty one.</p>
-          <div class="bar"><i style="width:20%"></i></div>
+          <span class="num">03</span>
+          <h3>Storytelling</h3>
+          <p>Clarity of purpose and connection to the theme.</p>
         </li>
       </ul>
     </div>
