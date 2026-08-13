@@ -576,6 +576,7 @@
 
   .crew { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.25rem; }
   @media (min-width: 860px) { .crew { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  .track-record { margin-top: clamp(3rem, 6vw, 4.5rem); }
 
   .person {
     background: var(--surface);
@@ -590,10 +591,65 @@
   .person li { display: grid; grid-template-columns: 1.1rem minmax(0, 1fr); gap: 0.4rem; font-size: 0.94rem; color: var(--ink-2); }
   .person li::before { content: ""; width: 7px; height: 7px; border-radius: 2px; background: var(--violet); margin-top: 0.58rem; }
 
-  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px; background: var(--rule); border: 1px solid var(--rule); border-radius: 14px; overflow: hidden; margin-top: 1.25rem; }
-  .stats div { background: var(--surface); padding: 1.3rem 1.35rem 1.45rem; }
-  .stats .n { font-family: var(--display); font-weight: 800; font-size: clamp(1.9rem, 4vw, 2.6rem); letter-spacing: -0.04em; line-height: 1; color: var(--violet-lift); font-variant-numeric: tabular-nums; }
-  .stats .t { font-family: var(--mono); font-size: var(--fs-micro); letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-3); margin-top: 0.6rem; line-height: 1.5; }
+  /* ---------- event timeline ---------- */
+
+  .tline { list-style: none; margin: 0; padding: 0; }
+  .tline li {
+    display: grid; grid-template-columns: minmax(0, 1fr); gap: 0.3rem;
+    padding: 0 0 2rem 1.75rem;
+    position: relative;
+    border-left: 1px solid var(--rule);
+    margin-left: 0.35rem;
+  }
+  @media (min-width: 760px) {
+    .tline li { grid-template-columns: 8.5rem minmax(0, 1fr); gap: 0.3rem 2rem; align-items: start; }
+  }
+  .tline li:last-child { border-left-color: transparent; padding-bottom: 0; }
+  .tline li::before {
+    content: ""; position: absolute; left: -5px; top: 0.45rem;
+    width: 9px; height: 9px; border-radius: 50%;
+    background: var(--violet); border: 2px solid var(--ground);
+  }
+  .tline li.up::before { background: var(--warm); }
+  .tline .when {
+    font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--violet-lift); padding-top: 0.15rem;
+  }
+  .tline li.up .when { color: var(--warm); }
+  .tline .ev h3 { font-size: 1.15rem; margin-bottom: 0.3rem; }
+  .tline .ev p { font-size: 0.94rem; color: var(--ink-2); margin: 0; }
+  .tline .ev a.src {
+    display: inline-block; margin-top: 0.5rem;
+    font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.06em;
+    color: var(--violet-lift); text-decoration: underline; text-underline-offset: 3px;
+  }
+  .tline .tag {
+    display: inline-block; margin-left: 0.5rem; vertical-align: 0.15em;
+    font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--warm);
+    border: 1px solid currentColor; border-radius: 999px; padding: 0.15em 0.6em;
+  }
+
+  /* ---------- gallery ---------- */
+
+  .gallery {
+    display: grid; gap: 0.6rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-top: clamp(2.5rem, 5vw, 3.5rem);
+  }
+  @media (min-width: 620px) { .gallery { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+  @media (min-width: 960px) { .gallery { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+  .gallery figure { margin: 0; aspect-ratio: 1; overflow: hidden; border-radius: 10px; background: var(--surface-2); }
+  .gallery img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+    transition: transform 0.4s cubic-bezier(0.2, 0.7, 0.3, 1);
+  }
+  .gallery figure:hover img { transform: scale(1.05); }
+  .gallery-note {
+    font-family: var(--mono); font-size: var(--fs-micro);
+    letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-3);
+    margin-top: 1rem;
+  }
 
   .socials { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: auto; padding-top: 0.6rem; }
   .socials a {
@@ -1037,7 +1093,6 @@
         <p class="prose" style="margin-top:1.4rem;">Bring a laptop and headphones. Everything else is on us.</p>
         <ul class="ticks">
           <li>TopView AI credits for every team <span class="tbc">TBC</span></li>
-          <li>Both workshops, TopView and Seedance 2.5</li>
           <li>Desk space, power, and wifi at AWS Office KL</li>
           <li>Lunch and coffee all day</li>
           <li>Mentors on the floor through both sprints</li>
@@ -1052,8 +1107,8 @@
   <div class="wrap">
     <div class="sec-head" data-reveal>
       <p class="eyebrow">The team behind it</p>
-      <h2>Run by people who<br>run these rooms.</h2>
-      <p class="lead" style="margin-top:1.4rem;">This is not a first attempt. JD and Sherlyn have been filling rooms across KL for years.</p>
+      <h2>Run by people who<br>fill these rooms.</h2>
+      <p class="lead" style="margin-top:1.4rem;">This is not a first attempt. Four events across KL in the past year, every one of them oversubscribed.</p>
       <p class="refnote">Reference only, remove before launch</p>
     </div>
 
@@ -1069,8 +1124,8 @@
         <ul>
           <li>Ambassador, Devin by Cognition</li>
           <li>Former Lovable Ambassador</li>
-          <li>Ran <a href="https://vibeathonkl.lovable.app" target="_blank" rel="noopener noreferrer" style="color:var(--violet-lift);text-decoration:underline;text-underline-offset:3px;">Lovable Vibeathon KL</a> and the OpenClaw KL monthly meetup</li>
-          <li>Next up: Devin AI Agent Hackathon, and <a href="https://emergingleadersasia.com/adlp-for-girls" target="_blank" rel="noopener noreferrer" style="color:var(--violet-lift);text-decoration:underline;text-underline-offset:3px;">ADLP x Codex</a> by Axiata Foundation</li>
+          <li>Programme Director, ADLP x Codex 2026 for Axiata Foundation</li>
+          <li>Serial hackathon winner, more than 40 wins at university</li>
         </ul>
         <div class="socials">
           <a href="https://www.linkedin.com/in/hohjd/" target="_blank" rel="noopener noreferrer">
@@ -1086,7 +1141,7 @@
 
       <article class="person" data-reveal>
         <div class="person-head">
-          <div class="avatar" aria-hidden="true">SH</div>
+          <div class="avatar"><img src="/sherlyn.jpg" width="360" height="360" alt="Sherlyn Heon" loading="lazy"></div>
           <div>
             <p class="role">Co-host</p>
             <p class="name">Sherlyn Heon</p>
@@ -1110,19 +1165,52 @@
       </article>
     </div>
 
-    <div class="stats" data-reveal>
-      <div>
-        <p class="n">150+</p>
-        <p class="t"><a href="https://vibeathonkl.lovable.app" target="_blank" rel="noopener noreferrer" style="text-decoration:underline;text-underline-offset:3px;">Attended Lovable Vibeathon KL</a></p>
+    <div class="track-record" data-reveal>
+      <p class="eyebrow" style="margin-bottom:1.75rem;">Track record</p>
+      <ol class="tline">
+        <li>
+          <span class="when">24 May 2026</span>
+          <div class="ev">
+            <h3>Lovable Vibeathon KL</h3>
+            <p>300 sign ups in two days. 150 attended, capped by venue size.</p>
+            <a class="src" href="https://vibeathonkl.lovable.app" target="_blank" rel="noopener noreferrer">vibeathonkl.lovable.app</a>
+          </div>
+        </li>
+        <li>
+          <span class="when">25 May 2026</span>
+          <div class="ev">
+            <h3>OpenClaw Monthly Meetup x Lovable</h3>
+            <p>200 attended at the Microsoft KL office.</p>
+          </div>
+        </li>
+        <li class="up">
+          <span class="when">23 Aug 2026</span>
+          <div class="ev">
+            <h3>Devin AI Hackathon <span class="tag">Upcoming</span></h3>
+            <p>Over 500 sign ups. The waiting list had to be closed.</p>
+          </div>
+        </li>
+        <li class="up">
+          <span class="when">9 to 13 Sep 2026</span>
+          <div class="ev">
+            <h3>ADLP x Codex 2026 <span class="tag">Upcoming</span></h3>
+            <p>A five day AI bootcamp for Axiata Foundation. JD is programme director.</p>
+            <a class="src" href="https://emergingleadersasia.com/adlp-for-girls" target="_blank" rel="noopener noreferrer">emergingleadersasia.com</a>
+          </div>
+        </li>
+      </ol>
+
+      <div class="gallery">
+        <figure><img src="/events/e1.jpg" width="600" height="600" alt="A full room watching a talk at a past event" loading="lazy"></figure>
+        <figure><img src="/events/e2.jpg" width="600" height="600" alt="Teams working at long tables" loading="lazy"></figure>
+        <figure><img src="/events/e3.jpg" width="600" height="600" alt="Two hosts presenting from a podium" loading="lazy"></figure>
+        <figure><img src="/events/e4.jpg" width="600" height="600" alt="Participants at laptops in a venue" loading="lazy"></figure>
+        <figure><img src="/events/e5.jpg" width="600" height="600" alt="JD speaking with a microphone" loading="lazy"></figure>
+        <figure><img src="/events/e6.jpg" width="600" height="600" alt="A team mid build at a table" loading="lazy"></figure>
+        <figure><img src="/events/e7.jpg" width="600" height="600" alt="Three participants after their demo" loading="lazy"></figure>
+        <figure><img src="/events/e8.jpg" width="600" height="600" alt="Judges listening to a pitch" loading="lazy"></figure>
       </div>
-      <div>
-        <p class="n">300</p>
-        <p class="t">Sign ups in 48 hours</p>
-      </div>
-      <div>
-        <p class="n">200</p>
-        <p class="t">At OpenClaw KL May meetup</p>
-      </div>
+      <p class="gallery-note">Scenes from past events</p>
     </div>
   </div>
 </section>
@@ -1160,10 +1248,6 @@
       <details>
         <summary>How many places are there?</summary>
         <p><span class="tbc">TBC</span> Registration closes once the room is full. Teams are confirmed by email.</p>
-      </details>
-      <details>
-        <summary>What should I bring?</summary>
-        <p>A laptop that can handle an edit, headphones, and a charger.</p>
       </details>
     </div>
   </div>
