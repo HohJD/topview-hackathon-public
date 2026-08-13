@@ -3,39 +3,39 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>TopView AI Video Hackathon</title>
-<meta name="description" content="Build a brand film in a day. AI Video Hackathon by TopView AI at the AWS Office KL, Sunday 6 September 2026. A workshop on TopView and Seedance 2.5, then a build sprint. Teams of 1 to 4. RM3,500 in prizes.">
-<meta name="theme-color" content="#06050D">
-<meta property="og:title" content="TopView AI Video Hackathon">
-<meta property="og:description" content="Build a brand film in a day. AWS Office KL, Sunday 6 September 2026. A workshop on TopView and Seedance 2.5, then a build sprint. RM3,500 in prizes.">
+<title>Topview AI Video Hackathon</title>
+<meta name="description" content="Build a brand film in a day. AI Video Hackathon by Topview AI at the AWS Office KL, Sunday 6 September 2026. A workshop on Topview and Seedance 2.5, then a build sprint. Teams of 1 to 4. RM3,500 in prizes.">
+<meta name="theme-color" content="#08050F">
+<meta property="og:title" content="Topview AI Video Hackathon">
+<meta property="og:description" content="Build a brand film in a day. AWS Office KL, Sunday 6 September 2026. A workshop on Topview and Seedance 2.5, then a build sprint. RM3,500 in prizes.">
 <meta property="og:type" content="website">
-<meta property="og:image" content="/topview-logo.jpg">
+<meta property="og:image" content="/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 447 447%27%3E%3Crect width=%27447%27 height=%27447%27 rx=%2796%27 fill=%27%234F40F5%27/%3E%3Cg fill=%27%23fff%27%3E%3Crect x=%27117%27 y=%27108%27 width=%2721%27 height=%2748%27 rx=%2710%27/%3E%3Crect x=%27165%27 y=%27108%27 width=%2721%27 height=%2789%27 rx=%2710%27/%3E%3Crect x=%27213%27 y=%27108%27 width=%2721%27 height=%27131%27 rx=%2710%27/%3E%3Crect x=%27262%27 y=%27108%27 width=%2721%27 height=%2789%27 rx=%2710%27/%3E%3Crect x=%27310%27 y=%27108%27 width=%2721%27 height=%2748%27 rx=%2710%27/%3E%3C/g%3E%3C/svg%3E">
+<link rel="icon" href="/topview-icon.png" type="image/png">
 <style>
   /* ============================================================
-     TopView AI Video Hackathon
-     Brand violet #4F40F5 sampled from the logo. The five bar
-     mark (48/89/131/89/48, hung from a shared top line) is the
-     structural motif for the whole page.
+     Topview AI Video Hackathon
+     Brand violet #731DFB from the official Topview logo. The mark's
+     rising zigzag stroke and four point sparkle are the structural
+     motifs for the whole page.
      ============================================================ */
 
   :root {
     color-scheme: dark;
 
-    --violet:      #4F40F5;
-    --violet-lift: #8B7FFF;
-    --violet-soft: #C3BCFF;
-    --violet-deep: #2A1FA0;
+    --violet:      #731DFB;
+    --violet-lift: #A67CFF;
+    --violet-soft: #D0BCFF;
+    --violet-deep: #43119B;
     --warm:        #FFC24D;
 
-    --ground:   #06050D;
-    --surface:  #0D0B1B;
-    --surface-2:#151130;
-    --ink:      #EFEDFF;
-    --ink-2:    #A6A0CE;
-    --ink-3:    #6F6994;
-    --rule:     #241E45;
+    --ground:   #08050F;
+    --surface:  #110A22;
+    --surface-2:#1A0F33;
+    --ink:      #F0ECFF;
+    --ink-2:    #A99CD4;
+    --ink-3:    #766C99;
+    --rule:     #2A1B4D;
     --rule-soft:#17133034;
     --on-violet:#FFFFFF;
 
@@ -56,15 +56,15 @@
 
   :root[data-theme="light"] {
     color-scheme: light;
-    --violet-lift: #6355FF;
-    --violet-soft: #4034C4;
-    --ground:   #F2F1FA;
+    --violet-lift: #6512D8;
+    --violet-soft: #4A0FAE;
+    --ground:   #F5F2FC;
     --surface:  #FFFFFF;
-    --surface-2:#E7E5F7;
-    --ink:      #08061A;
-    --ink-2:    #4E4979;
-    --ink-3:    #7B7599;
-    --rule:     #D6D2EE;
+    --surface-2:#EAE3FA;
+    --ink:      #0B0518;
+    --ink-2:    #514777;
+    --ink-3:    #7E7599;
+    --rule:     #DDD3F2;
     --warm:     #9A6B00;
   }
 
@@ -152,13 +152,8 @@
   .sec-head .eyebrow { margin-bottom: 1.1rem; display: flex; align-items: center; gap: 0.75rem; }
   .sec-head .eyebrow::before {
     content: "";
-    width: 26px; height: 8px;
-    background:
-      linear-gradient(var(--violet) 0 0) 0 0    / 4px 3px no-repeat,
-      linear-gradient(var(--violet) 0 0) 7px 0  / 4px 6px no-repeat,
-      linear-gradient(var(--violet) 0 0) 14px 0 / 4px 8px no-repeat,
-      linear-gradient(var(--violet) 0 0) 21px 0 / 4px 5px no-repeat;
-    flex: none;
+    width: 15px; height: 15px; flex: none;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 1C12.9 8.2 15.8 11.1 23 12C15.8 12.9 12.9 15.8 12 23C11.1 15.8 8.2 12.9 1 12C8.2 11.1 11.1 8.2 12 1Z' fill='%23731DFB'/%3E%3C/svg%3E") center / contain no-repeat;
   }
 
   .tbc {
@@ -206,19 +201,15 @@
 
   /* ---------- logo ---------- */
 
-  .mark { display: block; width: auto; }
-  .mark rect.tile { fill: var(--violet); }
-  .mark g.bars rect { fill: #fff; }
-
   .lockup { display: inline-flex; align-items: center; gap: 0.6rem; }
-  .lockup .word {
-    font-family: var(--display);
-    font-weight: 800;
-    letter-spacing: 0.02em;
-    font-size: 1.02rem;
-    text-transform: uppercase;
-    line-height: 1;
+  .lk-icon { width: 32px; height: 32px; display: block; border-radius: 9px; }
+  .lk-word { height: 18px; width: auto; display: block; filter: invert(1); }
+  :root[data-theme="light"] .lk-word { filter: none; }
+  @media (prefers-color-scheme: light) {
+    :root:not([data-theme="dark"]) .lk-word { filter: none; }
   }
+  footer .lk-icon { width: 28px; height: 28px; border-radius: 8px; }
+  footer .lk-word { height: 16px; }
 
   /* ---------- nav ---------- */
 
@@ -258,8 +249,8 @@
     content: "";
     position: absolute; inset: 0; z-index: -1;
     background:
-      radial-gradient(120% 75% at 50% 0%, transparent 30%, var(--ground) 88%),
-      linear-gradient(to bottom, transparent 42%, var(--ground) 92%);
+      radial-gradient(125% 80% at 50% 0%, transparent 40%, var(--ground) 96%),
+      linear-gradient(to bottom, transparent 50%, var(--ground) 94%);
     pointer-events: none;
   }
 
@@ -384,12 +375,8 @@
   }
   .marquee span.hot { color: var(--violet-lift); }
   .marquee i {
-    width: 20px; height: 11px; flex: none;
-    background:
-      linear-gradient(var(--violet) 0 0) 0 0    / 3px 4px no-repeat,
-      linear-gradient(var(--violet) 0 0) 6px 0  / 3px 8px no-repeat,
-      linear-gradient(var(--violet) 0 0) 12px 0 / 3px 11px no-repeat,
-      linear-gradient(var(--violet) 0 0) 18px 0 / 3px 6px no-repeat;
+    width: 13px; height: 13px; flex: none;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 1C12.9 8.2 15.8 11.1 23 12C15.8 12.9 12.9 15.8 12 23C11.1 15.8 8.2 12.9 1 12C8.2 11.1 11.1 8.2 12 1Z' fill='%23731DFB'/%3E%3C/svg%3E") center / contain no-repeat;
   }
   @keyframes slide { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
@@ -518,7 +505,7 @@
   }
   .purse p { font-size: 0.92rem; color: var(--ink-2); margin: 0; }
   .purse article.first {
-    background: linear-gradient(150deg, var(--violet) 0%, #3A2BD4 62%, #2A1FA0 100%);
+    background: linear-gradient(150deg, var(--violet) 0%, #5A16C8 60%, #3D0B92 100%);
     border-color: transparent; color: #fff;
   }
   .purse article.first .place { color: rgba(255,255,255,0.7); }
@@ -724,18 +711,9 @@
 
 <nav class="top">
   <div class="wrap">
-    <a class="lockup" href="#top" aria-label="TopView home">
-      <svg class="mark" width="30" height="30" viewBox="0 0 447 447" aria-hidden="true">
-        <rect class="tile" width="447" height="447" rx="96"/>
-        <g class="bars">
-          <rect x="117" y="108" width="21" height="48" rx="10"/>
-          <rect x="165" y="108" width="21" height="89" rx="10"/>
-          <rect x="213" y="108" width="21" height="131" rx="10"/>
-          <rect x="262" y="108" width="21" height="89" rx="10"/>
-          <rect x="310" y="108" width="21" height="48" rx="10"/>
-        </g>
-      </svg>
-      <span class="word">TopView</span>
+    <a class="lockup" href="#top" aria-label="Topview home">
+      <img class="lk-icon" src="/topview-icon.png" width="256" height="256" alt="">
+      <img class="lk-word" src="/topview-word.png" width="535" height="132" alt="Topview">
     </a>
     <div class="links">
       <a href="#brief">Brief</a>
@@ -765,7 +743,7 @@
   <div class="wrap hero-inner">
 
     <div class="kicker">
-      <span class="pill">TopView AI</span>
+      <span class="pill">Topview AI</span>
       <span class="fact">Sun 6 Sep 2026</span>
       <b aria-hidden="true"></b>
       <span class="fact">08:45 to 18:00</span>
@@ -808,7 +786,7 @@
       <span>AWS Office KL</span><i></i>
       <span class="hot">RM3,500 in prizes</span><i></i>
       <span>Teams of 1 to 4</span><i></i>
-      <span>TopView workshop</span><i></i>
+      <span>Topview workshop</span><i></i>
       <span class="hot">Seedance 2.5 tutorial</span><i></i>
       <span>Brand film brief</span><i></i>
     </div>
@@ -817,7 +795,7 @@
       <span>AWS Office KL</span><i></i>
       <span class="hot">RM3,500 in prizes</span><i></i>
       <span>Teams of 1 to 4</span><i></i>
-      <span>TopView workshop</span><i></i>
+      <span>Topview workshop</span><i></i>
       <span class="hot">Seedance 2.5 tutorial</span><i></i>
       <span>Brand film brief</span><i></i>
     </div>
@@ -873,10 +851,10 @@
     <div class="shops">
       <article class="shop solo" data-reveal>
         <p class="when">09:30 to 10:45 <em>75 min</em></p>
-        <h3>TopView &amp; Seedance 2.5</h3>
+        <h3>Topview &amp; Seedance 2.5</h3>
         <p style="color:var(--ink-2);font-size:1rem;max-width:40em;">Blank project to finished cut, then how to get the shot you want rather than the shot you settle for.</p>
         <ul>
-          <li>Generating, editing, and assembling inside TopView</li>
+          <li>Generating, editing, and assembling inside Topview</li>
           <li>Automating the repetitive parts so you iterate in minutes</li>
           <li>Where your credits go furthest</li>
           <li>Prompting Seedance 2.5 for motion that reads on screen</li>
@@ -933,7 +911,7 @@
       </li>
       <li>
         <span class="tc">09:30 &rarr; 10:45</span>
-        <span class="what">TopView and Seedance 2.5 workshop<em>Both tools in one session. Blank project to finished cut, then prompting for shots that actually work.</em></span>
+        <span class="what">Topview and Seedance 2.5 workshop<em>Both tools in one session. Blank project to finished cut, then prompting for shots that actually work.</em></span>
         <span class="dur">75 min</span>
       </li>
       <li class="key">
@@ -1066,7 +1044,7 @@
         <h2>What we<br>provide</h2>
         <p class="prose" style="margin-top:1.4rem;">Bring a laptop and headphones. Everything else is on us.</p>
         <ul class="ticks">
-          <li>TopView AI credits for every team</li>
+          <li>Topview AI credits for every team</li>
           <li>Desk space, power, and wifi at AWS Office KL</li>
           <li>Lunch and coffee all day</li>
           <li>Mentors on the floor through both sprints</li>
@@ -1209,7 +1187,7 @@
         <p>No. That is what the morning workshops are for.</p>
       </details>
       <details>
-        <summary>Do I have to use TopView?</summary>
+        <summary>Do I have to use Topview?</summary>
         <p>Your team gets credits and the stack is open all day, so you are strongly encouraged to. Bring other tools alongside it if you want.</p>
       </details>
       <details>
@@ -1242,18 +1220,9 @@
 
 <footer>
   <div class="wrap">
-    <a class="lockup" href="#top" aria-label="TopView">
-      <svg class="mark" width="26" height="26" viewBox="0 0 447 447" aria-hidden="true">
-        <rect class="tile" width="447" height="447" rx="96"/>
-        <g class="bars">
-          <rect x="117" y="108" width="21" height="48" rx="10"/>
-          <rect x="165" y="108" width="21" height="89" rx="10"/>
-          <rect x="213" y="108" width="21" height="131" rx="10"/>
-          <rect x="262" y="108" width="21" height="89" rx="10"/>
-          <rect x="310" y="108" width="21" height="48" rx="10"/>
-        </g>
-      </svg>
-      <span class="word">TopView</span>
+    <a class="lockup" href="#top" aria-label="Topview">
+      <img class="lk-icon" src="/topview-icon.png" width="256" height="256" alt="">
+      <img class="lk-word" src="/topview-word.png" width="535" height="132" alt="Topview">
     </a>
     <div class="meta">
       <span>AI Video Hackathon</span>
@@ -1292,7 +1261,7 @@
     root.setAttribute('data-theme', next);
     try { localStorage.setItem('tv-theme', next); } catch (e) { /* ignore */ }
     var meta = document.querySelector('meta[name="theme-color"]');
-    if (meta) { meta.setAttribute('content', next === 'dark' ? '#06050D' : '#F2F1FA'); }
+    if (meta) { meta.setAttribute('content', next === 'dark' ? '#08050F' : '#F5F2FC'); }
   });
 
   /* ---- countdown to doors, 6 Sep 2026 08:45 Malaysia time (UTC+8) ---- */
@@ -1332,29 +1301,50 @@
   /* ---- hero bar field: the logo mark exploded across full width ---- */
   var cvs = document.getElementById('field');
   var ctx = cvs.getContext('2d');
-  var bars = [], W = 0, H = 0, running = true;
+  var bars = [], sparks = [], W = 0, H = 0, running = true;
 
   function css(name) {
     return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
   }
 
-  /* the logo mark's own bar ratios: 48 / 89 / 131 / 89 / 48 */
-  var RATIO = [0.366, 0.679, 1, 0.679, 0.366];
-
+  /* the mark is a rising zigzag stroke with a sparkle, so the hero field is too */
   function build() {
-    var pitch = W < 620 ? 26 : (W < 1000 ? 34 : 44);
-    var n = Math.ceil(W / pitch) + 1;
+    var n = W < 700 ? 3 : 5;
+    var mid = Math.floor(n / 2);
     bars = [];
-    for (var i = 0; i < n; i++) {
+    for (var l = 0; l < n; l++) {
       bars.push({
-        x: i * pitch,
-        w: Math.max(5, pitch * 0.42),
-        phase: i * 0.62,
-        speed: 0.4 + (i % 5) * 0.15,
-        base: RATIO[i % 5],
-        hot: (i % 5 === 2)
+        pts: 7,
+        base: 0.34 + l * 0.13,
+        amp: 0.075 + (l % 3) * 0.022,
+        speed: 0.28 + l * 0.12,
+        phase: l * 1.35,
+        weight: l === mid ? 1 : 0.6,
+        hot: l === mid
       });
     }
+
+    sparks = [];
+    var sn = W < 700 ? 3 : 6;
+    for (var s = 0; s < sn; s++) {
+      sparks.push({
+        x: (s + 0.5) / sn + (s % 2 ? 0.05 : -0.04),
+        y: 0.14 + ((s * 37) % 55) / 100,
+        r: (W < 700 ? 5 : 8) + (s % 3) * 5,
+        phase: s * 1.9,
+        speed: 0.5 + (s % 4) * 0.22
+      });
+    }
+  }
+
+  function sparkle(cx, cy, r) {
+    ctx.beginPath();
+    ctx.moveTo(cx, cy - r);
+    ctx.bezierCurveTo(cx + r * 0.09, cy - r * 0.3, cx + r * 0.3, cy - r * 0.09, cx + r, cy);
+    ctx.bezierCurveTo(cx + r * 0.3, cy + r * 0.09, cx + r * 0.09, cy + r * 0.3, cx, cy + r);
+    ctx.bezierCurveTo(cx - r * 0.09, cy + r * 0.3, cx - r * 0.3, cy + r * 0.09, cx - r, cy);
+    ctx.bezierCurveTo(cx - r * 0.3, cy - r * 0.09, cx - r * 0.09, cy - r * 0.3, cx, cy - r);
+    ctx.closePath();
   }
 
   function resize() {
@@ -1370,31 +1360,39 @@
 
   function draw(t) {
     ctx.clearRect(0, 0, W, H);
-    var violet = css('--violet') || '#4F40F5';
-    var lift = css('--violet-lift') || '#8B7FFF';
+    var violet = css('--violet') || '#731DFB';
+    var lift = css('--violet-lift') || '#A67CFF';
     var light = (root.getAttribute('data-theme') || systemTheme()) === 'light';
 
+    ctx.lineJoin = 'round';
+    ctx.lineCap = 'round';
+
     for (var i = 0; i < bars.length; i++) {
-      var b = bars[i];
-      var wob = Math.sin(t * 0.00042 * b.speed + b.phase) * 0.5
-              + Math.sin(t * 0.00019 + b.phase * 1.6) * 0.3;
-      var h = H * 0.78 * Math.max(0.12, Math.min(1, b.base * (0.82 + wob * 0.2)));
-
-      var g = ctx.createLinearGradient(0, 0, 0, h);
-      g.addColorStop(0, b.hot ? lift : violet);
-      g.addColorStop(0.55, violet);
-      g.addColorStop(1, 'rgba(79,64,245,0)');
-      ctx.fillStyle = g;
-      ctx.globalAlpha = light ? (b.hot ? 0.34 : 0.2) : (b.hot ? 0.72 : 0.46);
-
+      var L = bars[i];
       ctx.beginPath();
-      if (ctx.roundRect) {
-        ctx.roundRect(b.x, 0, b.w, h, [0, 0, b.w / 2, b.w / 2]);
-      } else {
-        ctx.rect(b.x, 0, b.w, h);
+      for (var p = 0; p < L.pts; p++) {
+        var f = p / (L.pts - 1);
+        var x = -W * 0.06 + f * W * 1.12;
+        var zig = (p % 2 === 0) ? 1 : -1;
+        var wob = Math.sin(t * 0.0004 * L.speed + L.phase + p * 0.9);
+        var y = H * (L.base - f * 0.15) + zig * L.amp * H * (0.55 + 0.45 * wob);
+        if (p === 0) { ctx.moveTo(x, y); } else { ctx.lineTo(x, y); }
       }
+      ctx.strokeStyle = L.hot ? lift : violet;
+      ctx.lineWidth = (W < 700 ? 8 : 14) * L.weight;
+      ctx.globalAlpha = light ? (L.hot ? 0.3 : 0.16) : (L.hot ? 0.66 : 0.38);
+      ctx.stroke();
+    }
+
+    for (var s = 0; s < sparks.length; s++) {
+      var S = sparks[s];
+      var tw = 0.5 + 0.5 * Math.sin(t * 0.0009 * S.speed + S.phase);
+      ctx.globalAlpha = (light ? 0.3 : 0.62) * (0.3 + 0.7 * tw);
+      ctx.fillStyle = lift;
+      sparkle(S.x * W, S.y * H, S.r * (0.8 + 0.3 * tw));
       ctx.fill();
     }
+
     ctx.globalAlpha = 1;
   }
 
