@@ -1,0 +1,1258 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="A one day AI Video Hackathon by TopView AI at the AWS Office. Sunday 6 September 2026, 08:45 to 18:00. Teams of 1 to 4. $3,500 in prize money.">
+<meta name="theme-color" content="#E9ECEC" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0B1013" media="(prefers-color-scheme: dark)">
+<meta property="og:title" content="TopView AI Video Hackathon">
+<meta property="og:description" content="Sunday 6 September 2026 at the AWS Office. Workshops on TopView and Seedance 2.5, then a build sprint. $3,500 in prizes.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 fill=%27%23B5106A%27/%3E%3Cpolygon points=%2712,9 24,16 12,23%27 fill=%27%23fff%27/%3E%3C/svg%3E">
+<title>TopView AI Video Hackathon</title>
+<style>
+  :root {
+    --ground:      #E9ECEC;
+    --surface:     #F7F8F8;
+    --surface-2:   #DCE2E2;
+    --ink:         #0E1618;
+    --ink-2:       #4C595C;
+    --ink-3:       #77868A;
+    --rule:        #C3CBCB;
+    --rule-soft:   #D5DBDB;
+    --accent:      #B5106A;
+    --accent-ink:  #FFFFFF;
+    --cyan:        #0C7F91;
+    --amber:       #9A6206;
+
+    --bar-white:   #C9CFCF;
+    --bar-yellow:  #C9B22E;
+    --bar-cyan:    #2E9AA8;
+    --bar-green:   #3D9A62;
+    --bar-magenta: #B24494;
+    --bar-red:     #C0483F;
+    --bar-blue:    #3C5FA8;
+
+    --display: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --body:    Georgia, "Iowan Old Style", "Times New Roman", serif;
+    --mono:    ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+
+    --fs-hero:  clamp(2.9rem, 10.5vw, 8rem);
+    --fs-h2:    clamp(1.7rem, 3.6vw, 2.9rem);
+    --fs-h3:    clamp(1.1rem, 1.7vw, 1.35rem);
+    --fs-lead:  clamp(1.05rem, 1.5vw, 1.25rem);
+    --fs-body:  1rem;
+    --fs-small: 0.85rem;
+    --fs-micro: 0.7rem;
+
+    --gutter: clamp(1.25rem, 4vw, 3rem);
+    --max: 1120px;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground:      #0B1013;
+      --surface:     #141B1E;
+      --surface-2:   #1D2529;
+      --ink:         #E8EEEE;
+      --ink-2:       #A2B0B3;
+      --ink-3:       #75868A;
+      --rule:        #2B3538;
+      --rule-soft:   #222B2E;
+      --accent:      #FF4C9F;
+      --accent-ink:  #14060D;
+      --cyan:        #45C6D6;
+      --amber:       #E0A63C;
+
+      --bar-white:   #5A6466;
+      --bar-yellow:  #A8922A;
+      --bar-cyan:    #2C8593;
+      --bar-green:   #358254;
+      --bar-magenta: #96397C;
+      --bar-red:     #A33F37;
+      --bar-blue:    #33518E;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --ground:      #0B1013;
+    --surface:     #141B1E;
+    --surface-2:   #1D2529;
+    --ink:         #E8EEEE;
+    --ink-2:       #A2B0B3;
+    --ink-3:       #75868A;
+    --rule:        #2B3538;
+    --rule-soft:   #222B2E;
+    --accent:      #FF4C9F;
+    --accent-ink:  #14060D;
+    --cyan:        #45C6D6;
+    --amber:       #E0A63C;
+
+    --bar-white:   #5A6466;
+    --bar-yellow:  #A8922A;
+    --bar-cyan:    #2C8593;
+    --bar-green:   #358254;
+    --bar-magenta: #96397C;
+    --bar-red:     #A33F37;
+    --bar-blue:    #33518E;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: var(--fs-body);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection { background: var(--accent); color: var(--accent-ink); }
+
+  a { color: inherit; }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+  }
+
+  /* ---------- shared primitives ---------- */
+
+  .wrap {
+    max-width: var(--max);
+    margin-inline: auto;
+    padding-inline: var(--gutter);
+  }
+
+  .bars {
+    height: 5px;
+    background: linear-gradient(
+      to right,
+      var(--bar-white)   0 14.285%,
+      var(--bar-yellow)  14.285% 28.57%,
+      var(--bar-cyan)    28.57% 42.855%,
+      var(--bar-green)   42.855% 57.14%,
+      var(--bar-magenta) 57.14% 71.425%,
+      var(--bar-red)     71.425% 85.71%,
+      var(--bar-blue)    85.71% 100%
+    );
+  }
+
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: var(--fs-micro);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin: 0;
+  }
+
+  .rule-label {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    margin: 0 0 2.25rem;
+  }
+  .rule-label::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+  }
+
+  h2 {
+    font-family: var(--display);
+    font-size: var(--fs-h2);
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    line-height: 1.02;
+    text-wrap: balance;
+    margin: 0 0 1rem;
+  }
+
+  h3 {
+    font-family: var(--display);
+    font-size: var(--fs-h3);
+    font-weight: 700;
+    letter-spacing: -0.012em;
+    line-height: 1.2;
+    text-wrap: balance;
+    margin: 0 0 0.4rem;
+  }
+
+  p { margin: 0 0 1rem; }
+  p:last-child { margin-bottom: 0; }
+
+  .lead {
+    font-size: var(--fs-lead);
+    line-height: 1.55;
+    max-width: 34em;
+    color: var(--ink-2);
+  }
+
+  .prose { max-width: 36em; }
+
+  .section {
+    padding-block: clamp(3.5rem, 8vw, 6.5rem);
+    border-top: 1px solid var(--rule-soft);
+  }
+
+  .mono {
+    font-family: var(--mono);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .tbc {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--amber);
+    border: 1px solid currentColor;
+    border-radius: 2px;
+    padding: 0.05em 0.4em;
+    vertical-align: 0.12em;
+    white-space: nowrap;
+  }
+
+  /* ---------- proposal strip ---------- */
+
+  .proposal {
+    background: var(--surface-2);
+    border-bottom: 1px solid var(--rule);
+  }
+  .proposal .wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 1.2rem;
+    align-items: baseline;
+    padding-block: 0.55rem;
+    font-family: var(--mono);
+    font-size: var(--fs-micro);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-2);
+  }
+  .proposal strong {
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  /* ---------- hero ---------- */
+
+  .hero {
+    position: relative;
+    padding-block: clamp(3rem, 9vw, 6rem) clamp(3rem, 7vw, 5rem);
+    overflow: hidden;
+  }
+
+  .guides {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+  .guide {
+    position: absolute;
+    border: 1px dashed var(--rule);
+    opacity: 0.75;
+  }
+  .guide-action { inset: 6% 5%; }
+  .guide-title  { inset: 13% 11%; }
+
+  .guide-tag {
+    position: absolute;
+    top: 13%;
+    left: 11%;
+    transform: translateY(-140%);
+    font-family: var(--mono);
+    font-size: 0.58rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    opacity: 0.85;
+  }
+
+  .crosshair {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 26px;
+    height: 26px;
+    transform: translate(-50%, -50%);
+    opacity: 0.5;
+  }
+  .crosshair::before,
+  .crosshair::after {
+    content: "";
+    position: absolute;
+    background: var(--rule);
+  }
+  .crosshair::before { left: 50%; top: 0; bottom: 0; width: 1px; }
+  .crosshair::after  { top: 50%; left: 0; right: 0; height: 1px; }
+
+  .hero-inner {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .hero-top {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    font-family: var(--mono);
+    font-size: var(--fs-micro);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+  }
+  .rec {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    color: var(--accent);
+  }
+  .rec span.dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+
+  .runtime {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.15rem;
+    text-align: right;
+  }
+  .runtime .value {
+    font-size: clamp(1rem, 2vw, 1.4rem);
+    letter-spacing: 0.02em;
+    color: var(--ink);
+    font-variant-numeric: tabular-nums;
+  }
+
+  h1 {
+    font-family: var(--display);
+    font-weight: 800;
+    font-size: var(--fs-hero);
+    line-height: 0.86;
+    letter-spacing: -0.045em;
+    text-transform: uppercase;
+    margin: 0;
+    max-width: 12ch;
+  }
+  h1 .line {
+    display: block;
+    opacity: 0;
+    transform: translateY(0.32em);
+    animation: rise 0.75s cubic-bezier(0.18, 0.72, 0.24, 1) forwards;
+  }
+  h1 .line:nth-child(1) { animation-delay: 0.05s; }
+  h1 .line:nth-child(2) { animation-delay: 0.15s; }
+  h1 .line:nth-child(3) { animation-delay: 0.25s; color: var(--accent); }
+
+  @keyframes rise {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-lede {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.75rem;
+    max-width: 42em;
+  }
+
+  .cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem 1.5rem;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: var(--accent);
+    color: var(--accent-ink);
+    text-decoration: none;
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 0.02em;
+    padding: 0.85rem 1.5rem;
+    border-radius: 2px;
+    transition: transform 0.15s ease, filter 0.15s ease;
+  }
+  .btn:hover { transform: translateY(-2px); filter: saturate(1.15); }
+
+  .cta-note {
+    font-family: var(--mono);
+    font-size: var(--fs-small);
+    color: var(--ink-3);
+  }
+
+  /* ---------- slate ---------- */
+
+  .slate {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    border: 1px solid var(--rule);
+    background: var(--surface);
+  }
+  .slate div {
+    padding: 1.1rem 1.15rem 1.25rem;
+    border-right: 1px solid var(--rule-soft);
+    border-bottom: 1px solid var(--rule-soft);
+  }
+  .slate dt {
+    font-family: var(--mono);
+    font-size: var(--fs-micro);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin-bottom: 0.4rem;
+  }
+  .slate dd {
+    margin: 0;
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 1.05rem;
+    letter-spacing: -0.01em;
+    line-height: 1.25;
+  }
+  .slate dd small {
+    display: block;
+    font-family: var(--mono);
+    font-weight: 400;
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+    color: var(--ink-3);
+    margin-top: 0.3rem;
+  }
+
+  /* ---------- two-column blocks ---------- */
+
+  .split {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2.5rem;
+  }
+  @media (min-width: 820px) {
+    .split { grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 4rem; }
+  }
+
+  .deliverables {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border-top: 1px solid var(--rule);
+  }
+  .deliverables li {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 1.1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--rule-soft);
+  }
+  .deliverables { list-style: none; margin: 0; padding: 0; }
+  .deliverables .k {
+    font-family: var(--mono);
+    font-size: var(--fs-micro);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    padding-top: 0.35rem;
+    white-space: nowrap;
+  }
+  .deliverables p { color: var(--ink-2); font-size: 0.95rem; }
+
+  /* ---------- timeline ---------- */
+
+  .track-shell { overflow-x: auto; padding-bottom: 0.5rem; }
+  .track-inner { min-width: 640px; }
+
+  .ruler {
+    display: flex;
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 0.5rem;
+  }
+  .ruler span {
+    flex: 0 0 auto;
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.08em;
+    color: var(--ink-3);
+    padding: 0 0 0.35rem 0.35rem;
+    border-left: 1px solid var(--rule-soft);
+  }
+  .ruler span:first-child { border-left: 0; padding-left: 0; }
+
+  .track {
+    position: relative;
+    display: flex;
+    height: 58px;
+    border: 1px solid var(--rule);
+    background: var(--surface);
+  }
+  .seg {
+    border-right: 1px solid var(--ground);
+    display: flex;
+    align-items: flex-end;
+    padding: 0.3rem;
+    overflow: hidden;
+  }
+  .seg:last-child { border-right: 0; }
+  .seg b {
+    font-family: var(--mono);
+    font-size: 0.58rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-weight: 400;
+    white-space: nowrap;
+  }
+  .seg-build   { background: var(--accent); }
+  .seg-build b { color: var(--accent-ink); }
+  .seg-show    { background: var(--cyan); }
+  .seg-show b  { color: var(--ground); }
+  .seg-learn   { background: var(--amber); }
+  .seg-learn b { color: var(--ground); }
+  .seg-rest    { background: var(--surface-2); }
+  .seg-rest b  { color: var(--ink-3); }
+
+  .playhead {
+    position: absolute;
+    top: -8px;
+    bottom: -8px;
+    width: 2px;
+    background: var(--ink);
+    left: 0;
+  }
+  .playhead::before {
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 7px solid var(--ink);
+  }
+  .track-shell.playing .playhead {
+    animation: sweep 2.2s cubic-bezier(0.35, 0.1, 0.2, 1) forwards;
+  }
+  @keyframes sweep {
+    from { left: 0; }
+    to   { left: calc(100% - 2px); }
+  }
+
+  .runsheet {
+    list-style: none;
+    margin: 2.5rem 0 0;
+    padding: 0;
+    border-top: 1px solid var(--rule);
+  }
+  .runsheet li {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.2rem 1.5rem;
+    padding: 0.95rem 0;
+    border-bottom: 1px solid var(--rule-soft);
+  }
+  @media (min-width: 700px) {
+    .runsheet li {
+      grid-template-columns: 11rem minmax(0, 1fr) auto;
+      align-items: baseline;
+    }
+  }
+  .runsheet .tc {
+    font-family: var(--mono);
+    font-variant-numeric: tabular-nums;
+    font-size: 0.85rem;
+    color: var(--ink-2);
+    letter-spacing: 0.02em;
+  }
+  .runsheet .what {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: -0.01em;
+  }
+  .runsheet .what em {
+    display: block;
+    font-family: var(--body);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 0.9rem;
+    color: var(--ink-2);
+    margin-top: 0.15rem;
+  }
+  .runsheet .dur {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    color: var(--ink-3);
+    text-transform: uppercase;
+  }
+
+  /* ---------- prizes ---------- */
+
+  .purse {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+  }
+  @media (min-width: 760px) {
+    .purse { grid-template-columns: 1.35fr 1fr 1fr; }
+  }
+  .purse article {
+    background: var(--surface);
+    padding: 1.75rem 1.5rem 1.9rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .purse .place {
+    font-family: var(--mono);
+    font-size: var(--fs-micro);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+  }
+  .purse .amount {
+    font-family: var(--display);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+    font-size: clamp(2.4rem, 6vw, 3.6rem);
+  }
+  .purse article:first-child {
+    background: var(--accent);
+    color: var(--accent-ink);
+  }
+  .purse article:first-child .place { color: var(--accent-ink); opacity: 0.75; }
+  .purse article:first-child .amount { font-size: clamp(3rem, 8vw, 4.6rem); }
+  .purse article:first-child p { color: var(--accent-ink); opacity: 0.85; }
+  .purse p {
+    font-size: 0.9rem;
+    color: var(--ink-2);
+    margin: 0;
+  }
+
+  /* ---------- criteria ---------- */
+
+  .criteria {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1px;
+    background: var(--rule-soft);
+    border-block: 1px solid var(--rule-soft);
+  }
+  @media (min-width: 700px) {
+    .criteria { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  .criteria li {
+    background: var(--ground);
+    padding: 1.4rem 1.5rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+  .criteria .weight {
+    font-family: var(--mono);
+    font-variant-numeric: tabular-nums;
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    color: var(--cyan);
+  }
+  .criteria p { font-size: 0.92rem; color: var(--ink-2); }
+
+  .bar {
+    height: 3px;
+    background: var(--rule);
+    margin-top: 0.4rem;
+  }
+  .bar i {
+    display: block;
+    height: 100%;
+    background: var(--cyan);
+  }
+
+  /* ---------- roster / provided ---------- */
+
+  .cols {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2.5rem;
+  }
+  @media (min-width: 760px) {
+    .cols { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 3.5rem; }
+  }
+
+  .ticks { list-style: none; margin: 0; padding: 0; }
+  .ticks li {
+    display: grid;
+    grid-template-columns: 1.4rem minmax(0, 1fr);
+    gap: 0.3rem;
+    padding: 0.55rem 0;
+    border-bottom: 1px solid var(--rule-soft);
+    font-size: 0.95rem;
+  }
+  .ticks li::before {
+    content: "▸";
+    color: var(--accent);
+    font-size: 0.7rem;
+    line-height: 1.9;
+  }
+
+  /* ---------- faq ---------- */
+
+  .faq { max-width: 44em; }
+  .faq details {
+    border-bottom: 1px solid var(--rule-soft);
+  }
+  .faq details:first-of-type { border-top: 1px solid var(--rule); }
+  .faq summary {
+    cursor: pointer;
+    list-style: none;
+    padding: 1.05rem 2rem 1.05rem 0;
+    position: relative;
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: -0.008em;
+  }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after {
+    content: "+";
+    position: absolute;
+    right: 0.25rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: var(--mono);
+    font-weight: 400;
+    color: var(--accent);
+  }
+  .faq details[open] summary::after { content: "–"; }
+  .faq details p {
+    padding: 0 2rem 1.15rem 0;
+    color: var(--ink-2);
+    font-size: 0.95rem;
+  }
+
+  /* ---------- open items ---------- */
+
+  .openitems {
+    background: var(--surface-2);
+    border: 1px solid var(--rule);
+    padding: clamp(1.5rem, 4vw, 2.25rem);
+  }
+  .openitems h2 {
+    font-size: 1.15rem;
+    margin-bottom: 0.5rem;
+  }
+  .openitems ol {
+    margin: 1.25rem 0 0;
+    padding: 0;
+    list-style: none;
+    counter-reset: oi;
+    display: grid;
+    gap: 0.7rem;
+  }
+  .openitems li {
+    counter-increment: oi;
+    display: grid;
+    grid-template-columns: 2rem minmax(0, 1fr);
+    font-family: var(--mono);
+    font-size: 0.82rem;
+    line-height: 1.5;
+    color: var(--ink-2);
+  }
+  .openitems li::before {
+    content: counter(oi, decimal-leading-zero);
+    color: var(--amber);
+  }
+
+  /* ---------- close ---------- */
+
+  .close {
+    text-align: center;
+    padding-block: clamp(4rem, 10vw, 7rem);
+    border-top: 1px solid var(--rule-soft);
+  }
+  .close h2 {
+    font-size: clamp(2rem, 6vw, 4rem);
+    text-transform: uppercase;
+    letter-spacing: -0.04em;
+    max-width: 16ch;
+    margin-inline: auto;
+  }
+  .close .cta-row { justify-content: center; margin-top: 2rem; }
+
+  footer {
+    border-top: 1px solid var(--rule);
+    padding-block: 1.75rem 2.5rem;
+  }
+  footer .wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.75rem 2rem;
+    font-family: var(--mono);
+    font-size: var(--fs-micro);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+    }
+    h1 .line { opacity: 1; transform: none; }
+    .track-shell.playing .playhead { left: calc(100% - 2px); }
+  }
+</style>
+</head>
+<body>
+
+<div class="bars"></div>
+
+<div class="proposal">
+  <div class="wrap">
+    <span><strong>Proposal draft v1</strong></span>
+    <span>Copy and run of day for review</span>
+    <span>Items marked TBC need confirming before launch</span>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="guides" aria-hidden="true">
+    <div class="guide guide-action"></div>
+    <div class="guide guide-title"></div>
+    <div class="guide-tag">Safe title</div>
+    <div class="crosshair"></div>
+  </div>
+
+  <div class="wrap hero-inner">
+    <div class="hero-top">
+      <span class="rec"><span class="dot"></span> TopView AI presents</span>
+      <span class="runtime">
+        <span class="value mono" id="runtime">00:00:00</span>
+        <span>Runtime</span>
+      </span>
+    </div>
+
+    <h1>
+      <span class="line">AI Video</span>
+      <span class="line">Hack</span>
+      <span class="line">athon</span>
+    </h1>
+
+    <div class="hero-lede">
+      <p class="lead">One Sunday, two workshops, and a room full of people finding out what an AI video pipeline can actually do when it is pushed. Come with an idea. Leave with something that plays.</p>
+
+      <div class="cta-row">
+        <a class="btn" href="#register">Register your team</a>
+        <span class="cta-note">Sunday 6 September 2026 &middot; AWS Office</span>
+      </div>
+    </div>
+
+    <dl class="slate">
+      <div>
+        <dt>Date</dt>
+        <dd>Sun 6 Sep 2026</dd>
+      </div>
+      <div>
+        <dt>Call</dt>
+        <dd>08:45<small>Check-in and team forming</small></dd>
+      </div>
+      <div>
+        <dt>Wrap</dt>
+        <dd>18:00<small>Winners announced</small></dd>
+      </div>
+      <div>
+        <dt>Location</dt>
+        <dd>AWS Office<small>Address <span class="tbc">TBC</span></small></dd>
+      </div>
+      <div>
+        <dt>Crew</dt>
+        <dd>1 to 4<small>Solo entries welcome</small></dd>
+      </div>
+      <div>
+        <dt>Purse</dt>
+        <dd>$3,500<small>Split across three teams</small></dd>
+      </div>
+    </dl>
+  </div>
+</header>
+
+<section class="section">
+  <div class="wrap">
+    <p class="eyebrow rule-label">The brief</p>
+    <div class="split">
+      <div>
+        <h2>Make a video that could not have been made a year ago.</h2>
+        <p class="prose">That is the whole brief. No theme, no category, no required format. A 30 second spot, a music video, a fake trailer, a tool that generates video on demand: if it plays and it is yours, it counts.</p>
+        <p class="prose">You get two workshops before the sprint starts, one on the TopView stack and one on Seedance 2.5, so nobody spends their build time reading docs. After 10:45 the room is yours until submissions close at 16:00.</p>
+      </div>
+      <ul class="deliverables">
+        <li>
+          <span class="k">Hand in</span>
+          <div>
+            <h3>One finished video</h3>
+            <p>Up to three minutes, any aspect ratio, delivered as a file by 16:00. It has to play without you standing next to it explaining what it would have been.</p>
+          </div>
+        </li>
+        <li>
+          <span class="k">Hand in</span>
+          <div>
+            <h3>A one page build note</h3>
+            <p>What you used, what you automated, what you did by hand. Judges read this alongside the video. Honesty scores better than mystique.</p>
+          </div>
+        </li>
+        <li>
+          <span class="k">On stage</span>
+          <div>
+            <h3>Finalist demos at 17:00</h3>
+            <p>Judges shortlist between 16:00 and 17:00. Finalists play their video and take questions, then winners are announced at 18:00.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <p class="eyebrow rule-label">Run of day</p>
+    <h2>Learn for two hours. Build for four and a half.</h2>
+    <p class="lead" style="margin-bottom:2.5rem;">The morning gets you fluent in the tools. The rest of the day is a protected sprint, split by one real lunch, with a hard submission cutoff at 16:00 so demos start on time.</p>
+
+    <div class="track-shell" id="trackShell">
+      <div class="track-inner">
+        <div class="ruler" aria-hidden="true">
+          <span style="width:2.70%">08:45</span>
+          <span style="width:18.92%">09:00</span>
+          <span style="width:24.32%">10:45</span>
+          <span style="width:8.11%">13:00</span>
+          <span style="width:24.32%">13:45</span>
+          <span style="width:10.81%">16:00</span>
+          <span style="width:10.81%">17:00</span>
+        </div>
+        <div class="track" role="img" aria-label="Timeline of the day: check-in 15 minutes, opening session and workshops 1 hour 45, build sprint 2 hours 15, lunch 45 minutes, build sprint continues 2 hours 15, judging 1 hour, finalist demos 1 hour.">
+          <div class="seg seg-rest"  style="width:2.70%"><b>In</b></div>
+          <div class="seg seg-learn" style="width:18.92%"><b>Workshops</b></div>
+          <div class="seg seg-build" style="width:24.32%"><b>Sprint 01</b></div>
+          <div class="seg seg-rest"  style="width:8.11%"><b>Lunch</b></div>
+          <div class="seg seg-build" style="width:24.32%"><b>Sprint 02</b></div>
+          <div class="seg seg-rest"  style="width:10.81%"><b>Judging</b></div>
+          <div class="seg seg-show"  style="width:10.81%"><b>Demos</b></div>
+          <div class="playhead" aria-hidden="true"></div>
+        </div>
+      </div>
+    </div>
+
+    <ol class="runsheet">
+      <li>
+        <span class="tc">08:45 &rarr; 09:00</span>
+        <span class="what">Check-in and team formation<em>Teams of 1 to 4. Come without one and leave with one, facilitated rather than left to chance.</em></span>
+        <span class="dur">15 min</span>
+      </li>
+      <li>
+        <span class="tc">09:00 &rarr; 09:30</span>
+        <span class="what">Opening session<em>The brief, the rules, how judging works, and what your credits cover.</em></span>
+        <span class="dur">30 min</span>
+      </li>
+      <li>
+        <span class="tc">09:30 &rarr; 10:10</span>
+        <span class="what">TopView workshop<em>The full video stack, hands on. Generation, editing, and how to script it so the machine does the repetitive part.</em></span>
+        <span class="dur">40 min</span>
+      </li>
+      <li>
+        <span class="tc">10:10 &rarr; 10:45</span>
+        <span class="what">Seedance 2.5 tutorial<em>Getting shots you actually want. Prompting for motion, holding characters steady across cuts, and where the model still breaks.</em></span>
+        <span class="dur">35 min</span>
+      </li>
+      <li>
+        <span class="tc">10:45 &rarr; 13:00</span>
+        <span class="what">Build sprint begins<em>Mentors circulating. No programming, no interruptions.</em></span>
+        <span class="dur">2 hr 15</span>
+      </li>
+      <li>
+        <span class="tc">13:00 &rarr; 13:45</span>
+        <span class="what">Lunch provided<em>Take it away from your laptop if you can.</em></span>
+        <span class="dur">45 min</span>
+      </li>
+      <li>
+        <span class="tc">13:45 &rarr; 16:00</span>
+        <span class="what">Sprint continues<em>Render queues get busy after 15:00. Plan your final export early.</em></span>
+        <span class="dur">2 hr 15</span>
+      </li>
+      <li>
+        <span class="tc">16:00</span>
+        <span class="what">Project submissions close<em>Hard cutoff. Files uploaded by 16:00 or they do not screen.</em></span>
+        <span class="dur">Locked</span>
+      </li>
+      <li>
+        <span class="tc">16:00 &rarr; 17:00</span>
+        <span class="what">Judging and shortlist<em>Every submission is watched. Finalists are posted in the room at 17:00.</em></span>
+        <span class="dur">1 hr</span>
+      </li>
+      <li>
+        <span class="tc">17:00 &rarr; 18:00</span>
+        <span class="what">Finalist demos<em>Play the video, then take questions. Three minutes on the clock per team.</em></span>
+        <span class="dur">1 hr</span>
+      </li>
+      <li>
+        <span class="tc">18:00</span>
+        <span class="what">Winners announced<em>Three prizes handed out on the floor, then everyone goes home.</em></span>
+        <span class="dur">Wrap</span>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <p class="eyebrow rule-label">Prize money</p>
+    <h2>$3,500, split three ways.</h2>
+    <p class="lead" style="margin-bottom:2.5rem;">Paid to the team, split however you agree between yourselves. Solo entries take the full amount.</p>
+
+    <div class="purse">
+      <article>
+        <span class="place">First</span>
+        <span class="amount">$2,000</span>
+        <p>Best video of the day, on the criteria below.</p>
+      </article>
+      <article>
+        <span class="place">Second</span>
+        <span class="amount">$1,000</span>
+        <p>Runner up.</p>
+      </article>
+      <article>
+        <span class="place">Third</span>
+        <span class="amount">$500</span>
+        <p>Third place.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <p class="eyebrow rule-label">How it is judged</p>
+    <div class="split">
+      <div>
+        <h2>Four things, weighted.</h2>
+        <p class="prose">Judges see the video first and read the build note second. Nothing is scored on how hard the day was for you, only on what showed up on screen.</p>
+        <p class="prose"><span class="tbc">TBC</span> Panel to be confirmed. Proposal assumes three judges: one from TopView AI, one from AWS, one working filmmaker or creative director.</p>
+      </div>
+      <ul class="criteria">
+        <li>
+          <span class="weight">30%</span>
+          <h3>Craft</h3>
+          <p>Does it hold together as a piece of video. Pacing, sound, cuts, and whether the shots belong in the same film.</p>
+          <div class="bar"><i style="width:30%"></i></div>
+        </li>
+        <li>
+          <span class="weight">30%</span>
+          <h3>Pipeline</h3>
+          <p>How much of the work the machine actually did, and how cleverly. Ambition counts more than polish here.</p>
+          <div class="bar"><i style="width:30%"></i></div>
+        </li>
+        <li>
+          <span class="weight">25%</span>
+          <h3>Idea</h3>
+          <p>Is it worth watching twice. A strong idea rendered roughly beats a beautiful thing with nothing in it.</p>
+          <div class="bar"><i style="width:25%"></i></div>
+        </li>
+        <li>
+          <span class="weight">15%</span>
+          <h3>Finish</h3>
+          <p>Delivered on time, plays clean, correct format. Free points, and teams lose them every year.</p>
+          <div class="bar"><i style="width:15%"></i></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <p class="eyebrow rule-label">Who and what</p>
+    <div class="cols">
+      <div>
+        <h2>Who this is for</h2>
+        <p class="prose" style="margin-bottom:1.5rem;">Teams of one to four. You do not need a balanced team and you do not need to know everyone before you arrive.</p>
+        <ul class="ticks">
+          <li>Editors, motion designers, and filmmakers curious how far the tools have come</li>
+          <li>Engineers who want to chain models into a pipeline and watch it render</li>
+          <li>Founders and marketers who make video for a living and want a faster way</li>
+          <li>Students and first timers. Team forming at 09:00 exists for you</li>
+        </ul>
+      </div>
+      <div>
+        <h2>What we provide</h2>
+        <p class="prose" style="margin-bottom:1.5rem;">Bring your laptop and headphones. Everything else is on us.</p>
+        <ul class="ticks">
+          <li>TopView AI credits for every team, allocation <span class="tbc">TBC</span></li>
+          <li>Two hands-on workshops: the TopView stack, then Seedance 2.5</li>
+          <li>Desk space, power, and wifi at the AWS Office</li>
+          <li>Lunch and coffee running all day</li>
+          <li>Mentors on the floor through both sprint blocks</li>
+          <li>A screening setup with proper sound for finalist demos</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <p class="eyebrow rule-label">Questions</p>
+    <div class="faq">
+      <details>
+        <summary>Can I come on my own?</summary>
+        <p>Yes. Either compete solo, or use the 45 minute team forming session at the start of the day. Plenty of people arrive alone.</p>
+      </details>
+      <details>
+        <summary>Do I have to use TopView AI?</summary>
+        <p>Your team gets credits and the stack is open all day, so you are strongly encouraged to. You can bring other tools in alongside it. The pipeline score rewards what you built, not which logo is on it.</p>
+      </details>
+      <details>
+        <summary>Do I need to know Seedance or TopView already?</summary>
+        <p>No. That is what the morning is for. The TopView workshop and the Seedance 2.5 tutorial both run before the sprint starts, and they are built for people opening the tools for the first time.</p>
+      </details>
+      <details>
+        <summary>Can I turn up with work already done?</summary>
+        <p>No footage, no edits, no renders made before 10:45. Ideas, scripts, storyboards, and pre-built scaffolding code are all fine, and you should absolutely arrive with a plan.</p>
+      </details>
+      <details>
+        <summary>Who owns what we make?</summary>
+        <p>You do. Entering grants TopView AI and AWS permission to show your video in event recaps and on social. Nothing more than that.</p>
+      </details>
+      <details>
+        <summary>How many places are there?</summary>
+        <p><span class="tbc">TBC</span> Capacity depends on the room. Registration will close once we hit it, and teams are confirmed by email.</p>
+      </details>
+      <details>
+        <summary>What do I need to bring?</summary>
+        <p>A laptop that can handle an edit, headphones, and a charger. If you work with a specific mouse, tablet, or audio interface, bring it.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="register">
+  <div class="wrap">
+    <div class="openitems">
+      <p class="eyebrow" style="margin-bottom:0.75rem;">Internal note, remove before launch</p>
+      <h2>Open items before this page goes live</h2>
+      <p style="font-size:0.92rem;color:var(--ink-2);max-width:38em;">Everything above is written and ready. These are the gaps I filled with placeholders or reasonable assumptions, listed so they can be confirmed or corrected.</p>
+      <ol>
+        <li>Full AWS Office address, floor, and building access instructions</li>
+        <li>Registration link and platform, currently a dead anchor on every CTA</li>
+        <li>Named presenters for the TopView workshop and the Seedance 2.5 tutorial</li>
+        <li>How many finalists get a demo slot, given 60 minutes at three minutes each</li>
+        <li>Capacity cap and whether registration is per team or per person</li>
+        <li>TopView AI credit allocation per team, and whether GPU access is included</li>
+        <li>Judging panel names and affiliations, plus sign off on the 30 / 30 / 25 / 15 weighting</li>
+        <li>Confirmation that catering covers breakfast and lunch, and dietary intake</li>
+        <li>Prize payout mechanics, currency, and any tax or eligibility conditions</li>
+        <li>Whether AWS is a co-host or venue partner only, which changes the logo lockup</li>
+        <li>Submission upload destination and file spec, including max size and codec</li>
+        <li>Photo and filming consent wording for the day</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="close">
+  <div class="wrap">
+    <p class="eyebrow" style="margin-bottom:1.25rem;">6 September 2026 &middot; 08:45 to 18:00</p>
+    <h2>Nine hours from now, it either plays or it does not.</h2>
+    <div class="cta-row">
+      <a class="btn" href="#register">Register your team</a>
+      <span class="cta-note">Free to enter &middot; Teams of 1 to 4</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>TopView AI</span>
+    <span>Hosted at the AWS Office</span>
+    <span>Sun 6 Sep 2026</span>
+  </div>
+</footer>
+<div class="bars"></div>
+
+<script>
+  (function () {
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var el = document.getElementById('runtime');
+
+    function fmt(totalSeconds) {
+      var h = Math.floor(totalSeconds / 3600);
+      var m = Math.floor((totalSeconds % 3600) / 60);
+      var s = Math.floor(totalSeconds % 60);
+      return [h, m, s].map(function (n) {
+        return n < 10 ? '0' + n : '' + n;
+      }).join(':');
+    }
+
+    var target = 9 * 3600 + 15 * 60;
+
+    if (reduce) {
+      el.textContent = fmt(target);
+    } else {
+      var duration = 1700;
+      var start = null;
+      function step(ts) {
+        if (start === null) { start = ts; }
+        var p = Math.min((ts - start) / duration, 1);
+        var eased = 1 - Math.pow(1 - p, 3);
+        el.textContent = fmt(target * eased);
+        if (p < 1) { requestAnimationFrame(step); }
+      }
+      requestAnimationFrame(step);
+    }
+
+    var shell = document.getElementById('trackShell');
+    if (shell && 'IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            shell.classList.add('playing');
+            io.disconnect();
+          }
+        });
+      }, { threshold: 0.4 });
+      io.observe(shell);
+    } else if (shell) {
+      shell.classList.add('playing');
+    }
+  })();
+</script>
+
+</body>
+</html>
