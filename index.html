@@ -3,937 +3,749 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="A one day AI Video Hackathon by TopView AI at the AWS Office. Sunday 6 September 2026, 08:45 to 18:00. Teams of 1 to 4. $3,500 in prize money.">
-<meta name="theme-color" content="#E9ECEC" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0B1013" media="(prefers-color-scheme: dark)">
-<meta property="og:title" content="TopView AI Video Hackathon">
-<meta property="og:description" content="Sunday 6 September 2026 at the AWS Office. Workshops on TopView and Seedance 2.5, then a build sprint. $3,500 in prizes.">
-<meta property="og:type" content="website">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 fill=%27%23B5106A%27/%3E%3Cpolygon points=%2712,9 24,16 12,23%27 fill=%27%23fff%27/%3E%3C/svg%3E">
 <title>TopView AI Video Hackathon</title>
+<meta name="description" content="Build a brand film in a day. AI Video Hackathon by TopView AI at the AWS Office KL, Sunday 6 September 2026. Workshops on TopView and Seedance 2.5, then a build sprint. Teams of 1 to 4. $3,500 in prizes.">
+<meta name="theme-color" content="#06050D">
+<meta property="og:title" content="TopView AI Video Hackathon">
+<meta property="og:description" content="Build a brand film in a day. AWS Office KL, Sunday 6 September 2026. Workshops on TopView and Seedance 2.5, then a build sprint. $3,500 in prizes.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="/topview-logo.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 447 447%27%3E%3Crect width=%27447%27 height=%27447%27 rx=%2796%27 fill=%27%234F40F5%27/%3E%3Cg fill=%27%23fff%27%3E%3Crect x=%27117%27 y=%27108%27 width=%2721%27 height=%2748%27 rx=%2710%27/%3E%3Crect x=%27165%27 y=%27108%27 width=%2721%27 height=%2789%27 rx=%2710%27/%3E%3Crect x=%27213%27 y=%27108%27 width=%2721%27 height=%27131%27 rx=%2710%27/%3E%3Crect x=%27262%27 y=%27108%27 width=%2721%27 height=%2789%27 rx=%2710%27/%3E%3Crect x=%27310%27 y=%27108%27 width=%2721%27 height=%2748%27 rx=%2710%27/%3E%3C/g%3E%3C/svg%3E">
 <style>
-  :root {
-    --ground:      #E9ECEC;
-    --surface:     #F7F8F8;
-    --surface-2:   #DCE2E2;
-    --ink:         #0E1618;
-    --ink-2:       #4C595C;
-    --ink-3:       #77868A;
-    --rule:        #C3CBCB;
-    --rule-soft:   #D5DBDB;
-    --accent:      #B5106A;
-    --accent-ink:  #FFFFFF;
-    --cyan:        #0C7F91;
-    --amber:       #9A6206;
+  /* ============================================================
+     TopView AI Video Hackathon
+     Brand violet #4F40F5 sampled from the logo. The five bar
+     mark (48/89/131/89/48, hung from a shared top line) is the
+     structural motif for the whole page.
+     ============================================================ */
 
-    --bar-white:   #C9CFCF;
-    --bar-yellow:  #C9B22E;
-    --bar-cyan:    #2E9AA8;
-    --bar-green:   #3D9A62;
-    --bar-magenta: #B24494;
-    --bar-red:     #C0483F;
-    --bar-blue:    #3C5FA8;
+  :root {
+    color-scheme: dark;
+
+    --violet:      #4F40F5;
+    --violet-lift: #8B7FFF;
+    --violet-soft: #C3BCFF;
+    --violet-deep: #2A1FA0;
+    --warm:        #FFC24D;
+
+    --ground:   #06050D;
+    --surface:  #0D0B1B;
+    --surface-2:#151130;
+    --ink:      #EFEDFF;
+    --ink-2:    #A6A0CE;
+    --ink-3:    #6F6994;
+    --rule:     #241E45;
+    --rule-soft:#17133034;
+    --on-violet:#FFFFFF;
 
     --display: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    --body:    Georgia, "Iowan Old Style", "Times New Roman", serif;
-    --mono:    ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+    --body: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
 
-    --fs-hero:  clamp(2.9rem, 10.5vw, 8rem);
-    --fs-h2:    clamp(1.7rem, 3.6vw, 2.9rem);
-    --fs-h3:    clamp(1.1rem, 1.7vw, 1.35rem);
-    --fs-lead:  clamp(1.05rem, 1.5vw, 1.25rem);
-    --fs-body:  1rem;
-    --fs-small: 0.85rem;
-    --fs-micro: 0.7rem;
+    --fs-poster: clamp(3.1rem, 13.5vw, 12rem);
+    --fs-h2:     clamp(2rem, 5.2vw, 4.2rem);
+    --fs-h3:     clamp(1.15rem, 2vw, 1.6rem);
+    --fs-lead:   clamp(1.05rem, 1.55vw, 1.3rem);
+    --fs-micro:  0.68rem;
 
-    --gutter: clamp(1.25rem, 4vw, 3rem);
-    --max: 1120px;
+    --gutter: clamp(1.15rem, 4vw, 3.25rem);
+    --max: 1240px;
+    --nav-h: 62px;
   }
 
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-      --ground:      #0B1013;
-      --surface:     #141B1E;
-      --surface-2:   #1D2529;
-      --ink:         #E8EEEE;
-      --ink-2:       #A2B0B3;
-      --ink-3:       #75868A;
-      --rule:        #2B3538;
-      --rule-soft:   #222B2E;
-      --accent:      #FF4C9F;
-      --accent-ink:  #14060D;
-      --cyan:        #45C6D6;
-      --amber:       #E0A63C;
+  :root[data-theme="light"] {
+    color-scheme: light;
+    --violet-lift: #6355FF;
+    --violet-soft: #4034C4;
+    --ground:   #F2F1FA;
+    --surface:  #FFFFFF;
+    --surface-2:#E7E5F7;
+    --ink:      #08061A;
+    --ink-2:    #4E4979;
+    --ink-3:    #7B7599;
+    --rule:     #D6D2EE;
+    --warm:     #9A6B00;
+  }
 
-      --bar-white:   #5A6466;
-      --bar-yellow:  #A8922A;
-      --bar-cyan:    #2C8593;
-      --bar-green:   #358254;
-      --bar-magenta: #96397C;
-      --bar-red:     #A33F37;
-      --bar-blue:    #33518E;
+  @media (prefers-color-scheme: light) {
+    :root:not([data-theme="dark"]) {
+      color-scheme: light;
+      --violet-lift: #6355FF;
+      --violet-soft: #4034C4;
+      --ground:   #F2F1FA;
+      --surface:  #FFFFFF;
+      --surface-2:#E7E5F7;
+      --ink:      #08061A;
+      --ink-2:    #4E4979;
+      --ink-3:    #7B7599;
+      --rule:     #D6D2EE;
+      --warm:     #9A6B00;
     }
   }
 
-  :root[data-theme="dark"] {
-    --ground:      #0B1013;
-    --surface:     #141B1E;
-    --surface-2:   #1D2529;
-    --ink:         #E8EEEE;
-    --ink-2:       #A2B0B3;
-    --ink-3:       #75868A;
-    --rule:        #2B3538;
-    --rule-soft:   #222B2E;
-    --accent:      #FF4C9F;
-    --accent-ink:  #14060D;
-    --cyan:        #45C6D6;
-    --amber:       #E0A63C;
-
-    --bar-white:   #5A6466;
-    --bar-yellow:  #A8922A;
-    --bar-cyan:    #2C8593;
-    --bar-green:   #358254;
-    --bar-magenta: #96397C;
-    --bar-red:     #A33F37;
-    --bar-blue:    #33518E;
-  }
-
   * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-h) + 12px); }
 
   body {
     margin: 0;
     background: var(--ground);
     color: var(--ink);
     font-family: var(--body);
-    font-size: var(--fs-body);
-    line-height: 1.6;
+    font-size: 1rem;
+    line-height: 1.62;
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
   }
 
-  ::selection { background: var(--accent); color: var(--accent-ink); }
+  ::selection { background: var(--violet); color: #fff; }
 
-  a { color: inherit; }
+  a { color: inherit; text-decoration: none; }
 
-  :focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 3px;
-  }
+  :focus-visible { outline: 2px solid var(--violet-lift); outline-offset: 3px; border-radius: 2px; }
 
-  /* ---------- shared primitives ---------- */
+  img, svg { max-width: 100%; }
 
-  .wrap {
-    max-width: var(--max);
-    margin-inline: auto;
-    padding-inline: var(--gutter);
-  }
+  /* ---------- primitives ---------- */
 
-  .bars {
-    height: 5px;
-    background: linear-gradient(
-      to right,
-      var(--bar-white)   0 14.285%,
-      var(--bar-yellow)  14.285% 28.57%,
-      var(--bar-cyan)    28.57% 42.855%,
-      var(--bar-green)   42.855% 57.14%,
-      var(--bar-magenta) 57.14% 71.425%,
-      var(--bar-red)     71.425% 85.71%,
-      var(--bar-blue)    85.71% 100%
-    );
-  }
+  .wrap { max-width: var(--max); margin-inline: auto; padding-inline: var(--gutter); }
+
+  .mono { font-family: var(--mono); font-variant-numeric: tabular-nums; }
 
   .eyebrow {
     font-family: var(--mono);
     font-size: var(--fs-micro);
-    letter-spacing: 0.18em;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--ink-3);
     margin: 0;
   }
 
-  .rule-label {
-    display: flex;
-    align-items: center;
-    gap: 0.9rem;
-    margin: 0 0 2.25rem;
-  }
-  .rule-label::after {
-    content: "";
-    flex: 1;
-    height: 1px;
-    background: var(--rule);
-  }
+  h1, h2, h3 { font-family: var(--display); margin: 0; text-wrap: balance; }
 
   h2 {
-    font-family: var(--display);
     font-size: var(--fs-h2);
     font-weight: 800;
-    letter-spacing: -0.025em;
-    line-height: 1.02;
-    text-wrap: balance;
-    margin: 0 0 1rem;
+    letter-spacing: -0.035em;
+    line-height: 0.95;
+    text-transform: uppercase;
   }
 
   h3 {
-    font-family: var(--display);
     font-size: var(--fs-h3);
     font-weight: 700;
-    letter-spacing: -0.012em;
-    line-height: 1.2;
-    text-wrap: balance;
-    margin: 0 0 0.4rem;
+    letter-spacing: -0.018em;
+    line-height: 1.15;
   }
 
   p { margin: 0 0 1rem; }
   p:last-child { margin-bottom: 0; }
 
-  .lead {
-    font-size: var(--fs-lead);
-    line-height: 1.55;
-    max-width: 34em;
-    color: var(--ink-2);
-  }
+  .lead { font-size: var(--fs-lead); line-height: 1.5; color: var(--ink-2); max-width: 36em; }
+  .prose { max-width: 34em; color: var(--ink-2); }
 
-  .prose { max-width: 36em; }
+  .section { padding-block: clamp(4rem, 9vw, 8rem); position: relative; }
+  .section + .section { border-top: 1px solid var(--rule); }
 
-  .section {
-    padding-block: clamp(3.5rem, 8vw, 6.5rem);
-    border-top: 1px solid var(--rule-soft);
-  }
-
-  .mono {
-    font-family: var(--mono);
-    font-variant-numeric: tabular-nums;
+  .sec-head { margin-bottom: clamp(2rem, 4vw, 3.5rem); }
+  .sec-head .eyebrow { margin-bottom: 1.1rem; display: flex; align-items: center; gap: 0.75rem; }
+  .sec-head .eyebrow::before {
+    content: "";
+    width: 26px; height: 8px;
+    background:
+      linear-gradient(var(--violet) 0 0) 0 0    / 4px 3px no-repeat,
+      linear-gradient(var(--violet) 0 0) 7px 0  / 4px 6px no-repeat,
+      linear-gradient(var(--violet) 0 0) 14px 0 / 4px 8px no-repeat,
+      linear-gradient(var(--violet) 0 0) 21px 0 / 4px 5px no-repeat;
+    flex: none;
   }
 
   .tbc {
     display: inline-block;
     font-family: var(--mono);
-    font-size: 0.62rem;
+    font-size: 0.6rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--amber);
+    color: var(--warm);
     border: 1px solid currentColor;
-    border-radius: 2px;
-    padding: 0.05em 0.4em;
-    vertical-align: 0.12em;
+    border-radius: 999px;
+    padding: 0.1em 0.55em;
+    vertical-align: 0.15em;
     white-space: nowrap;
-  }
-
-  /* ---------- proposal strip ---------- */
-
-  .proposal {
-    background: var(--surface-2);
-    border-bottom: 1px solid var(--rule);
-  }
-  .proposal .wrap {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem 1.2rem;
-    align-items: baseline;
-    padding-block: 0.55rem;
-    font-family: var(--mono);
-    font-size: var(--fs-micro);
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--ink-2);
-  }
-  .proposal strong {
-    color: var(--accent);
-    font-weight: 700;
-  }
-
-  /* ---------- hero ---------- */
-
-  .hero {
-    position: relative;
-    padding-block: clamp(3rem, 9vw, 6rem) clamp(3rem, 7vw, 5rem);
-    overflow: hidden;
-  }
-
-  .guides {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-  }
-  .guide {
-    position: absolute;
-    border: 1px dashed var(--rule);
-    opacity: 0.75;
-  }
-  .guide-action { inset: 6% 5%; }
-  .guide-title  { inset: 13% 11%; }
-
-  .guide-tag {
-    position: absolute;
-    top: 13%;
-    left: 11%;
-    transform: translateY(-140%);
-    font-family: var(--mono);
-    font-size: 0.58rem;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--ink-3);
-    opacity: 0.85;
-  }
-
-  .crosshair {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    width: 26px;
-    height: 26px;
-    transform: translate(-50%, -50%);
-    opacity: 0.5;
-  }
-  .crosshair::before,
-  .crosshair::after {
-    content: "";
-    position: absolute;
-    background: var(--rule);
-  }
-  .crosshair::before { left: 50%; top: 0; bottom: 0; width: 1px; }
-  .crosshair::after  { top: 50%; left: 0; right: 0; height: 1px; }
-
-  .hero-inner {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-  }
-
-  .hero-top {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 1rem;
-    font-family: var(--mono);
-    font-size: var(--fs-micro);
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--ink-3);
-  }
-  .rec {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.45rem;
-    color: var(--accent);
-  }
-  .rec span.dot {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: var(--accent);
-  }
-
-  .runtime {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 0.15rem;
-    text-align: right;
-  }
-  .runtime .value {
-    font-size: clamp(1rem, 2vw, 1.4rem);
-    letter-spacing: 0.02em;
-    color: var(--ink);
-    font-variant-numeric: tabular-nums;
-  }
-
-  h1 {
-    font-family: var(--display);
-    font-weight: 800;
-    font-size: var(--fs-hero);
-    line-height: 0.86;
-    letter-spacing: -0.045em;
-    text-transform: uppercase;
-    margin: 0;
-    max-width: 12ch;
-  }
-  h1 .line {
-    display: block;
-    opacity: 0;
-    transform: translateY(0.32em);
-    animation: rise 0.75s cubic-bezier(0.18, 0.72, 0.24, 1) forwards;
-  }
-  h1 .line:nth-child(1) { animation-delay: 0.05s; }
-  h1 .line:nth-child(2) { animation-delay: 0.15s; }
-  h1 .line:nth-child(3) { animation-delay: 0.25s; color: var(--accent); }
-
-  @keyframes rise {
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  .hero-lede {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr);
-    gap: 1.75rem;
-    max-width: 42em;
-  }
-
-  .cta-row {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 1rem 1.5rem;
   }
 
   .btn {
     display: inline-flex;
     align-items: center;
     gap: 0.6rem;
-    background: var(--accent);
-    color: var(--accent-ink);
-    text-decoration: none;
+    background: var(--violet);
+    color: #fff;
     font-family: var(--display);
     font-weight: 700;
     font-size: 0.95rem;
-    letter-spacing: 0.02em;
-    padding: 0.85rem 1.5rem;
-    border-radius: 2px;
-    transition: transform 0.15s ease, filter 0.15s ease;
+    letter-spacing: 0.01em;
+    padding: 0.9rem 1.6rem;
+    border-radius: 999px;
+    border: 1px solid var(--violet);
+    transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
   }
-  .btn:hover { transform: translateY(-2px); filter: saturate(1.15); }
+  .btn:hover {
+    transform: translateY(-2px);
+    background: #5F51FF;
+    box-shadow: 0 10px 34px -10px var(--violet);
+  }
+  .btn.ghost {
+    background: transparent;
+    color: var(--ink);
+    border-color: var(--rule);
+    box-shadow: none;
+  }
+  .btn.ghost:hover { border-color: var(--violet-lift); color: var(--violet-lift); background: transparent; }
+  .btn.sm { padding: 0.6rem 1.15rem; font-size: 0.82rem; }
 
-  .cta-note {
-    font-family: var(--mono);
-    font-size: var(--fs-small);
-    color: var(--ink-3);
+  /* ---------- logo ---------- */
+
+  .mark { display: block; width: auto; }
+  .mark rect.tile { fill: var(--violet); }
+  .mark g.bars rect { fill: #fff; }
+
+  .lockup { display: inline-flex; align-items: center; gap: 0.6rem; }
+  .lockup .word {
+    font-family: var(--display);
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    font-size: 1.02rem;
+    text-transform: uppercase;
+    line-height: 1;
   }
+
+  /* ---------- nav ---------- */
+
+  nav.top {
+    position: sticky; top: 0; z-index: 50;
+    height: var(--nav-h);
+    display: flex; align-items: center;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    background: color-mix(in srgb, var(--ground) 78%, transparent);
+    border-bottom: 1px solid var(--rule);
+  }
+  nav.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; width: 100%; }
+  nav.top .links { display: none; gap: 1.9rem; font-family: var(--mono); font-size: var(--fs-micro); letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-2); }
+  nav.top .links a { transition: color 0.15s ease; }
+  nav.top .links a:hover { color: var(--ink); }
+  @media (min-width: 900px) { nav.top .links { display: flex; } }
+
+  /* ---------- hero ---------- */
+
+  .hero {
+    position: relative;
+    min-height: clamp(560px, 88vh, 940px);
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding-block: clamp(6rem, 16vh, 10rem) clamp(2rem, 5vw, 3.5rem);
+    overflow: hidden;
+    isolation: isolate;
+  }
+
+  #field {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    z-index: -2;
+    display: block;
+  }
+  .hero::after {
+    content: "";
+    position: absolute; inset: 0; z-index: -1;
+    background:
+      radial-gradient(120% 75% at 50% 0%, transparent 30%, var(--ground) 88%),
+      linear-gradient(to bottom, transparent 42%, var(--ground) 92%);
+    pointer-events: none;
+  }
+
+  .hero-inner { position: relative; display: flex; flex-direction: column; gap: clamp(1.6rem, 3.5vw, 2.6rem); }
+
+  .kicker {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem 1rem;
+    font-family: var(--mono); font-size: var(--fs-micro);
+    letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-2);
+  }
+  .kicker .pill {
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    padding: 0.35rem 0.85rem;
+    color: var(--violet-soft);
+    background: color-mix(in srgb, var(--violet) 12%, transparent);
+  }
+
+  h1.poster {
+    font-size: var(--fs-poster);
+    font-weight: 800;
+    line-height: 0.82;
+    letter-spacing: -0.055em;
+    text-transform: uppercase;
+  }
+  h1.poster .l { display: block; overflow: hidden; }
+  h1.poster .l > span {
+    display: block;
+    transform: translateY(105%);
+    animation: liftin 0.95s cubic-bezier(0.16, 0.84, 0.24, 1) forwards;
+  }
+  h1.poster .l:nth-child(1) > span { animation-delay: 0.08s; }
+  h1.poster .l:nth-child(2) > span { animation-delay: 0.2s; }
+  h1.poster .l:nth-child(2) > span { color: var(--violet-lift); }
+  @keyframes liftin { to { transform: translateY(0); } }
+
+  .hero-foot {
+    display: grid; gap: 1.75rem 3rem;
+    grid-template-columns: minmax(0, 1fr);
+    align-items: end;
+  }
+  @media (min-width: 880px) {
+    .hero-foot { grid-template-columns: minmax(0, 1fr) auto; }
+  }
+  .hero-cta { display: flex; flex-wrap: wrap; gap: 0.9rem 1rem; align-items: center; }
+  .hero-note { font-family: var(--mono); font-size: 0.78rem; color: var(--ink-3); }
+
+  .runtime { text-align: left; }
+  @media (min-width: 880px) { .runtime { text-align: right; } }
+  .runtime .v {
+    font-family: var(--mono); font-variant-numeric: tabular-nums;
+    font-size: clamp(1.6rem, 3.4vw, 2.6rem);
+    letter-spacing: -0.01em; line-height: 1; color: var(--ink);
+    display: block;
+  }
+  .runtime .k {
+    font-family: var(--mono); font-size: var(--fs-micro);
+    letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-3);
+    display: block; margin-top: 0.4rem;
+  }
+
+  /* ---------- marquee ---------- */
+
+  .marquee {
+    border-block: 1px solid var(--rule);
+    background: var(--surface);
+    overflow: hidden;
+    padding-block: 0.85rem;
+  }
+  .marquee .track {
+    display: flex; width: max-content;
+    animation: slide 42s linear infinite;
+  }
+  .marquee:hover .track { animation-play-state: paused; }
+  .marquee .track > div { display: flex; align-items: center; }
+  .marquee span {
+    font-family: var(--mono); font-size: 0.76rem;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--ink-2); padding-inline: 1.5rem; white-space: nowrap;
+  }
+  .marquee span.hot { color: var(--violet-lift); }
+  .marquee i {
+    width: 20px; height: 11px; flex: none;
+    background:
+      linear-gradient(var(--violet) 0 0) 0 0    / 3px 4px no-repeat,
+      linear-gradient(var(--violet) 0 0) 6px 0  / 3px 8px no-repeat,
+      linear-gradient(var(--violet) 0 0) 12px 0 / 3px 11px no-repeat,
+      linear-gradient(var(--violet) 0 0) 18px 0 / 3px 6px no-repeat;
+  }
+  @keyframes slide { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
   /* ---------- slate ---------- */
 
   .slate {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    display: grid; gap: 1px;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    background: var(--rule);
     border: 1px solid var(--rule);
-    background: var(--surface);
+    border-radius: 14px;
+    overflow: hidden;
   }
-  .slate div {
-    padding: 1.1rem 1.15rem 1.25rem;
-    border-right: 1px solid var(--rule-soft);
-    border-bottom: 1px solid var(--rule-soft);
-  }
+  .slate div { background: var(--surface); padding: 1.25rem 1.3rem 1.4rem; }
   .slate dt {
-    font-family: var(--mono);
-    font-size: var(--fs-micro);
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--ink-3);
-    margin-bottom: 0.4rem;
+    font-family: var(--mono); font-size: var(--fs-micro);
+    letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-3);
+    margin-bottom: 0.5rem;
   }
   .slate dd {
-    margin: 0;
-    font-family: var(--display);
-    font-weight: 700;
-    font-size: 1.05rem;
-    letter-spacing: -0.01em;
-    line-height: 1.25;
+    margin: 0; font-family: var(--display); font-weight: 700;
+    font-size: 1.15rem; letter-spacing: -0.015em; line-height: 1.2;
   }
   .slate dd small {
-    display: block;
-    font-family: var(--mono);
-    font-weight: 400;
-    font-size: 0.72rem;
-    letter-spacing: 0.04em;
-    color: var(--ink-3);
-    margin-top: 0.3rem;
+    display: block; font-family: var(--mono); font-weight: 400;
+    font-size: 0.7rem; letter-spacing: 0.04em; color: var(--ink-3);
+    margin-top: 0.4rem; line-height: 1.45;
   }
 
-  /* ---------- two-column blocks ---------- */
+  /* ---------- split ---------- */
 
-  .split {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr);
-    gap: 2.5rem;
-  }
-  @media (min-width: 820px) {
-    .split { grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 4rem; }
-  }
+  .split { display: grid; grid-template-columns: minmax(0, 1fr); gap: 2.5rem; }
+  @media (min-width: 900px) { .split { grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 4.5rem; } }
 
-  .deliverables {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    border-top: 1px solid var(--rule);
-  }
+  .deliverables { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rule); }
   .deliverables li {
-    display: grid;
-    grid-template-columns: auto minmax(0, 1fr);
-    gap: 1.1rem;
-    padding: 1rem 0;
-    border-bottom: 1px solid var(--rule-soft);
+    display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 1.2rem;
+    padding: 1.15rem 0; border-bottom: 1px solid var(--rule);
   }
-  .deliverables { list-style: none; margin: 0; padding: 0; }
   .deliverables .k {
-    font-family: var(--mono);
-    font-size: var(--fs-micro);
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--accent);
-    padding-top: 0.35rem;
-    white-space: nowrap;
+    font-family: var(--mono); font-size: var(--fs-micro);
+    letter-spacing: 0.14em; text-transform: uppercase; color: var(--violet-lift);
+    padding-top: 0.3rem; white-space: nowrap;
   }
-  .deliverables p { color: var(--ink-2); font-size: 0.95rem; }
+  .deliverables p { color: var(--ink-2); font-size: 0.94rem; margin-top: 0.35rem; }
+
+  /* ---------- workshops ---------- */
+
+  .shops { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.25rem; }
+  @media (min-width: 860px) { .shops { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+  .shop {
+    position: relative;
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 18px;
+    padding: clamp(1.6rem, 3vw, 2.4rem);
+    display: flex; flex-direction: column; gap: 1rem;
+    overflow: hidden;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+  }
+  .shop:hover { border-color: var(--violet); transform: translateY(-3px); }
+  .shop::before {
+    content: "";
+    position: absolute; inset: -40% 55% 40% -10%;
+    background: radial-gradient(circle, color-mix(in srgb, var(--violet) 26%, transparent) 0%, transparent 68%);
+    pointer-events: none;
+  }
+  .shop > * { position: relative; }
+  .shop .when {
+    font-family: var(--mono); font-size: var(--fs-micro);
+    letter-spacing: 0.18em; text-transform: uppercase; color: var(--violet-lift);
+    display: flex; gap: 0.75rem; align-items: center;
+  }
+  .shop .when em { font-style: normal; color: var(--ink-3); }
+  .shop h3 { font-size: clamp(1.5rem, 3vw, 2.1rem); font-weight: 800; letter-spacing: -0.03em; text-transform: uppercase; }
+  .shop ul { list-style: none; margin: 0.3rem 0 0; padding: 0; display: grid; gap: 0.6rem; }
+  .shop li {
+    display: grid; grid-template-columns: 1.1rem minmax(0, 1fr); gap: 0.4rem;
+    font-size: 0.94rem; color: var(--ink-2);
+  }
+  .shop li::before { content: ""; width: 7px; height: 7px; border-radius: 2px; background: var(--violet); margin-top: 0.6rem; }
 
   /* ---------- timeline ---------- */
 
-  .track-shell { overflow-x: auto; padding-bottom: 0.5rem; }
-  .track-inner { min-width: 640px; }
+  .track-shell { overflow-x: auto; padding-bottom: 0.6rem; }
+  .track-inner { min-width: 680px; }
 
-  .ruler {
-    display: flex;
-    border-bottom: 1px solid var(--rule);
-    margin-bottom: 0.5rem;
-  }
+  .ruler { display: flex; margin-bottom: 0.45rem; }
   .ruler span {
-    flex: 0 0 auto;
-    font-family: var(--mono);
-    font-size: 0.62rem;
-    letter-spacing: 0.08em;
-    color: var(--ink-3);
-    padding: 0 0 0.35rem 0.35rem;
-    border-left: 1px solid var(--rule-soft);
+    flex: 0 0 auto; font-family: var(--mono); font-size: 0.62rem;
+    letter-spacing: 0.08em; color: var(--ink-3);
+    padding-left: 0.4rem; border-left: 1px solid var(--rule);
   }
   .ruler span:first-child { border-left: 0; padding-left: 0; }
 
-  .track {
-    position: relative;
-    display: flex;
-    height: 58px;
+  .tl {
+    position: relative; display: flex; height: 66px;
+    border-radius: 10px; overflow: hidden;
     border: 1px solid var(--rule);
-    background: var(--surface);
   }
-  .seg {
-    border-right: 1px solid var(--ground);
-    display: flex;
-    align-items: flex-end;
-    padding: 0.3rem;
-    overflow: hidden;
-  }
-  .seg:last-child { border-right: 0; }
-  .seg b {
-    font-family: var(--mono);
-    font-size: 0.58rem;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    font-weight: 400;
-    white-space: nowrap;
-  }
-  .seg-build   { background: var(--accent); }
-  .seg-build b { color: var(--accent-ink); }
-  .seg-show    { background: var(--cyan); }
-  .seg-show b  { color: var(--ground); }
-  .seg-learn   { background: var(--amber); }
-  .seg-learn b { color: var(--ground); }
-  .seg-rest    { background: var(--surface-2); }
-  .seg-rest b  { color: var(--ink-3); }
+  .seg { display: flex; align-items: flex-end; padding: 0.35rem 0.4rem; overflow: hidden; border-right: 1px solid var(--ground); }
+  .seg:last-of-type { border-right: 0; }
+  .seg b { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 400; white-space: nowrap; }
+  .seg-build { background: var(--violet); }
+  .seg-build b { color: #fff; }
+  .seg-learn { background: var(--violet-deep); }
+  .seg-learn b { color: var(--violet-soft); }
+  .seg-show { background: var(--warm); }
+  .seg-show b { color: #1B1200; }
+  .seg-rest { background: var(--surface-2); }
+  .seg-rest b { color: var(--ink-3); }
 
-  .playhead {
-    position: absolute;
-    top: -8px;
-    bottom: -8px;
-    width: 2px;
-    background: var(--ink);
-    left: 0;
-  }
-  .playhead::before {
-    content: "";
-    position: absolute;
-    top: -1px;
-    left: 50%;
-    transform: translateX(-50%);
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-top: 7px solid var(--ink);
-  }
-  .track-shell.playing .playhead {
-    animation: sweep 2.2s cubic-bezier(0.35, 0.1, 0.2, 1) forwards;
-  }
-  @keyframes sweep {
-    from { left: 0; }
-    to   { left: calc(100% - 2px); }
-  }
+  .playhead { position: absolute; top: 0; bottom: 0; width: 2px; background: var(--ink); left: 0; }
+  .track-shell.playing .playhead { animation: sweep 2.4s cubic-bezier(0.32, 0.08, 0.18, 1) forwards; }
+  @keyframes sweep { from { left: 0; } to { left: calc(100% - 2px); } }
 
-  .runsheet {
-    list-style: none;
-    margin: 2.5rem 0 0;
-    padding: 0;
-    border-top: 1px solid var(--rule);
-  }
+  .runsheet { list-style: none; margin: 2.75rem 0 0; padding: 0; border-top: 1px solid var(--rule); }
   .runsheet li {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr);
-    gap: 0.2rem 1.5rem;
-    padding: 0.95rem 0;
-    border-bottom: 1px solid var(--rule-soft);
+    display: grid; gap: 0.15rem 1.6rem; grid-template-columns: minmax(0, 1fr);
+    padding: 1rem 0; border-bottom: 1px solid var(--rule);
+    transition: background 0.15s ease;
   }
-  @media (min-width: 700px) {
-    .runsheet li {
-      grid-template-columns: 11rem minmax(0, 1fr) auto;
-      align-items: baseline;
-    }
-  }
-  .runsheet .tc {
-    font-family: var(--mono);
-    font-variant-numeric: tabular-nums;
-    font-size: 0.85rem;
-    color: var(--ink-2);
-    letter-spacing: 0.02em;
-  }
-  .runsheet .what {
-    font-family: var(--display);
-    font-weight: 700;
-    font-size: 1rem;
-    letter-spacing: -0.01em;
-  }
-  .runsheet .what em {
-    display: block;
-    font-family: var(--body);
-    font-style: normal;
-    font-weight: 400;
-    font-size: 0.9rem;
-    color: var(--ink-2);
-    margin-top: 0.15rem;
-  }
-  .runsheet .dur {
-    font-family: var(--mono);
-    font-size: 0.7rem;
-    letter-spacing: 0.1em;
-    color: var(--ink-3);
-    text-transform: uppercase;
-  }
+  @media (min-width: 720px) { .runsheet li { grid-template-columns: 10.5rem minmax(0, 1fr) auto; align-items: baseline; } }
+  .runsheet .tc { font-family: var(--mono); font-variant-numeric: tabular-nums; font-size: 0.84rem; color: var(--violet-soft); letter-spacing: 0.02em; }
+  .runsheet .what { font-family: var(--display); font-weight: 700; font-size: 1.05rem; letter-spacing: -0.015em; }
+  .runsheet .what em { display: block; font-family: var(--body); font-style: normal; font-weight: 400; font-size: 0.92rem; color: var(--ink-2); margin-top: 0.2rem; letter-spacing: 0; }
+  .runsheet .dur { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-3); }
+  .runsheet li.key .tc { color: var(--warm); }
 
   /* ---------- prizes ---------- */
 
-  .purse {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr);
-    gap: 1px;
-    background: var(--rule);
-    border: 1px solid var(--rule);
-  }
-  @media (min-width: 760px) {
-    .purse { grid-template-columns: 1.35fr 1fr 1fr; }
-  }
+  .purse { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.25rem; }
+  @media (min-width: 800px) { .purse { grid-template-columns: 1.4fr 1fr 1fr; align-items: stretch; } }
+
   .purse article {
+    border: 1px solid var(--rule);
+    border-radius: 18px;
+    padding: clamp(1.5rem, 3vw, 2.2rem);
     background: var(--surface);
-    padding: 1.75rem 1.5rem 1.9rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
+    display: flex; flex-direction: column; gap: 0.5rem;
+    position: relative; overflow: hidden;
   }
-  .purse .place {
-    font-family: var(--mono);
-    font-size: var(--fs-micro);
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--ink-3);
-  }
+  .purse .place { font-family: var(--mono); font-size: var(--fs-micro); letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-3); }
   .purse .amount {
-    font-family: var(--display);
-    font-weight: 800;
-    letter-spacing: -0.04em;
-    line-height: 1;
-    font-variant-numeric: tabular-nums;
-    font-size: clamp(2.4rem, 6vw, 3.6rem);
+    font-family: var(--display); font-weight: 800; letter-spacing: -0.05em;
+    line-height: 0.9; font-variant-numeric: tabular-nums;
+    font-size: clamp(2.8rem, 7vw, 4rem);
+    margin-block: 0.4rem 0.2rem;
   }
-  .purse article:first-child {
-    background: var(--accent);
-    color: var(--accent-ink);
+  .purse p { font-size: 0.92rem; color: var(--ink-2); margin: 0; }
+  .purse article.first {
+    background: linear-gradient(150deg, var(--violet) 0%, #3A2BD4 62%, #2A1FA0 100%);
+    border-color: transparent; color: #fff;
   }
-  .purse article:first-child .place { color: var(--accent-ink); opacity: 0.75; }
-  .purse article:first-child .amount { font-size: clamp(3rem, 8vw, 4.6rem); }
-  .purse article:first-child p { color: var(--accent-ink); opacity: 0.85; }
-  .purse p {
-    font-size: 0.9rem;
-    color: var(--ink-2);
-    margin: 0;
+  .purse article.first .place { color: rgba(255,255,255,0.7); }
+  .purse article.first .amount { font-size: clamp(3.4rem, 10vw, 5.6rem); }
+  .purse article.first p { color: rgba(255,255,255,0.86); }
+  .purse article.first::after {
+    content: ""; position: absolute; right: -30px; bottom: -30px;
+    width: 170px; height: 170px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,255,255,0.16), transparent 70%);
   }
 
   /* ---------- criteria ---------- */
 
-  .criteria {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    grid-template-columns: minmax(0, 1fr);
-    gap: 1px;
-    background: var(--rule-soft);
-    border-block: 1px solid var(--rule-soft);
-  }
-  @media (min-width: 700px) {
-    .criteria { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  }
-  .criteria li {
-    background: var(--ground);
-    padding: 1.4rem 1.5rem 1.5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.35rem;
-  }
-  .criteria .weight {
-    font-family: var(--mono);
-    font-variant-numeric: tabular-nums;
-    font-size: 0.78rem;
-    letter-spacing: 0.1em;
-    color: var(--cyan);
-  }
+  .criteria { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: 1px; background: var(--rule); border: 1px solid var(--rule); border-radius: 14px; overflow: hidden; }
+  @media (min-width: 720px) { .criteria { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  .criteria li { background: var(--surface); padding: 1.5rem 1.6rem 1.65rem; display: flex; flex-direction: column; gap: 0.4rem; }
+  .criteria .weight { font-family: var(--mono); font-variant-numeric: tabular-nums; font-size: 0.8rem; letter-spacing: 0.1em; color: var(--violet-lift); }
   .criteria p { font-size: 0.92rem; color: var(--ink-2); }
+  .bar { height: 4px; border-radius: 999px; background: var(--surface-2); margin-top: 0.55rem; overflow: hidden; }
+  .bar i { display: block; height: 100%; background: var(--violet); border-radius: 999px; }
 
-  .bar {
-    height: 3px;
-    background: var(--rule);
-    margin-top: 0.4rem;
-  }
-  .bar i {
-    display: block;
-    height: 100%;
-    background: var(--cyan);
-  }
+  /* ---------- cols / ticks ---------- */
 
-  /* ---------- roster / provided ---------- */
-
-  .cols {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr);
-    gap: 2.5rem;
-  }
-  @media (min-width: 760px) {
-    .cols { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 3.5rem; }
-  }
-
-  .ticks { list-style: none; margin: 0; padding: 0; }
+  .cols { display: grid; grid-template-columns: minmax(0, 1fr); gap: 2.75rem; }
+  @media (min-width: 800px) { .cols { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4rem; } }
+  .ticks { list-style: none; margin: 1.4rem 0 0; padding: 0; }
   .ticks li {
-    display: grid;
-    grid-template-columns: 1.4rem minmax(0, 1fr);
-    gap: 0.3rem;
-    padding: 0.55rem 0;
-    border-bottom: 1px solid var(--rule-soft);
-    font-size: 0.95rem;
+    display: grid; grid-template-columns: 1.35rem minmax(0, 1fr); gap: 0.3rem;
+    padding: 0.6rem 0; border-bottom: 1px solid var(--rule);
+    font-size: 0.95rem; color: var(--ink-2);
   }
-  .ticks li::before {
-    content: "▸";
-    color: var(--accent);
-    font-size: 0.7rem;
-    line-height: 1.9;
+  .ticks li::before { content: ""; width: 8px; height: 8px; border-radius: 2px; background: var(--violet); margin-top: 0.58rem; }
+
+  /* ---------- team ---------- */
+
+  .crew { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.25rem; }
+  @media (min-width: 860px) { .crew { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+  .person {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 18px;
+    padding: clamp(1.6rem, 3vw, 2.3rem);
+    display: flex; flex-direction: column; gap: 0.9rem;
   }
+  .person .name { font-family: var(--display); font-weight: 800; font-size: clamp(1.5rem, 3vw, 2rem); letter-spacing: -0.03em; text-transform: uppercase; line-height: 1; }
+  .person .role { font-family: var(--mono); font-size: var(--fs-micro); letter-spacing: 0.16em; text-transform: uppercase; color: var(--violet-lift); }
+  .person ul { list-style: none; margin: 0.2rem 0 0; padding: 0; display: grid; gap: 0.55rem; }
+  .person li { display: grid; grid-template-columns: 1.1rem minmax(0, 1fr); gap: 0.4rem; font-size: 0.94rem; color: var(--ink-2); }
+  .person li::before { content: ""; width: 7px; height: 7px; border-radius: 2px; background: var(--violet); margin-top: 0.58rem; }
+
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px; background: var(--rule); border: 1px solid var(--rule); border-radius: 14px; overflow: hidden; margin-top: 1.25rem; }
+  .stats div { background: var(--surface); padding: 1.3rem 1.35rem 1.45rem; }
+  .stats .n { font-family: var(--display); font-weight: 800; font-size: clamp(1.9rem, 4vw, 2.6rem); letter-spacing: -0.04em; line-height: 1; color: var(--violet-lift); font-variant-numeric: tabular-nums; }
+  .stats .t { font-family: var(--mono); font-size: var(--fs-micro); letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-3); margin-top: 0.6rem; line-height: 1.5; }
 
   /* ---------- faq ---------- */
 
-  .faq { max-width: 44em; }
-  .faq details {
-    border-bottom: 1px solid var(--rule-soft);
-  }
+  .faq { max-width: 46em; }
+  .faq details { border-bottom: 1px solid var(--rule); }
   .faq details:first-of-type { border-top: 1px solid var(--rule); }
   .faq summary {
-    cursor: pointer;
-    list-style: none;
-    padding: 1.05rem 2rem 1.05rem 0;
-    position: relative;
-    font-family: var(--display);
-    font-weight: 700;
-    font-size: 1rem;
-    letter-spacing: -0.008em;
+    cursor: pointer; list-style: none; position: relative;
+    padding: 1.15rem 2.4rem 1.15rem 0;
+    font-family: var(--display); font-weight: 700; font-size: 1.03rem; letter-spacing: -0.012em;
+    transition: color 0.15s ease;
   }
+  .faq summary:hover { color: var(--violet-lift); }
   .faq summary::-webkit-details-marker { display: none; }
   .faq summary::after {
-    content: "+";
-    position: absolute;
-    right: 0.25rem;
-    top: 50%;
-    transform: translateY(-50%);
-    font-family: var(--mono);
-    font-weight: 400;
-    color: var(--accent);
+    content: ""; position: absolute; right: 0.4rem; top: 50%;
+    width: 11px; height: 11px; margin-top: -5px;
+    background: linear-gradient(var(--violet-lift) 0 0) center / 100% 2px no-repeat,
+                linear-gradient(var(--violet-lift) 0 0) center / 2px 100% no-repeat;
+    transition: transform 0.2s ease;
   }
-  .faq details[open] summary::after { content: "–"; }
-  .faq details p {
-    padding: 0 2rem 1.15rem 0;
-    color: var(--ink-2);
-    font-size: 0.95rem;
-  }
-
-  /* ---------- open items ---------- */
-
-  .openitems {
-    background: var(--surface-2);
-    border: 1px solid var(--rule);
-    padding: clamp(1.5rem, 4vw, 2.25rem);
-  }
-  .openitems h2 {
-    font-size: 1.15rem;
-    margin-bottom: 0.5rem;
-  }
-  .openitems ol {
-    margin: 1.25rem 0 0;
-    padding: 0;
-    list-style: none;
-    counter-reset: oi;
-    display: grid;
-    gap: 0.7rem;
-  }
-  .openitems li {
-    counter-increment: oi;
-    display: grid;
-    grid-template-columns: 2rem minmax(0, 1fr);
-    font-family: var(--mono);
-    font-size: 0.82rem;
-    line-height: 1.5;
-    color: var(--ink-2);
-  }
-  .openitems li::before {
-    content: counter(oi, decimal-leading-zero);
-    color: var(--amber);
-  }
+  .faq details[open] summary::after { transform: rotate(90deg); background: linear-gradient(var(--violet-lift) 0 0) center / 100% 2px no-repeat; }
+  .faq details p { padding: 0 2.4rem 1.25rem 0; color: var(--ink-2); font-size: 0.95rem; }
 
   /* ---------- close ---------- */
 
-  .close {
-    text-align: center;
-    padding-block: clamp(4rem, 10vw, 7rem);
-    border-top: 1px solid var(--rule-soft);
+  .close { position: relative; overflow: hidden; text-align: center; padding-block: clamp(4.5rem, 11vw, 8.5rem); }
+  .close::before {
+    content: ""; position: absolute; inset: 0;
+    background: radial-gradient(75% 130% at 50% 105%, color-mix(in srgb, var(--violet) 40%, transparent) 0%, transparent 68%);
+    pointer-events: none;
   }
-  .close h2 {
-    font-size: clamp(2rem, 6vw, 4rem);
-    text-transform: uppercase;
-    letter-spacing: -0.04em;
-    max-width: 16ch;
-    margin-inline: auto;
-  }
-  .close .cta-row { justify-content: center; margin-top: 2rem; }
+  .close .wrap { position: relative; }
+  .close h2 { font-size: clamp(2.3rem, 8vw, 5.5rem); letter-spacing: -0.05em; max-width: 15ch; margin-inline: auto; }
+  .close .hero-cta { justify-content: center; margin-top: 2.25rem; }
 
-  footer {
-    border-top: 1px solid var(--rule);
-    padding-block: 1.75rem 2.5rem;
-  }
-  footer .wrap {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 0.75rem 2rem;
-    font-family: var(--mono);
-    font-size: var(--fs-micro);
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--ink-3);
-  }
+  /* ---------- open items ---------- */
+
+  .openitems { background: var(--surface-2); border: 1px dashed var(--rule); border-radius: 16px; padding: clamp(1.5rem, 4vw, 2.4rem); }
+  .openitems h2 { font-size: 1.25rem; letter-spacing: -0.02em; margin-bottom: 0.6rem; }
+  .openitems ol { margin: 1.4rem 0 0; padding: 0; list-style: none; counter-reset: oi; display: grid; gap: 0.65rem; }
+  .openitems li { counter-increment: oi; display: grid; grid-template-columns: 2.1rem minmax(0, 1fr); font-family: var(--mono); font-size: 0.8rem; line-height: 1.55; color: var(--ink-2); }
+  .openitems li::before { content: counter(oi, decimal-leading-zero); color: var(--warm); }
+
+  /* ---------- footer ---------- */
+
+  footer { border-top: 1px solid var(--rule); padding-block: 2.25rem 2.75rem; }
+  footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem 2rem; }
+  footer .meta { display: flex; flex-wrap: wrap; gap: 0.5rem 1.75rem; font-family: var(--mono); font-size: var(--fs-micro); letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-3); }
+
+  /* ---------- reveal ---------- */
+
+  [data-reveal] { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.2, 0.7, 0.3, 1); }
+  [data-reveal].in { opacity: 1; transform: none; }
 
   @media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after {
-      animation-duration: 0.001ms !important;
-      animation-iteration-count: 1 !important;
-      transition-duration: 0.001ms !important;
-    }
-    h1 .line { opacity: 1; transform: none; }
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+    h1.poster .l > span { transform: none; }
+    .marquee .track { animation: none; }
     .track-shell.playing .playhead { left: calc(100% - 2px); }
+    [data-reveal] { opacity: 1; transform: none; }
   }
 </style>
 </head>
 <body>
 
-<div class="bars"></div>
-
-<div class="proposal">
+<nav class="top">
   <div class="wrap">
-    <span><strong>Proposal draft v1</strong></span>
-    <span>Copy and run of day for review</span>
-    <span>Items marked TBC need confirming before launch</span>
+    <a class="lockup" href="#top" aria-label="TopView home">
+      <svg class="mark" width="30" height="30" viewBox="0 0 447 447" aria-hidden="true">
+        <rect class="tile" width="447" height="447" rx="96"/>
+        <g class="bars">
+          <rect x="117" y="108" width="21" height="48" rx="10"/>
+          <rect x="165" y="108" width="21" height="89" rx="10"/>
+          <rect x="213" y="108" width="21" height="131" rx="10"/>
+          <rect x="262" y="108" width="21" height="89" rx="10"/>
+          <rect x="310" y="108" width="21" height="48" rx="10"/>
+        </g>
+      </svg>
+      <span class="word">TopView</span>
+    </a>
+    <div class="links">
+      <a href="#brief">Brief</a>
+      <a href="#workshops">Workshops</a>
+      <a href="#schedule">Schedule</a>
+      <a href="#prizes">Prizes</a>
+      <a href="#team">Team</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <a class="btn sm" href="#register">Register</a>
   </div>
-</div>
+</nav>
 
-<header class="hero">
-  <div class="guides" aria-hidden="true">
-    <div class="guide guide-action"></div>
-    <div class="guide guide-title"></div>
-    <div class="guide-tag">Safe title</div>
-    <div class="crosshair"></div>
-  </div>
-
+<header class="hero" id="top">
+  <canvas id="field" aria-hidden="true"></canvas>
   <div class="wrap hero-inner">
-    <div class="hero-top">
-      <span class="rec"><span class="dot"></span> TopView AI presents</span>
-      <span class="runtime">
-        <span class="value mono" id="runtime">00:00:00</span>
-        <span>Runtime</span>
-      </span>
+
+    <div class="kicker">
+      <span class="pill">TopView AI</span>
+      <span>AWS Office KL</span>
+      <span>Sun 6 Sep 2026</span>
     </div>
 
-    <h1>
-      <span class="line">AI Video</span>
-      <span class="line">Hack</span>
-      <span class="line">athon</span>
+    <h1 class="poster">
+      <span class="l"><span>AI Video</span></span>
+      <span class="l"><span>Hackathon</span></span>
     </h1>
 
-    <div class="hero-lede">
-      <p class="lead">One Sunday, two workshops, and a room full of people finding out what an AI video pipeline can actually do when it is pushed. Come with an idea. Leave with something that plays.</p>
-
-      <div class="cta-row">
-        <a class="btn" href="#register">Register your team</a>
-        <span class="cta-note">Sunday 6 September 2026 &middot; AWS Office</span>
+    <div class="hero-foot">
+      <div>
+        <p class="lead" style="margin-bottom:1.6rem;">Build a brand film in a day. Two workshops, one sprint, $3,500 in prizes.</p>
+        <div class="hero-cta">
+          <a class="btn" href="#register">Register your team</a>
+          <a class="btn ghost" href="#schedule">See the run of day</a>
+        </div>
+        <p class="hero-note" style="margin-top:1rem;">Free to enter &middot; Teams of 1 to 4 &middot; Solo entries welcome</p>
+      </div>
+      <div class="runtime">
+        <span class="v" id="runtime">00:00:00</span>
+        <span class="k">Runtime 08:45 to 18:00</span>
       </div>
     </div>
 
-    <dl class="slate">
-      <div>
-        <dt>Date</dt>
-        <dd>Sun 6 Sep 2026</dd>
-      </div>
-      <div>
-        <dt>Call</dt>
-        <dd>08:45<small>Check-in and team forming</small></dd>
-      </div>
-      <div>
-        <dt>Wrap</dt>
-        <dd>18:00<small>Winners announced</small></dd>
-      </div>
-      <div>
-        <dt>Location</dt>
-        <dd>AWS Office<small>Address <span class="tbc">TBC</span></small></dd>
-      </div>
-      <div>
-        <dt>Crew</dt>
-        <dd>1 to 4<small>Solo entries welcome</small></dd>
-      </div>
-      <div>
-        <dt>Purse</dt>
-        <dd>$3,500<small>Split across three teams</small></dd>
-      </div>
-    </dl>
   </div>
 </header>
 
-<section class="section">
+<div class="marquee" aria-hidden="true">
+  <div class="track">
+    <div>
+      <span>Sun 6 Sep 2026</span><i></i>
+      <span>AWS Office KL</span><i></i>
+      <span class="hot">$3,500 in prizes</span><i></i>
+      <span>Teams of 1 to 4</span><i></i>
+      <span>TopView workshop</span><i></i>
+      <span class="hot">Seedance 2.5 tutorial</span><i></i>
+      <span>Brand film brief</span><i></i>
+    </div>
+    <div>
+      <span>Sun 6 Sep 2026</span><i></i>
+      <span>AWS Office KL</span><i></i>
+      <span class="hot">$3,500 in prizes</span><i></i>
+      <span>Teams of 1 to 4</span><i></i>
+      <span>TopView workshop</span><i></i>
+      <span class="hot">Seedance 2.5 tutorial</span><i></i>
+      <span>Brand film brief</span><i></i>
+    </div>
+  </div>
+</div>
+
+<section class="section" id="brief">
   <div class="wrap">
-    <p class="eyebrow rule-label">The brief</p>
+    <dl class="slate" data-reveal style="margin-bottom:clamp(3rem,6vw,4.5rem);">
+      <div><dt>Date</dt><dd>Sun 6 Sep 2026</dd></div>
+      <div><dt>Call</dt><dd>08:45<small>Check-in and team forming</small></dd></div>
+      <div><dt>Wrap</dt><dd>18:00<small>Winners announced</small></dd></div>
+      <div><dt>Location</dt><dd>AWS Office KL<small>Address <span class="tbc">TBC</span></small></dd></div>
+      <div><dt>Crew</dt><dd>1 to 4<small>Solo entries welcome</small></dd></div>
+      <div><dt>Purse</dt><dd>$3,500<small>Split across three teams</small></dd></div>
+    </dl>
+
+    <div class="sec-head" data-reveal>
+      <p class="eyebrow">The brief</p>
+    </div>
     <div class="split">
-      <div>
-        <h2>Make a video that could not have been made a year ago.</h2>
-        <p class="prose">That is the whole brief. No theme, no category, no required format. A 30 second spot, a music video, a fake trailer, a tool that generates video on demand: if it plays and it is yours, it counts.</p>
-        <p class="prose">You get two workshops before the sprint starts, one on the TopView stack and one on Seedance 2.5, so nobody spends their build time reading docs. After 10:45 the room is yours until submissions close at 16:00.</p>
+      <div data-reveal>
+        <h2>Build a brand film that makes people feel something.</h2>
+        <p class="prose" style="margin-top:1.5rem;">A brand film is a one to three minute advertisement that sells on emotion, not features. Think of the ads you still remember.</p>
+        <p class="prose">Pick any product, service, or cause. Real or invented, yours or someone else's. What matters is whether the room feels it.</p>
       </div>
-      <ul class="deliverables">
+      <ul class="deliverables" data-reveal>
         <li>
-          <span class="k">Hand in</span>
+          <span class="k">Deliver</span>
           <div>
-            <h3>One finished video</h3>
-            <p>Up to three minutes, any aspect ratio, delivered as a file by 16:00. It has to play without you standing next to it explaining what it would have been.</p>
+            <h3>The film</h3>
+            <p>One to three minutes, any aspect ratio, uploaded by 16:00.</p>
           </div>
         </li>
         <li>
-          <span class="k">Hand in</span>
+          <span class="k">Deliver</span>
           <div>
             <h3>A one page build note</h3>
-            <p>What you used, what you automated, what you did by hand. Judges read this alongside the video. Honesty scores better than mystique.</p>
+            <p>What you used, what you automated, what you did by hand.</p>
           </div>
         </li>
         <li>
           <span class="k">On stage</span>
           <div>
-            <h3>Finalist demos at 17:00</h3>
-            <p>Judges shortlist between 16:00 and 17:00. Finalists play their video and take questions, then winners are announced at 18:00.</p>
+            <h3>Finalist demos</h3>
+            <p>Judges shortlist from 16:00. Finalists play at 17:00 and take questions.</p>
           </div>
         </li>
       </ul>
@@ -941,13 +753,49 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section" id="workshops">
   <div class="wrap">
-    <p class="eyebrow rule-label">Run of day</p>
-    <h2>Learn for two hours. Build for four and a half.</h2>
-    <p class="lead" style="margin-bottom:2.5rem;">The morning gets you fluent in the tools. The rest of the day is a protected sprint, split by one real lunch, with a hard submission cutoff at 16:00 so demos start on time.</p>
+    <div class="sec-head" data-reveal>
+      <p class="eyebrow">Morning workshops</p>
+      <h2>Learn the tools first.<br>Then start the clock.</h2>
+      <p class="lead" style="margin-top:1.4rem;">Both sessions run before the sprint opens. Built for people opening these tools for the first time.</p>
+    </div>
 
-    <div class="track-shell" id="trackShell">
+    <div class="shops">
+      <article class="shop" data-reveal>
+        <p class="when">09:30 to 10:10 <em>40 min</em></p>
+        <h3>TopView, end to end</h3>
+        <p style="color:var(--ink-2);font-size:0.96rem;">Blank project to finished cut.</p>
+        <ul>
+          <li>Generating, editing, and assembling inside TopView</li>
+          <li>Automating the repetitive parts so you iterate in minutes</li>
+          <li>Where your credits go furthest</li>
+        </ul>
+      </article>
+
+      <article class="shop" data-reveal>
+        <p class="when">10:10 to 10:45 <em>35 min</em></p>
+        <h3>Seedance 2.5</h3>
+        <p style="color:var(--ink-2);font-size:0.96rem;">Getting the shot you want, not the shot you settle for.</p>
+        <ul>
+          <li>Prompting for motion that reads on screen</li>
+          <li>Holding a character steady across cuts</li>
+          <li>The failure modes, and how to shoot around them</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="schedule">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <p class="eyebrow">Run of day</p>
+      <h2>Learn for two hours.<br>Build for four and a half.</h2>
+      <p class="lead" style="margin-top:1.4rem;">The morning gets you fluent. The rest of the day is a protected sprint, split by one real lunch, with a hard cutoff at 16:00 so demos start on time.</p>
+    </div>
+
+    <div class="track-shell" id="trackShell" data-reveal>
       <div class="track-inner">
         <div class="ruler" aria-hidden="true">
           <span style="width:2.70%">08:45</span>
@@ -958,7 +806,7 @@
           <span style="width:10.81%">16:00</span>
           <span style="width:10.81%">17:00</span>
         </div>
-        <div class="track" role="img" aria-label="Timeline of the day: check-in 15 minutes, opening session and workshops 1 hour 45, build sprint 2 hours 15, lunch 45 minutes, build sprint continues 2 hours 15, judging 1 hour, finalist demos 1 hour.">
+        <div class="tl" role="img" aria-label="Timeline of the day: check-in 15 minutes, opening session and workshops 1 hour 45, build sprint 2 hours 15, lunch 45 minutes, sprint continues 2 hours 15, judging 1 hour, finalist demos 1 hour.">
           <div class="seg seg-rest"  style="width:2.70%"><b>In</b></div>
           <div class="seg seg-learn" style="width:18.92%"><b>Workshops</b></div>
           <div class="seg seg-build" style="width:24.32%"><b>Sprint 01</b></div>
@@ -971,7 +819,7 @@
       </div>
     </div>
 
-    <ol class="runsheet">
+    <ol class="runsheet" data-reveal>
       <li>
         <span class="tc">08:45 &rarr; 09:00</span>
         <span class="what">Check-in and team formation<em>Teams of 1 to 4. Come without one and leave with one, facilitated rather than left to chance.</em></span>
@@ -984,15 +832,15 @@
       </li>
       <li>
         <span class="tc">09:30 &rarr; 10:10</span>
-        <span class="what">TopView workshop<em>The full video stack, hands on. Generation, editing, and how to script it so the machine does the repetitive part.</em></span>
+        <span class="what">TopView workshop<em>The full video stack, hands on, from blank project to finished cut.</em></span>
         <span class="dur">40 min</span>
       </li>
       <li>
         <span class="tc">10:10 &rarr; 10:45</span>
-        <span class="what">Seedance 2.5 tutorial<em>Getting shots you actually want. Prompting for motion, holding characters steady across cuts, and where the model still breaks.</em></span>
+        <span class="what">Seedance 2.5 tutorial<em>Prompting for motion, holding characters steady across cuts, and where the model still breaks.</em></span>
         <span class="dur">35 min</span>
       </li>
-      <li>
+      <li class="key">
         <span class="tc">10:45 &rarr; 13:00</span>
         <span class="what">Build sprint begins<em>Mentors circulating. No programming, no interruptions.</em></span>
         <span class="dur">2 hr 15</span>
@@ -1002,12 +850,12 @@
         <span class="what">Lunch provided<em>Take it away from your laptop if you can.</em></span>
         <span class="dur">45 min</span>
       </li>
-      <li>
+      <li class="key">
         <span class="tc">13:45 &rarr; 16:00</span>
         <span class="what">Sprint continues<em>Render queues get busy after 15:00. Plan your final export early.</em></span>
         <span class="dur">2 hr 15</span>
       </li>
-      <li>
+      <li class="key">
         <span class="tc">16:00</span>
         <span class="what">Project submissions close<em>Hard cutoff. Files uploaded by 16:00 or they do not screen.</em></span>
         <span class="dur">Locked</span>
@@ -1022,7 +870,7 @@
         <span class="what">Finalist demos<em>Play the video, then take questions. Three minutes on the clock per team.</em></span>
         <span class="dur">1 hr</span>
       </li>
-      <li>
+      <li class="key">
         <span class="tc">18:00</span>
         <span class="what">Winners announced<em>Three prizes handed out on the floor, then everyone goes home.</em></span>
         <span class="dur">Wrap</span>
@@ -1031,17 +879,19 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section" id="prizes">
   <div class="wrap">
-    <p class="eyebrow rule-label">Prize money</p>
-    <h2>$3,500, split three ways.</h2>
-    <p class="lead" style="margin-bottom:2.5rem;">Paid to the team, split however you agree between yourselves. Solo entries take the full amount.</p>
+    <div class="sec-head" data-reveal>
+      <p class="eyebrow">Prize money</p>
+      <h2>$3,500, split three ways.</h2>
+      <p class="lead" style="margin-top:1.4rem;">Paid to the team, split however you agree between yourselves. Solo entries take the full amount.</p>
+    </div>
 
-    <div class="purse">
-      <article>
-        <span class="place">First</span>
+    <div class="purse" data-reveal>
+      <article class="first">
+        <span class="place">First place</span>
         <span class="amount">$2,000</span>
-        <p>Best video of the day, on the criteria below.</p>
+        <p>Best video of the day, on the four criteria below.</p>
       </article>
       <article>
         <span class="place">Second</span>
@@ -1059,37 +909,39 @@
 
 <section class="section">
   <div class="wrap">
-    <p class="eyebrow rule-label">How it is judged</p>
+    <div class="sec-head" data-reveal>
+      <p class="eyebrow">How it is judged</p>
+    </div>
     <div class="split">
-      <div>
-        <h2>Four things, weighted.</h2>
-        <p class="prose">Judges see the video first and read the build note second. Nothing is scored on how hard the day was for you, only on what showed up on screen.</p>
-        <p class="prose"><span class="tbc">TBC</span> Panel to be confirmed. Proposal assumes three judges: one from TopView AI, one from AWS, one working filmmaker or creative director.</p>
+      <div data-reveal>
+        <h2>Four things,<br>weighted.</h2>
+        <p class="prose" style="margin-top:1.5rem;">Judges watch the film first, then read the build note. Only what is on screen counts.</p>
+        <p class="prose"><span class="tbc">TBC</span> Panel to be confirmed.</p>
       </div>
-      <ul class="criteria">
+      <ul class="criteria" data-reveal>
         <li>
           <span class="weight">30%</span>
-          <h3>Craft</h3>
-          <p>Does it hold together as a piece of video. Pacing, sound, cuts, and whether the shots belong in the same film.</p>
-          <div class="bar"><i style="width:30%"></i></div>
-        </li>
-        <li>
-          <span class="weight">30%</span>
-          <h3>Pipeline</h3>
-          <p>How much of the work the machine actually did, and how cleverly. Ambition counts more than polish here.</p>
+          <h3>Emotion</h3>
+          <p>Does it land. The room can tell within ten seconds.</p>
           <div class="bar"><i style="width:30%"></i></div>
         </li>
         <li>
           <span class="weight">25%</span>
-          <h3>Idea</h3>
-          <p>Is it worth watching twice. A strong idea rendered roughly beats a beautiful thing with nothing in it.</p>
+          <h3>Craft</h3>
+          <p>Pacing, sound, cuts, and whether the shots belong in the same film.</p>
           <div class="bar"><i style="width:25%"></i></div>
         </li>
         <li>
-          <span class="weight">15%</span>
-          <h3>Finish</h3>
-          <p>Delivered on time, plays clean, correct format. Free points, and teams lose them every year.</p>
-          <div class="bar"><i style="width:15%"></i></div>
+          <span class="weight">25%</span>
+          <h3>Pipeline</h3>
+          <p>How much the machine did, and how cleverly. Ambition beats polish here.</p>
+          <div class="bar"><i style="width:25%"></i></div>
+        </li>
+        <li>
+          <span class="weight">20%</span>
+          <h3>Idea</h3>
+          <p>Worth watching twice. A rough idea with teeth beats a pretty empty one.</p>
+          <div class="bar"><i style="width:20%"></i></div>
         </li>
       </ul>
     </div>
@@ -1098,65 +950,122 @@
 
 <section class="section">
   <div class="wrap">
-    <p class="eyebrow rule-label">Who and what</p>
+    <div class="sec-head" data-reveal>
+      <p class="eyebrow">Who and what</p>
+    </div>
     <div class="cols">
-      <div>
-        <h2>Who this is for</h2>
-        <p class="prose" style="margin-bottom:1.5rem;">Teams of one to four. You do not need a balanced team and you do not need to know everyone before you arrive.</p>
+      <div data-reveal>
+        <h2>Who this<br>is for</h2>
+        <p class="prose" style="margin-top:1.4rem;">Teams of one to four. No balanced team required, and you do not need to know anyone before you arrive.</p>
         <ul class="ticks">
-          <li>Editors, motion designers, and filmmakers curious how far the tools have come</li>
-          <li>Engineers who want to chain models into a pipeline and watch it render</li>
-          <li>Founders and marketers who make video for a living and want a faster way</li>
-          <li>Students and first timers. Team forming at 09:00 exists for you</li>
+          <li>Editors, motion designers, and filmmakers</li>
+          <li>Engineers who want to chain models into a pipeline</li>
+          <li>Founders and marketers who make video for a living</li>
+          <li>Students and first timers. Team forming at 08:45 is for you</li>
         </ul>
       </div>
-      <div>
-        <h2>What we provide</h2>
-        <p class="prose" style="margin-bottom:1.5rem;">Bring your laptop and headphones. Everything else is on us.</p>
+      <div data-reveal>
+        <h2>What we<br>provide</h2>
+        <p class="prose" style="margin-top:1.4rem;">Bring a laptop and headphones. Everything else is on us.</p>
         <ul class="ticks">
-          <li>TopView AI credits for every team, allocation <span class="tbc">TBC</span></li>
-          <li>Two hands-on workshops: the TopView stack, then Seedance 2.5</li>
-          <li>Desk space, power, and wifi at the AWS Office</li>
-          <li>Lunch and coffee running all day</li>
-          <li>Mentors on the floor through both sprint blocks</li>
-          <li>A screening setup with proper sound for finalist demos</li>
+          <li>TopView AI credits for every team <span class="tbc">TBC</span></li>
+          <li>Both workshops, TopView and Seedance 2.5</li>
+          <li>Desk space, power, and wifi at AWS Office KL</li>
+          <li>Lunch and coffee all day</li>
+          <li>Mentors on the floor through both sprints</li>
+          <li>A screening setup with proper sound</li>
         </ul>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section">
+<section class="section" id="team">
   <div class="wrap">
-    <p class="eyebrow rule-label">Questions</p>
-    <div class="faq">
+    <div class="sec-head" data-reveal>
+      <p class="eyebrow">The team behind it</p>
+      <h2>Run by people who<br>run these rooms.</h2>
+      <p class="lead" style="margin-top:1.4rem;">This is not a first attempt. Between them, JD and Sherlyn have filled rooms across KL and London.</p>
+    </div>
+
+    <div class="crew">
+      <article class="person" data-reveal>
+        <p class="role">Organiser</p>
+        <p class="name">JD</p>
+        <ul>
+          <li>Ambassador, Devin by Cognition</li>
+          <li>Former Lovable Ambassador</li>
+          <li>Taught a month of summer school at UCL, London</li>
+          <li>Ran Lovable Vibeathon and the OpenClaw KL monthly meetup</li>
+          <li>Next up: Devin AI Agent Hackathon, and ADLP x Codex by Axiata Foundation</li>
+        </ul>
+      </article>
+
+      <article class="person" data-reveal>
+        <p class="role">Co-host</p>
+        <p class="name">Sherlyn Heon</p>
+        <ul>
+          <li>Content creator</li>
+          <li>Co-host of JD's events</li>
+          <li>Speaker at multiple AI events</li>
+        </ul>
+      </article>
+    </div>
+
+    <div class="stats" data-reveal>
+      <div>
+        <p class="n">150+</p>
+        <p class="t">Attended Lovable Vibeathon</p>
+      </div>
+      <div>
+        <p class="n">300</p>
+        <p class="t">Sign ups in 48 hours</p>
+      </div>
+      <div>
+        <p class="n">200</p>
+        <p class="t">At OpenClaw KL May meetup</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="faq">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <p class="eyebrow">Questions</p>
+    </div>
+    <div class="faq" data-reveal>
+      <details>
+        <summary>What is a brand film?</summary>
+        <p>A short advertisement that sells on feeling rather than features. One to three minutes. Any product, service, or cause, real or invented.</p>
+      </details>
       <details>
         <summary>Can I come on my own?</summary>
-        <p>Yes. Either compete solo, or use the 45 minute team forming session at the start of the day. Plenty of people arrive alone.</p>
+        <p>Yes. Compete solo, or find a team at check-in. Plenty of people arrive alone.</p>
       </details>
       <details>
-        <summary>Do I have to use TopView AI?</summary>
-        <p>Your team gets credits and the stack is open all day, so you are strongly encouraged to. You can bring other tools in alongside it. The pipeline score rewards what you built, not which logo is on it.</p>
+        <summary>Do I need to know these tools already?</summary>
+        <p>No. That is what the morning workshops are for.</p>
       </details>
       <details>
-        <summary>Do I need to know Seedance or TopView already?</summary>
-        <p>No. That is what the morning is for. The TopView workshop and the Seedance 2.5 tutorial both run before the sprint starts, and they are built for people opening the tools for the first time.</p>
+        <summary>Do I have to use TopView?</summary>
+        <p>Your team gets credits and the stack is open all day, so you are strongly encouraged to. Bring other tools alongside it if you want.</p>
       </details>
       <details>
         <summary>Can I turn up with work already done?</summary>
-        <p>No footage, no edits, no renders made before 10:45. Ideas, scripts, storyboards, and pre-built scaffolding code are all fine, and you should absolutely arrive with a plan.</p>
+        <p>No footage, edits, or renders made before 10:45. Ideas, scripts, and storyboards are fine, and you should arrive with a plan.</p>
       </details>
       <details>
         <summary>Who owns what we make?</summary>
-        <p>You do. Entering grants TopView AI and AWS permission to show your video in event recaps and on social. Nothing more than that.</p>
+        <p>You do. Entering lets us show your film in event recaps and on social. Nothing more.</p>
       </details>
       <details>
         <summary>How many places are there?</summary>
-        <p><span class="tbc">TBC</span> Capacity depends on the room. Registration will close once we hit it, and teams are confirmed by email.</p>
+        <p><span class="tbc">TBC</span> Registration closes once the room is full. Teams are confirmed by email.</p>
       </details>
       <details>
-        <summary>What do I need to bring?</summary>
-        <p>A laptop that can handle an edit, headphones, and a charger. If you work with a specific mouse, tablet, or audio interface, bring it.</p>
+        <summary>What should I bring?</summary>
+        <p>A laptop that can handle an edit, headphones, and a charger.</p>
       </details>
     </div>
   </div>
@@ -1164,23 +1073,24 @@
 
 <section class="section" id="register">
   <div class="wrap">
-    <div class="openitems">
-      <p class="eyebrow" style="margin-bottom:0.75rem;">Internal note, remove before launch</p>
+    <div class="openitems" data-reveal>
+      <p class="eyebrow" style="margin-bottom:0.8rem;">Internal note, remove before launch</p>
       <h2>Open items before this page goes live</h2>
-      <p style="font-size:0.92rem;color:var(--ink-2);max-width:38em;">Everything above is written and ready. These are the gaps I filled with placeholders or reasonable assumptions, listed so they can be confirmed or corrected.</p>
+      <p style="font-size:0.92rem;color:var(--ink-2);max-width:40em;">Everything above is written and ready. These are the gaps filled with placeholders or reasonable assumptions, listed so they can be confirmed or corrected.</p>
       <ol>
-        <li>Full AWS Office address, floor, and building access instructions</li>
-        <li>Registration link and platform, currently a dead anchor on every CTA</li>
-        <li>Named presenters for the TopView workshop and the Seedance 2.5 tutorial</li>
+        <li>Full AWS Office KL address, floor, and building access instructions</li>
+        <li>Registration link, currently a dead anchor on every CTA</li>
+        <li>Sherlyn's Instagram follower count. You wrote 190, which reads as a typo, so it is left off the page rather than guessed at. Confirm the figure and the handle</li>
+        <li>Named presenters for the TopView and Seedance 2.5 workshops</li>
+        <li>Confirm "brand film" is the right label for the 1 to 3 minute emotional ad brief</li>
         <li>How many finalists get a demo slot, given 60 minutes at three minutes each</li>
-        <li>Capacity cap and whether registration is per team or per person</li>
-        <li>TopView AI credit allocation per team, and whether GPU access is included</li>
-        <li>Judging panel names and affiliations, plus sign off on the 30 / 30 / 25 / 15 weighting</li>
-        <li>Confirmation that catering covers breakfast and lunch, and dietary intake</li>
-        <li>Prize payout mechanics, currency, and any tax or eligibility conditions</li>
-        <li>Whether AWS is a co-host or venue partner only, which changes the logo lockup</li>
-        <li>Submission upload destination and file spec, including max size and codec</li>
-        <li>Photo and filming consent wording for the day</li>
+        <li>Capacity cap, and whether registration is per team or per person</li>
+        <li>TopView credit allocation per team</li>
+        <li>Judging panel names, plus sign off on the 30 / 25 / 25 / 20 weighting</li>
+        <li>Prize payout mechanics, currency, and any eligibility conditions</li>
+        <li>Whether AWS is co-host or venue partner, which changes the logo lockup</li>
+        <li>Submission upload destination and file spec</li>
+        <li>Currency for prize amounts, USD or MYR</li>
       </ol>
     </div>
   </div>
@@ -1188,71 +1098,176 @@
 
 <section class="close">
   <div class="wrap">
-    <p class="eyebrow" style="margin-bottom:1.25rem;">6 September 2026 &middot; 08:45 to 18:00</p>
-    <h2>Nine hours from now, it either plays or it does not.</h2>
-    <div class="cta-row">
+    <p class="eyebrow" style="margin-bottom:1.4rem;justify-content:center;display:flex;">6 September 2026 &middot; 08:45 to 18:00</p>
+    <h2>Nine hours. Then it either plays or it does not.</h2>
+    <div class="hero-cta">
       <a class="btn" href="#register">Register your team</a>
-      <span class="cta-note">Free to enter &middot; Teams of 1 to 4</span>
+      <a class="btn ghost" href="#schedule">Run of day</a>
     </div>
+    <p class="hero-note" style="margin-top:1.2rem;">Free to enter &middot; Teams of 1 to 4 &middot; AWS Office KL</p>
   </div>
 </section>
 
 <footer>
   <div class="wrap">
-    <span>TopView AI</span>
-    <span>Hosted at the AWS Office</span>
-    <span>Sun 6 Sep 2026</span>
+    <a class="lockup" href="#top" aria-label="TopView">
+      <svg class="mark" width="26" height="26" viewBox="0 0 447 447" aria-hidden="true">
+        <rect class="tile" width="447" height="447" rx="96"/>
+        <g class="bars">
+          <rect x="117" y="108" width="21" height="48" rx="10"/>
+          <rect x="165" y="108" width="21" height="89" rx="10"/>
+          <rect x="213" y="108" width="21" height="131" rx="10"/>
+          <rect x="262" y="108" width="21" height="89" rx="10"/>
+          <rect x="310" y="108" width="21" height="48" rx="10"/>
+        </g>
+      </svg>
+      <span class="word">TopView</span>
+    </a>
+    <div class="meta">
+      <span>AI Video Hackathon</span>
+      <span>AWS Office KL</span>
+      <span>Sun 6 Sep 2026</span>
+    </div>
   </div>
 </footer>
-<div class="bars"></div>
 
 <script>
-  (function () {
-    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var el = document.getElementById('runtime');
+(function () {
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    function fmt(totalSeconds) {
-      var h = Math.floor(totalSeconds / 3600);
-      var m = Math.floor((totalSeconds % 3600) / 60);
-      var s = Math.floor(totalSeconds % 60);
-      return [h, m, s].map(function (n) {
-        return n < 10 ? '0' + n : '' + n;
-      }).join(':');
+  /* ---- runtime counter: 08:45 to 18:00 is 09:15:00 ---- */
+  var out = document.getElementById('runtime');
+  var target = 9 * 3600 + 15 * 60;
+
+  function fmt(total) {
+    var h = Math.floor(total / 3600),
+        m = Math.floor((total % 3600) / 60),
+        s = Math.floor(total % 60);
+    return [h, m, s].map(function (n) { return n < 10 ? '0' + n : '' + n; }).join(':');
+  }
+
+  if (reduce) {
+    out.textContent = fmt(target);
+  } else {
+    var dur = 1800, t0 = null;
+    requestAnimationFrame(function step(ts) {
+      if (t0 === null) { t0 = ts; }
+      var p = Math.min((ts - t0) / dur, 1);
+      out.textContent = fmt(target * (1 - Math.pow(1 - p, 3)));
+      if (p < 1) { requestAnimationFrame(step); }
+    });
+  }
+
+  /* ---- hero bar field: the logo mark exploded across full width ---- */
+  var cvs = document.getElementById('field');
+  var ctx = cvs.getContext('2d');
+  var bars = [], W = 0, H = 0, running = true;
+
+  function css(name) {
+    return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+  }
+
+  function build() {
+    var pitch = W < 620 ? 22 : (W < 1000 ? 30 : 38);
+    var n = Math.ceil(W / pitch) + 1;
+    bars = [];
+    for (var i = 0; i < n; i++) {
+      var d = Math.abs(i - (n - 1) / 2) / ((n - 1) / 2 || 1);
+      bars.push({
+        x: i * pitch,
+        w: Math.max(4, pitch * 0.4),
+        phase: i * 0.55 + Math.sin(i * 1.7) * 2,
+        speed: 0.45 + (i % 5) * 0.13,
+        base: 0.5 - d * 0.3,
+        hot: (i % 7 === 3)
+      });
     }
+  }
 
-    var target = 9 * 3600 + 15 * 60;
+  function resize() {
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var r = cvs.getBoundingClientRect();
+    W = r.width; H = r.height;
+    cvs.width = Math.round(W * dpr);
+    cvs.height = Math.round(H * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    build();
+    if (reduce) { draw(0); }
+  }
 
-    if (reduce) {
-      el.textContent = fmt(target);
-    } else {
-      var duration = 1700;
-      var start = null;
-      function step(ts) {
-        if (start === null) { start = ts; }
-        var p = Math.min((ts - start) / duration, 1);
-        var eased = 1 - Math.pow(1 - p, 3);
-        el.textContent = fmt(target * eased);
-        if (p < 1) { requestAnimationFrame(step); }
+  function draw(t) {
+    ctx.clearRect(0, 0, W, H);
+    var violet = css('--violet') || '#4F40F5';
+    var lift = css('--violet-lift') || '#8B7FFF';
+
+    for (var i = 0; i < bars.length; i++) {
+      var b = bars[i];
+      var wob = Math.sin(t * 0.00042 * b.speed + b.phase) * 0.5
+              + Math.sin(t * 0.00019 + b.phase * 1.6) * 0.3;
+      var h = H * Math.max(0.06, Math.min(0.95, b.base + wob * 0.26));
+
+      var g = ctx.createLinearGradient(0, 0, 0, h);
+      g.addColorStop(0, b.hot ? lift : violet);
+      g.addColorStop(1, 'rgba(79,64,245,0)');
+      ctx.fillStyle = g;
+      ctx.globalAlpha = b.hot ? 0.5 : 0.3;
+
+      ctx.beginPath();
+      if (ctx.roundRect) {
+        ctx.roundRect(b.x, 0, b.w, h, [0, 0, b.w / 2, b.w / 2]);
+      } else {
+        ctx.rect(b.x, 0, b.w, h);
       }
-      requestAnimationFrame(step);
+      ctx.fill();
     }
+    ctx.globalAlpha = 1;
+  }
 
-    var shell = document.getElementById('trackShell');
-    if (shell && 'IntersectionObserver' in window) {
-      var io = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            shell.classList.add('playing');
-            io.disconnect();
-          }
-        });
-      }, { threshold: 0.4 });
-      io.observe(shell);
-    } else if (shell) {
-      shell.classList.add('playing');
-    }
-  })();
+  function loop(t) {
+    if (running) { draw(t); }
+    requestAnimationFrame(loop);
+  }
+
+  resize();
+  window.addEventListener('resize', resize);
+  if (!reduce) { requestAnimationFrame(loop); }
+
+  document.addEventListener('visibilitychange', function () {
+    running = !document.hidden;
+  });
+
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (es) {
+      running = es[0].isIntersecting && !document.hidden;
+    }, { threshold: 0 }).observe(cvs);
+  }
+
+  /* ---- timeline playhead ---- */
+  var shell = document.getElementById('trackShell');
+  if (shell && 'IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (e.isIntersecting) { shell.classList.add('playing'); io.disconnect(); }
+      });
+    }, { threshold: 0.35 });
+    io.observe(shell);
+  } else if (shell) {
+    shell.classList.add('playing');
+  }
+
+  /* ---- scroll reveals ---- */
+  var items = document.querySelectorAll('[data-reveal]');
+  if ('IntersectionObserver' in window && !reduce) {
+    var ro = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('in'); ro.unobserve(e.target); }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    items.forEach(function (el) { ro.observe(el); });
+  } else {
+    items.forEach(function (el) { el.classList.add('in'); });
+  }
+})();
 </script>
-
 </body>
 </html>
