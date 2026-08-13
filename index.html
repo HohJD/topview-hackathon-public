@@ -277,6 +277,12 @@
     color: var(--violet-soft);
     background: color-mix(in srgb, var(--violet) 12%, transparent);
   }
+  .kicker .fact {
+    font-size: 0.82rem;
+    letter-spacing: 0.14em;
+    color: var(--ink);
+  }
+  .kicker b { width: 4px; height: 4px; border-radius: 50%; background: var(--violet); flex: none; }
 
   h1.poster {
     font-size: var(--fs-poster);
@@ -386,32 +392,6 @@
       linear-gradient(var(--violet) 0 0) 18px 0 / 3px 6px no-repeat;
   }
   @keyframes slide { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-
-  /* ---------- slate ---------- */
-
-  .slate {
-    display: grid; gap: 1px;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    background: var(--rule);
-    border: 1px solid var(--rule);
-    border-radius: 14px;
-    overflow: hidden;
-  }
-  .slate div { background: var(--surface); padding: 1.25rem 1.3rem 1.4rem; }
-  .slate dt {
-    font-family: var(--mono); font-size: var(--fs-micro);
-    letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-3);
-    margin-bottom: 0.5rem;
-  }
-  .slate dd {
-    margin: 0; font-family: var(--display); font-weight: 700;
-    font-size: 1.15rem; letter-spacing: -0.015em; line-height: 1.2;
-  }
-  .slate dd small {
-    display: block; font-family: var(--mono); font-weight: 400;
-    font-size: 0.7rem; letter-spacing: 0.04em; color: var(--ink-3);
-    margin-top: 0.4rem; line-height: 1.45;
-  }
 
   /* ---------- split ---------- */
 
@@ -786,8 +766,11 @@
 
     <div class="kicker">
       <span class="pill">TopView AI</span>
-      <span>AWS Office KL</span>
-      <span>Sun 6 Sep 2026</span>
+      <span class="fact">Sun 6 Sep 2026</span>
+      <b aria-hidden="true"></b>
+      <span class="fact">08:45 to 18:00</span>
+      <b aria-hidden="true"></b>
+      <span class="fact">AWS Office KL</span>
     </div>
 
     <h1 class="poster">
@@ -843,15 +826,6 @@
 
 <section class="section" id="brief">
   <div class="wrap">
-    <dl class="slate" data-reveal style="margin-bottom:clamp(3rem,6vw,4.5rem);">
-      <div><dt>Date</dt><dd>Sun 6 Sep 2026</dd></div>
-      <div><dt>Call</dt><dd>08:45<small>Check-in and team forming</small></dd></div>
-      <div><dt>Wrap</dt><dd>18:00<small>Winners announced</small></dd></div>
-      <div><dt>Location</dt><dd>AWS Office KL<small>Address <span class="tbc">TBC</span></small></dd></div>
-      <div><dt>Crew</dt><dd>1 to 4<small>Solo entries welcome</small></dd></div>
-      <div><dt>Purse</dt><dd>RM3,500<small>Split across three teams</small></dd></div>
-    </dl>
-
     <div class="sec-head" data-reveal>
       <p class="eyebrow">The brief</p>
     </div>
@@ -1292,6 +1266,12 @@
 <script>
 (function () {
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* every refresh starts at the top, not where the browser left off */
+  if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }
+  window.addEventListener('load', function () {
+    if (!location.hash) { window.scrollTo(0, 0); }
+  });
 
   /* ---- theme toggle ---- */
   var root = document.documentElement;
