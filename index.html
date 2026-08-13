@@ -642,14 +642,6 @@
   .close h2 { font-size: clamp(2.3rem, 8vw, 5.5rem); letter-spacing: -0.05em; max-width: 15ch; margin-inline: auto; }
   .close .hero-cta { justify-content: center; margin-top: 2.25rem; }
 
-  /* ---------- open items ---------- */
-
-  .openitems { background: var(--surface-2); border: 1px dashed var(--rule); border-radius: 16px; padding: clamp(1.5rem, 4vw, 2.4rem); }
-  .openitems h2 { font-size: 1.25rem; letter-spacing: -0.02em; margin-bottom: 0.6rem; }
-  .openitems ol { margin: 1.4rem 0 0; padding: 0; list-style: none; counter-reset: oi; display: grid; gap: 0.65rem; }
-  .openitems li { counter-increment: oi; display: grid; grid-template-columns: 2.1rem minmax(0, 1fr); font-family: var(--mono); font-size: 0.8rem; line-height: 1.55; color: var(--ink-2); }
-  .openitems li::before { content: counter(oi, decimal-leading-zero); color: var(--warm); }
-
   /* ---------- footer ---------- */
 
   footer { border-top: 1px solid var(--rule); padding-block: 2.25rem 2.75rem; }
@@ -1145,32 +1137,7 @@
   </div>
 </section>
 
-<section class="section" id="register">
-  <div class="wrap">
-    <div class="openitems" data-reveal>
-      <p class="eyebrow" style="margin-bottom:0.8rem;">Internal note, remove before launch</p>
-      <h2>Open items before this page goes live</h2>
-      <p style="font-size:0.92rem;color:var(--ink-2);max-width:40em;">Everything above is written and ready. These are the gaps filled with placeholders or reasonable assumptions, listed so they can be confirmed or corrected.</p>
-      <ol>
-        <li>Full AWS Office KL address, floor, and building access instructions</li>
-        <li>Registration link, currently a dead anchor on every CTA</li>
-        <li>Sherlyn's Instagram follower count. You wrote 190, which reads as a typo, so it is left off the page rather than guessed at</li>
-        <li>Confirm the LinkedIn mapping. hohjd is assumed to be JD and hi-teng is assumed to be Sherlyn</li>
-        <li>Named presenter for the combined TopView and Seedance 2.5 workshop</li>
-        <li>Confirm "brand film" is the right label for the 1 to 3 minute emotional ad brief</li>
-        <li>How many finalists get a demo slot, given 60 minutes at three minutes each</li>
-        <li>Capacity cap, and whether registration is per team or per person</li>
-        <li>TopView credit allocation per team</li>
-        <li>Judging panel names, plus sign off on the 30 / 25 / 25 / 20 weighting</li>
-        <li>Prize payout mechanics and any eligibility conditions</li>
-        <li>Whether AWS is co-host or venue partner, which changes the logo lockup</li>
-        <li>Submission upload destination and file spec</li>
-              </ol>
-    </div>
-  </div>
-</section>
-
-<section class="close">
+<section class="close" id="register">
   <div class="wrap">
     <p class="eyebrow" style="margin-bottom:1.4rem;justify-content:center;display:flex;">6 September 2026 &middot; 08:45 to 18:00</p>
     <h2>Nine hours. Then it either plays or it does not.</h2>
