@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>TopView AI Video Hackathon</title>
-<meta name="description" content="Build a brand film in a day. AI Video Hackathon by TopView AI at the AWS Office KL, Sunday 6 September 2026. Workshops on TopView and Seedance 2.5, then a build sprint. Teams of 1 to 4. $3,500 in prizes.">
+<meta name="description" content="Build a brand film in a day. AI Video Hackathon by TopView AI at the AWS Office KL, Sunday 6 September 2026. A workshop on TopView and Seedance 2.5, then a build sprint. Teams of 1 to 4. RM3,500 in prizes.">
 <meta name="theme-color" content="#06050D">
 <meta property="og:title" content="TopView AI Video Hackathon">
-<meta property="og:description" content="Build a brand film in a day. AWS Office KL, Sunday 6 September 2026. Workshops on TopView and Seedance 2.5, then a build sprint. $3,500 in prizes.">
+<meta property="og:description" content="Build a brand film in a day. AWS Office KL, Sunday 6 September 2026. A workshop on TopView and Seedance 2.5, then a build sprint. RM3,500 in prizes.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="/topview-logo.jpg">
 <meta name="twitter:card" content="summary_large_image">
@@ -309,17 +309,53 @@
 
   .runtime { text-align: left; }
   @media (min-width: 880px) { .runtime { text-align: right; } }
-  .runtime .v {
-    font-family: var(--mono); font-variant-numeric: tabular-nums;
-    font-size: clamp(1.6rem, 3.4vw, 2.6rem);
-    letter-spacing: -0.01em; line-height: 1; color: var(--ink);
-    display: block;
-  }
   .runtime .k {
     font-family: var(--mono); font-size: var(--fs-micro);
     letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-3);
-    display: block; margin-top: 0.4rem;
+    display: block; margin-bottom: 0.7rem;
   }
+
+  .countdown { display: flex; gap: 0.5rem; }
+  @media (min-width: 880px) { .countdown { justify-content: flex-end; } }
+  .countdown div {
+    border: 1px solid var(--rule);
+    background: color-mix(in srgb, var(--surface) 70%, transparent);
+    border-radius: 12px;
+    padding: 0.7rem 0.5rem 0.6rem;
+    min-width: 62px;
+    text-align: center;
+  }
+  .countdown .v {
+    display: block;
+    font-family: var(--mono); font-variant-numeric: tabular-nums;
+    font-size: clamp(1.35rem, 2.8vw, 1.9rem);
+    line-height: 1; letter-spacing: -0.02em; color: var(--ink);
+  }
+  .countdown .u {
+    display: block; margin-top: 0.45rem;
+    font-family: var(--mono); font-size: 0.58rem;
+    letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-3);
+  }
+
+  /* ---------- theme toggle ---------- */
+
+  .themer {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 36px; height: 36px; flex: none;
+    border: 1px solid var(--rule); border-radius: 999px;
+    background: transparent; color: var(--ink-2); cursor: pointer;
+    transition: color 0.15s ease, border-color 0.15s ease;
+  }
+  .themer:hover { color: var(--violet-lift); border-color: var(--violet-lift); }
+  .themer svg { width: 16px; height: 16px; display: block; }
+  .themer .moon { display: none; }
+  :root[data-theme="light"] .themer .moon { display: block; }
+  :root[data-theme="light"] .themer .sun { display: none; }
+  @media (prefers-color-scheme: light) {
+    :root:not([data-theme="dark"]) .themer .moon { display: block; }
+    :root:not([data-theme="dark"]) .themer .sun { display: none; }
+  }
+  .nav-right { display: flex; align-items: center; gap: 0.6rem; }
 
   /* ---------- marquee ---------- */
 
@@ -430,6 +466,8 @@
     font-size: 0.94rem; color: var(--ink-2);
   }
   .shop li::before { content: ""; width: 7px; height: 7px; border-radius: 2px; background: var(--violet); margin-top: 0.6rem; }
+  .shop.solo { grid-column: 1 / -1; }
+  @media (min-width: 700px) { .shop.solo ul { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 2.5rem; } }
 
   /* ---------- timeline ---------- */
 
@@ -557,6 +595,18 @@
   .stats .n { font-family: var(--display); font-weight: 800; font-size: clamp(1.9rem, 4vw, 2.6rem); letter-spacing: -0.04em; line-height: 1; color: var(--violet-lift); font-variant-numeric: tabular-nums; }
   .stats .t { font-family: var(--mono); font-size: var(--fs-micro); letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-3); margin-top: 0.6rem; line-height: 1.5; }
 
+  .socials { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: auto; padding-top: 0.6rem; }
+  .socials a {
+    display: inline-flex; align-items: center; gap: 0.45rem;
+    border: 1px solid var(--rule); border-radius: 999px;
+    padding: 0.4rem 0.85rem;
+    font-family: var(--mono); font-size: 0.68rem;
+    letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-2);
+    transition: color 0.15s ease, border-color 0.15s ease;
+  }
+  .socials a:hover { color: var(--violet-lift); border-color: var(--violet-lift); }
+  .socials svg { width: 13px; height: 13px; flex: none; }
+
   /* ---------- faq ---------- */
 
   .faq { max-width: 46em; }
@@ -646,7 +696,18 @@
       <a href="#team">Team</a>
       <a href="#faq">FAQ</a>
     </div>
-    <a class="btn sm" href="#register">Register</a>
+    <div class="nav-right">
+      <button class="themer" id="themer" type="button" aria-label="Switch between light and dark mode">
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"/>
+          <path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"/>
+        </svg>
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>
+        </svg>
+      </button>
+      <a class="btn sm" href="#register">Register</a>
+    </div>
   </div>
 </nav>
 
@@ -667,7 +728,7 @@
 
     <div class="hero-foot">
       <div>
-        <p class="lead" style="margin-bottom:1.6rem;">Build a brand film in a day. Two workshops, one sprint, $3,500 in prizes.</p>
+        <p class="lead" style="margin-bottom:1.6rem;">A stage for marketers, creatives, and anyone who makes things people feel. Build a brand film in a day. RM3,500 in prizes.</p>
         <div class="hero-cta">
           <a class="btn" href="#register">Register your team</a>
           <a class="btn ghost" href="#schedule">See the run of day</a>
@@ -675,8 +736,13 @@
         <p class="hero-note" style="margin-top:1rem;">Free to enter &middot; Teams of 1 to 4 &middot; Solo entries welcome</p>
       </div>
       <div class="runtime">
-        <span class="v" id="runtime">00:00:00</span>
-        <span class="k">Runtime 08:45 to 18:00</span>
+        <span class="k" id="cdLabel">Doors open in</span>
+        <div class="countdown" id="countdown">
+          <div><span class="v" data-cd="d">00</span><span class="u">Days</span></div>
+          <div><span class="v" data-cd="h">00</span><span class="u">Hrs</span></div>
+          <div><span class="v" data-cd="m">00</span><span class="u">Min</span></div>
+          <div><span class="v" data-cd="s">00</span><span class="u">Sec</span></div>
+        </div>
       </div>
     </div>
 
@@ -688,7 +754,7 @@
     <div>
       <span>Sun 6 Sep 2026</span><i></i>
       <span>AWS Office KL</span><i></i>
-      <span class="hot">$3,500 in prizes</span><i></i>
+      <span class="hot">RM3,500 in prizes</span><i></i>
       <span>Teams of 1 to 4</span><i></i>
       <span>TopView workshop</span><i></i>
       <span class="hot">Seedance 2.5 tutorial</span><i></i>
@@ -697,7 +763,7 @@
     <div>
       <span>Sun 6 Sep 2026</span><i></i>
       <span>AWS Office KL</span><i></i>
-      <span class="hot">$3,500 in prizes</span><i></i>
+      <span class="hot">RM3,500 in prizes</span><i></i>
       <span>Teams of 1 to 4</span><i></i>
       <span>TopView workshop</span><i></i>
       <span class="hot">Seedance 2.5 tutorial</span><i></i>
@@ -714,7 +780,7 @@
       <div><dt>Wrap</dt><dd>18:00<small>Winners announced</small></dd></div>
       <div><dt>Location</dt><dd>AWS Office KL<small>Address <span class="tbc">TBC</span></small></dd></div>
       <div><dt>Crew</dt><dd>1 to 4<small>Solo entries welcome</small></dd></div>
-      <div><dt>Purse</dt><dd>$3,500<small>Split across three teams</small></dd></div>
+      <div><dt>Purse</dt><dd>RM3,500<small>Split across three teams</small></dd></div>
     </dl>
 
     <div class="sec-head" data-reveal>
@@ -758,27 +824,19 @@
     <div class="sec-head" data-reveal>
       <p class="eyebrow">Morning workshops</p>
       <h2>Learn the tools first.<br>Then start the clock.</h2>
-      <p class="lead" style="margin-top:1.4rem;">Both sessions run before the sprint opens. Built for people opening these tools for the first time.</p>
+      <p class="lead" style="margin-top:1.4rem;">One session covering both tools, run before the sprint opens. Built for people opening them for the first time.</p>
     </div>
 
     <div class="shops">
-      <article class="shop" data-reveal>
-        <p class="when">09:30 to 10:10 <em>40 min</em></p>
-        <h3>TopView, end to end</h3>
-        <p style="color:var(--ink-2);font-size:0.96rem;">Blank project to finished cut.</p>
+      <article class="shop solo" data-reveal>
+        <p class="when">09:30 to 10:45 <em>75 min</em></p>
+        <h3>TopView &amp; Seedance 2.5</h3>
+        <p style="color:var(--ink-2);font-size:1rem;max-width:40em;">Blank project to finished cut, then how to get the shot you want rather than the shot you settle for.</p>
         <ul>
           <li>Generating, editing, and assembling inside TopView</li>
           <li>Automating the repetitive parts so you iterate in minutes</li>
           <li>Where your credits go furthest</li>
-        </ul>
-      </article>
-
-      <article class="shop" data-reveal>
-        <p class="when">10:10 to 10:45 <em>35 min</em></p>
-        <h3>Seedance 2.5</h3>
-        <p style="color:var(--ink-2);font-size:0.96rem;">Getting the shot you want, not the shot you settle for.</p>
-        <ul>
-          <li>Prompting for motion that reads on screen</li>
+          <li>Prompting Seedance 2.5 for motion that reads on screen</li>
           <li>Holding a character steady across cuts</li>
           <li>The failure modes, and how to shoot around them</li>
         </ul>
@@ -808,7 +866,7 @@
         </div>
         <div class="tl" role="img" aria-label="Timeline of the day: check-in 15 minutes, opening session and workshops 1 hour 45, build sprint 2 hours 15, lunch 45 minutes, sprint continues 2 hours 15, judging 1 hour, finalist demos 1 hour.">
           <div class="seg seg-rest"  style="width:2.70%"><b>In</b></div>
-          <div class="seg seg-learn" style="width:18.92%"><b>Workshops</b></div>
+          <div class="seg seg-learn" style="width:18.92%"><b>Workshop</b></div>
           <div class="seg seg-build" style="width:24.32%"><b>Sprint 01</b></div>
           <div class="seg seg-rest"  style="width:8.11%"><b>Lunch</b></div>
           <div class="seg seg-build" style="width:24.32%"><b>Sprint 02</b></div>
@@ -831,14 +889,9 @@
         <span class="dur">30 min</span>
       </li>
       <li>
-        <span class="tc">09:30 &rarr; 10:10</span>
-        <span class="what">TopView workshop<em>The full video stack, hands on, from blank project to finished cut.</em></span>
-        <span class="dur">40 min</span>
-      </li>
-      <li>
-        <span class="tc">10:10 &rarr; 10:45</span>
-        <span class="what">Seedance 2.5 tutorial<em>Prompting for motion, holding characters steady across cuts, and where the model still breaks.</em></span>
-        <span class="dur">35 min</span>
+        <span class="tc">09:30 &rarr; 10:45</span>
+        <span class="what">TopView and Seedance 2.5 workshop<em>Both tools in one session. Blank project to finished cut, then prompting for shots that actually work.</em></span>
+        <span class="dur">75 min</span>
       </li>
       <li class="key">
         <span class="tc">10:45 &rarr; 13:00</span>
@@ -883,24 +936,24 @@
   <div class="wrap">
     <div class="sec-head" data-reveal>
       <p class="eyebrow">Prize money</p>
-      <h2>$3,500, split three ways.</h2>
+      <h2>RM3,500, split three ways.</h2>
       <p class="lead" style="margin-top:1.4rem;">Paid to the team, split however you agree between yourselves. Solo entries take the full amount.</p>
     </div>
 
     <div class="purse" data-reveal>
       <article class="first">
         <span class="place">First place</span>
-        <span class="amount">$2,000</span>
+        <span class="amount">RM2,000</span>
         <p>Best video of the day, on the four criteria below.</p>
       </article>
       <article>
         <span class="place">Second</span>
-        <span class="amount">$1,000</span>
+        <span class="amount">RM1,000</span>
         <p>Runner up.</p>
       </article>
       <article>
         <span class="place">Third</span>
-        <span class="amount">$500</span>
+        <span class="amount">RM500</span>
         <p>Third place.</p>
       </article>
     </div>
@@ -955,12 +1008,14 @@
     </div>
     <div class="cols">
       <div data-reveal>
-        <h2>Who this<br>is for</h2>
-        <p class="prose" style="margin-top:1.4rem;">Teams of one to four. No balanced team required, and you do not need to know anyone before you arrive.</p>
+        <h2>Built for<br>creatives</h2>
+        <p class="prose" style="margin-top:1.4rem;">If you have taste but never had the budget for a production crew, this is your day. Teams of one to four, and you do not need to know anyone before you arrive.</p>
         <ul class="ticks">
+          <li>Marketers and brand people who have always wanted to shoot the idea in their head</li>
+          <li>Copywriters, art directors, and creative strategists</li>
           <li>Editors, motion designers, and filmmakers</li>
+          <li>Content creators who want a bigger canvas than a phone</li>
           <li>Engineers who want to chain models into a pipeline</li>
-          <li>Founders and marketers who make video for a living</li>
           <li>Students and first timers. Team forming at 08:45 is for you</li>
         </ul>
       </div>
@@ -985,7 +1040,7 @@
     <div class="sec-head" data-reveal>
       <p class="eyebrow">The team behind it</p>
       <h2>Run by people who<br>run these rooms.</h2>
-      <p class="lead" style="margin-top:1.4rem;">This is not a first attempt. Between them, JD and Sherlyn have filled rooms across KL and London.</p>
+      <p class="lead" style="margin-top:1.4rem;">This is not a first attempt. JD and Sherlyn have been filling rooms across KL for years.</p>
     </div>
 
     <div class="crew">
@@ -995,10 +1050,19 @@
         <ul>
           <li>Ambassador, Devin by Cognition</li>
           <li>Former Lovable Ambassador</li>
-          <li>Taught a month of summer school at UCL, London</li>
-          <li>Ran Lovable Vibeathon and the OpenClaw KL monthly meetup</li>
-          <li>Next up: Devin AI Agent Hackathon, and ADLP x Codex by Axiata Foundation</li>
+          <li>Ran <a href="https://vibeathonkl.lovable.app" target="_blank" rel="noopener noreferrer" style="color:var(--violet-lift);text-decoration:underline;text-underline-offset:3px;">Lovable Vibeathon KL</a> and the OpenClaw KL monthly meetup</li>
+          <li>Next up: Devin AI Agent Hackathon, and <a href="https://emergingleadersasia.com/adlp-for-girls" target="_blank" rel="noopener noreferrer" style="color:var(--violet-lift);text-decoration:underline;text-underline-offset:3px;">ADLP x Codex</a> by Axiata Foundation</li>
         </ul>
+        <div class="socials">
+          <a href="https://www.linkedin.com/in/hohjd/" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.5c0-1.3-.03-3-1.83-3-1.83 0-2.11 1.43-2.11 2.9V21H9z"/></svg>
+            LinkedIn
+          </a>
+          <a href="https://www.instagram.com/hohjiada/" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4"/><circle cx="17.6" cy="6.4" r="1.2" fill="currentColor" stroke="none"/></svg>
+            Instagram
+          </a>
+        </div>
       </article>
 
       <article class="person" data-reveal>
@@ -1009,13 +1073,23 @@
           <li>Co-host of JD's events</li>
           <li>Speaker at multiple AI events</li>
         </ul>
+        <div class="socials">
+          <a href="https://www.linkedin.com/in/hi-teng/" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.5c0-1.3-.03-3-1.83-3-1.83 0-2.11 1.43-2.11 2.9V21H9z"/></svg>
+            LinkedIn
+          </a>
+          <a href="https://www.instagram.com/sherlynheon/" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4"/><circle cx="17.6" cy="6.4" r="1.2" fill="currentColor" stroke="none"/></svg>
+            Instagram
+          </a>
+        </div>
       </article>
     </div>
 
     <div class="stats" data-reveal>
       <div>
         <p class="n">150+</p>
-        <p class="t">Attended Lovable Vibeathon</p>
+        <p class="t"><a href="https://vibeathonkl.lovable.app" target="_blank" rel="noopener noreferrer" style="text-decoration:underline;text-underline-offset:3px;">Attended Lovable Vibeathon KL</a></p>
       </div>
       <div>
         <p class="n">300</p>
@@ -1080,18 +1154,18 @@
       <ol>
         <li>Full AWS Office KL address, floor, and building access instructions</li>
         <li>Registration link, currently a dead anchor on every CTA</li>
-        <li>Sherlyn's Instagram follower count. You wrote 190, which reads as a typo, so it is left off the page rather than guessed at. Confirm the figure and the handle</li>
-        <li>Named presenters for the TopView and Seedance 2.5 workshops</li>
+        <li>Sherlyn's Instagram follower count. You wrote 190, which reads as a typo, so it is left off the page rather than guessed at</li>
+        <li>Confirm the LinkedIn mapping. hohjd is assumed to be JD and hi-teng is assumed to be Sherlyn</li>
+        <li>Named presenter for the combined TopView and Seedance 2.5 workshop</li>
         <li>Confirm "brand film" is the right label for the 1 to 3 minute emotional ad brief</li>
         <li>How many finalists get a demo slot, given 60 minutes at three minutes each</li>
         <li>Capacity cap, and whether registration is per team or per person</li>
         <li>TopView credit allocation per team</li>
         <li>Judging panel names, plus sign off on the 30 / 25 / 25 / 20 weighting</li>
-        <li>Prize payout mechanics, currency, and any eligibility conditions</li>
+        <li>Prize payout mechanics and any eligibility conditions</li>
         <li>Whether AWS is co-host or venue partner, which changes the logo lockup</li>
         <li>Submission upload destination and file spec</li>
-        <li>Currency for prize amounts, USD or MYR</li>
-      </ol>
+              </ol>
     </div>
   </div>
 </section>
@@ -1135,28 +1209,61 @@
 (function () {
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* ---- runtime counter: 08:45 to 18:00 is 09:15:00 ---- */
-  var out = document.getElementById('runtime');
-  var target = 9 * 3600 + 15 * 60;
+  /* ---- theme toggle ---- */
+  var root = document.documentElement;
+  var btn = document.getElementById('themer');
 
-  function fmt(total) {
-    var h = Math.floor(total / 3600),
-        m = Math.floor((total % 3600) / 60),
-        s = Math.floor(total % 60);
-    return [h, m, s].map(function (n) { return n < 10 ? '0' + n : '' + n; }).join(':');
+  function systemTheme() {
+    return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
   }
 
-  if (reduce) {
-    out.textContent = fmt(target);
-  } else {
-    var dur = 1800, t0 = null;
-    requestAnimationFrame(function step(ts) {
-      if (t0 === null) { t0 = ts; }
-      var p = Math.min((ts - t0) / dur, 1);
-      out.textContent = fmt(target * (1 - Math.pow(1 - p, 3)));
-      if (p < 1) { requestAnimationFrame(step); }
-    });
+  try {
+    var saved = localStorage.getItem('tv-theme');
+    if (saved === 'light' || saved === 'dark') { root.setAttribute('data-theme', saved); }
+  } catch (e) { /* storage blocked, fall back to system */ }
+
+  btn.addEventListener('click', function () {
+    var current = root.getAttribute('data-theme') || systemTheme();
+    var next = current === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem('tv-theme', next); } catch (e) { /* ignore */ }
+    var meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) { meta.setAttribute('content', next === 'dark' ? '#06050D' : '#F2F1FA'); }
+  });
+
+  /* ---- countdown to doors, 6 Sep 2026 08:45 Malaysia time (UTC+8) ---- */
+  var doors = new Date('2026-09-06T08:45:00+08:00').getTime();
+  var cdEls = {
+    d: document.querySelector('[data-cd="d"]'),
+    h: document.querySelector('[data-cd="h"]'),
+    m: document.querySelector('[data-cd="m"]'),
+    s: document.querySelector('[data-cd="s"]')
+  };
+  var cdLabel = document.getElementById('cdLabel');
+
+  function pad(n) { return n < 10 ? '0' + n : '' + n; }
+
+  function tickCountdown() {
+    var left = doors - Date.now();
+
+    if (left <= 0) {
+      cdLabel.textContent = 'The doors are open';
+      cdEls.d.textContent = '00';
+      cdEls.h.textContent = '00';
+      cdEls.m.textContent = '00';
+      cdEls.s.textContent = '00';
+      return false;
+    }
+
+    var secs = Math.floor(left / 1000);
+    cdEls.d.textContent = pad(Math.floor(secs / 86400));
+    cdEls.h.textContent = pad(Math.floor(secs / 3600) % 24);
+    cdEls.m.textContent = pad(Math.floor(secs / 60) % 60);
+    cdEls.s.textContent = pad(secs % 60);
+    return true;
   }
+
+  if (tickCountdown()) { setInterval(tickCountdown, 1000); }
 
   /* ---- hero bar field: the logo mark exploded across full width ---- */
   var cvs = document.getElementById('field');
@@ -1199,6 +1306,7 @@
     ctx.clearRect(0, 0, W, H);
     var violet = css('--violet') || '#4F40F5';
     var lift = css('--violet-lift') || '#8B7FFF';
+    var light = (root.getAttribute('data-theme') || systemTheme()) === 'light';
 
     for (var i = 0; i < bars.length; i++) {
       var b = bars[i];
@@ -1210,7 +1318,7 @@
       g.addColorStop(0, b.hot ? lift : violet);
       g.addColorStop(1, 'rgba(79,64,245,0)');
       ctx.fillStyle = g;
-      ctx.globalAlpha = b.hot ? 0.5 : 0.3;
+      ctx.globalAlpha = light ? (b.hot ? 0.32 : 0.18) : (b.hot ? 0.5 : 0.3);
 
       ctx.beginPath();
       if (ctx.roundRect) {
