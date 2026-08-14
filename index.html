@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Topview AI Video Hackathon</title>
-<meta name="description" content="Build a brand film in a day. AI Video Hackathon by Topview AI at the AWS Office KL, Sunday 6 September 2026. A workshop on Topview and Seedance 2.5, then a build sprint. Teams of 1 to 4. RM3,500 in prizes.">
+<meta name="description" content="Malaysia, Stories That Unite. An AI Video Hackathon by Topview AI at the AWS Office KL, Sunday 6 September 2026. Build a Malaysia themed festive brand film in a day. Teams of 2 to 4. RM3,500 in prizes.">
 <meta name="theme-color" content="#08050F">
 <meta property="og:title" content="Topview AI Video Hackathon">
-<meta property="og:description" content="Build a brand film in a day. AWS Office KL, Sunday 6 September 2026. A workshop on Topview and Seedance 2.5, then a build sprint. RM3,500 in prizes.">
+<meta property="og:description" content="Malaysia, Stories That Unite. AWS Office KL, Sunday 6 September 2026. Build a Malaysia themed festive brand film in a day. RM3,500 in prizes.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
@@ -214,6 +214,26 @@
   footer .lk-icon { width: 28px; height: 28px; border-radius: 8px; }
   footer .lk-word { height: 16px; }
 
+  /* ---------- proposal bar ---------- */
+
+  .proposal-bar {
+    background: var(--violet);
+    color: #fff;
+    position: relative;
+    z-index: 60;
+  }
+  .proposal-bar .wrap {
+    padding-block: 0.5rem;
+    display: flex;
+    justify-content: center;
+  }
+  .proposal-bar span {
+    font-family: var(--mono);
+    font-size: 0.66rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+  }
+
   /* ---------- nav ---------- */
 
   nav.top {
@@ -271,12 +291,45 @@
     color: var(--violet-soft);
     background: color-mix(in srgb, var(--violet) 12%, transparent);
   }
-  .kicker .fact {
-    font-size: 0.82rem;
-    letter-spacing: 0.14em;
+  .kicker .theme-chip {
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
     color: var(--ink);
   }
-  .kicker b { width: 4px; height: 4px; border-radius: 50%; background: var(--violet); flex: none; }
+
+  .whenwhere {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, auto));
+    gap: 1px;
+    margin: 0 0 2rem;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    border-radius: 14px;
+    overflow: hidden;
+    width: fit-content;
+    max-width: 100%;
+  }
+  .whenwhere div {
+    background: color-mix(in srgb, var(--surface) 82%, transparent);
+    padding: 0.9rem 1.4rem 1rem;
+  }
+  .whenwhere dt {
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin-bottom: 0.4rem;
+  }
+  .whenwhere dd {
+    margin: 0;
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: clamp(1.05rem, 2vw, 1.3rem);
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    white-space: nowrap;
+  }
 
   h1.poster {
     font-size: var(--fs-poster);
@@ -399,6 +452,29 @@
     padding-top: 0.3rem; white-space: nowrap;
   }
   .deliverables p { color: var(--ink-2); font-size: 0.94rem; margin-top: 0.35rem; }
+
+  .steps { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rule); }
+  .steps li {
+    display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 1.2rem;
+    padding: 1.15rem 0; border-bottom: 1px solid var(--rule);
+  }
+  .steps .n {
+    font-family: var(--mono); font-variant-numeric: tabular-nums;
+    font-size: 0.78rem; letter-spacing: 0.12em; color: var(--violet-lift);
+    padding-top: 0.3rem;
+  }
+  .steps p { color: var(--ink-2); font-size: 0.94rem; margin-top: 0.3rem; }
+
+  .rules {
+    margin-top: clamp(2.5rem, 5vw, 3.5rem);
+    border: 1px solid var(--rule); border-radius: 16px;
+    background: var(--surface);
+    padding: clamp(1.5rem, 3.5vw, 2.25rem);
+  }
+  .rules-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.5rem; }
+  @media (min-width: 760px) { .rules-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.5rem; } }
+  .rules h3 { font-size: 1rem; margin-bottom: 0.4rem; }
+  .rules p { font-size: 0.92rem; color: var(--ink-2); margin: 0; }
 
   /* ---------- workshops ---------- */
 
@@ -523,7 +599,10 @@
   /* ---------- criteria ---------- */
 
   .criteria { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: 1px; background: var(--rule); border: 1px solid var(--rule); border-radius: 14px; overflow: hidden; }
-  @media (min-width: 760px) { .criteria { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+  @media (min-width: 620px) {
+    .criteria { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .criteria li:last-child { grid-column: 1 / -1; }
+  }
   .criteria li { background: var(--surface); padding: 1.6rem 1.6rem 1.75rem; display: flex; flex-direction: column; gap: 0.4rem; }
   .criteria .num {
     font-family: var(--mono); font-variant-numeric: tabular-nums;
@@ -714,6 +793,10 @@
 </head>
 <body>
 
+<div class="proposal-bar">
+  <div class="wrap"><span>Event Proposal</span></div>
+</div>
+
 <nav class="top">
   <div class="wrap">
     <a class="lockup" href="#top" aria-label="Topview home">
@@ -749,11 +832,7 @@
 
     <div class="kicker">
       <span class="pill">Topview AI</span>
-      <span class="fact">Sun 6 Sep 2026</span>
-      <b aria-hidden="true"></b>
-      <span class="fact">08:45 to 18:00</span>
-      <b aria-hidden="true"></b>
-      <span class="fact">AWS Office KL</span>
+      <span class="theme-chip">Theme: Malaysia, Stories That Unite</span>
     </div>
 
     <h1 class="poster">
@@ -763,12 +842,28 @@
 
     <div class="hero-foot">
       <div>
-        <p class="lead" style="margin-bottom:1.6rem;">A stage for marketers, creatives, and anyone who makes things people feel. Build a brand film in a day. RM3,500 in prizes.</p>
+        <p class="lead" style="margin-bottom:1.75rem;">Celebrate Malaysia through an AI generated festive film, built in a day. RM3,500 in prizes.</p>
+
+        <dl class="whenwhere">
+          <div>
+            <dt>Date</dt>
+            <dd>Sun, 6 Sep 2026</dd>
+          </div>
+          <div>
+            <dt>Time</dt>
+            <dd>08:45 to 18:00</dd>
+          </div>
+          <div>
+            <dt>Venue</dt>
+            <dd>AWS Office KL</dd>
+          </div>
+        </dl>
+
         <div class="hero-cta">
           <a class="btn" href="#register">Register your team</a>
           <a class="btn ghost" href="#schedule">See the run of day</a>
         </div>
-        <p class="hero-note" style="margin-top:1rem;">Free to enter &middot; Teams of 1 to 4 &middot; Solo entries welcome</p>
+        <p class="hero-note" style="margin-top:1rem;">Free to enter &middot; Teams of 2 to 4 &middot; Malaysia Day theme</p>
       </div>
       <div class="runtime">
         <span class="k" id="cdLabel">Doors open in</span>
@@ -790,19 +885,19 @@
       <span>Sun 6 Sep 2026</span><i></i>
       <span>AWS Office KL</span><i></i>
       <span class="hot">RM3,500 in prizes</span><i></i>
-      <span>Teams of 1 to 4</span><i></i>
+      <span>Teams of 2 to 4</span><i></i>
       <span>Topview workshop</span><i></i>
       <span class="hot">Seedance 2.5 tutorial</span><i></i>
-      <span>Brand film brief</span><i></i>
+      <span>Malaysia, Stories That Unite</span><i></i>
     </div>
     <div>
       <span>Sun 6 Sep 2026</span><i></i>
       <span>AWS Office KL</span><i></i>
       <span class="hot">RM3,500 in prizes</span><i></i>
-      <span>Teams of 1 to 4</span><i></i>
+      <span>Teams of 2 to 4</span><i></i>
       <span>Topview workshop</span><i></i>
       <span class="hot">Seedance 2.5 tutorial</span><i></i>
-      <span>Brand film brief</span><i></i>
+      <span>Malaysia, Stories That Unite</span><i></i>
     </div>
   </div>
 </div>
@@ -814,33 +909,54 @@
     </div>
     <div class="split">
       <div data-reveal>
-        <h2>Build a brand film that makes people feel something.</h2>
-        <p class="prose" style="margin-top:1.5rem;">A brand film is a one to three minute advertisement that sells on emotion, not features. Think of the ads you still remember.</p>
-        <p class="prose">Pick any product, service, or cause. Real or invented, yours or someone else's. What matters is whether the room feels it.</p>
+        <h2>Malaysia,<br>Stories<br>That Unite.</h2>
+        <p class="prose" style="margin-top:1.5rem;">Celebrate Malaysia's diversity, culture and shared spirit through an original AI generated festive film for a brand of your choice.</p>
+        <p class="prose">It lands in the Merdeka and Malaysia Day season, so the films that work will be the ones that feel like home: unity, culture and national pride, told honestly.</p>
       </div>
-      <ul class="deliverables" data-reveal>
+      <ol class="steps" data-reveal>
         <li>
-          <span class="k">Deliver</span>
+          <span class="n">01</span>
           <div>
-            <h3>The film</h3>
-            <p>One to three minutes, any aspect ratio, uploaded by 16:00.</p>
+            <h3>Form a team and pick a brand</h3>
+            <p>Two to four people. Any brand you like.</p>
           </div>
         </li>
         <li>
-          <span class="k">Deliver</span>
+          <span class="n">02</span>
           <div>
-            <h3>A one page build note</h3>
-            <p>What you used, what you automated, what you did by hand.</p>
+            <h3>Make the film with Topview</h3>
+            <p>An original Malaysia themed festive film, built on the day.</p>
           </div>
         </li>
         <li>
-          <span class="k">On stage</span>
+          <span class="n">03</span>
           <div>
-            <h3>Finalist demos</h3>
-            <p>Judges shortlist from 16:00. Finalists play at 17:00 and take questions.</p>
+            <h3>Submit one final cut</h3>
+            <p>Between one and three minutes, uploaded by 16:00.</p>
           </div>
         </li>
-      </ul>
+        <li>
+          <span class="n">04</span>
+          <div>
+            <h3>Make it ring true</h3>
+            <p>Malaysian spirit, inclusivity, and authentic storytelling.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+
+    <div class="rules" data-reveal>
+      <p class="eyebrow" style="margin-bottom:1.1rem;">Guidelines</p>
+      <div class="rules-grid">
+        <div>
+          <h3>The Jalur Gemilang</h3>
+          <p>If the flag features in your film, it must be portrayed respectfully and in accordance with Malaysian flag etiquette.</p>
+        </div>
+        <div>
+          <h3>The 3R matters</h3>
+          <p>Do not include or comment on race, religion and royalty, in accordance with Malaysian law.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -906,7 +1022,7 @@
     <ol class="runsheet" data-reveal>
       <li>
         <span class="tc">08:45 &rarr; 09:00</span>
-        <span class="what">Check-in and team formation<em>Teams of 1 to 4. Come without one and leave with one, facilitated rather than left to chance.</em></span>
+        <span class="what">Check-in and team formation<em>Teams of 2 to 4. Come without one and leave with one, facilitated rather than left to chance.</em></span>
         <span class="dur">15 min</span>
       </li>
       <li>
@@ -963,14 +1079,14 @@
     <div class="sec-head" data-reveal>
       <p class="eyebrow">Prize money</p>
       <h2>RM3,500, split three ways.</h2>
-      <p class="lead" style="margin-top:1.4rem;">Paid to the team, split however you agree between yourselves. Solo entries take the full amount.</p>
+      <p class="lead" style="margin-top:1.4rem;">Paid to the team, split however you agree between yourselves.</p>
     </div>
 
     <div class="purse" data-reveal>
       <article class="first">
         <span class="place">First place</span>
         <span class="amount">RM2,000</span>
-        <p>Best video of the day, on the four criteria below.</p>
+        <p>Highest score of the day across the five criteria below.</p>
       </article>
       <article>
         <span class="place">Second</span>
@@ -993,25 +1109,35 @@
     </div>
     <div class="split">
       <div data-reveal>
-        <h2>Three things,<br>weighted equally.</h2>
-        <p class="prose" style="margin-top:1.5rem;">Judges watch the film, then read your build note. The prompts and sketches behind it count as much as the final cut.</p>
+        <h2>Fifty points,<br>five ways.</h2>
+        <p class="prose" style="margin-top:1.5rem;">Each criterion carries ten points. Nothing is weighted above anything else, so a film has to hold up on all five.</p>
         <p class="prose"><span class="tbc">TBC</span> Panel to be confirmed.</p>
       </div>
       <ul class="criteria" data-reveal>
         <li>
-          <span class="num">01</span>
-          <h3>Design Process</h3>
-          <p>AI prompts, sketches, and clarity of design thinking.</p>
+          <span class="num">10 pts</span>
+          <h3>Storytelling &amp; Narrative</h3>
+          <p>Clear, original and emotionally engaging Malaysia Day story.</p>
         </li>
         <li>
-          <span class="num">02</span>
-          <h3>Creativity &amp; Innovation</h3>
-          <p>Originality and response to sustainability and inclusivity.</p>
+          <span class="num">10 pts</span>
+          <h3>Creative Direction &amp; Craft</h3>
+          <p>Strong visuals, pacing, editing and effective use of AI.</p>
         </li>
         <li>
-          <span class="num">03</span>
-          <h3>Storytelling</h3>
-          <p>Clarity of purpose and connection to the theme.</p>
+          <span class="num">10 pts</span>
+          <h3>Brand Integration</h3>
+          <p>Natural and relevant connection between the brand and the story.</p>
+        </li>
+        <li>
+          <span class="num">10 pts</span>
+          <h3>Malaysia Relevance &amp; Authenticity</h3>
+          <p>Respectful, inclusive and recognisably Malaysian representation.</p>
+        </li>
+        <li>
+          <span class="num">10 pts</span>
+          <h3>Impact &amp; Engagement</h3>
+          <p>A compelling opening and memorable overall impression.</p>
         </li>
       </ul>
     </div>
@@ -1171,12 +1297,12 @@
     </div>
     <div class="faq" data-reveal>
       <details>
-        <summary>What is a brand film?</summary>
-        <p>A short advertisement that sells on feeling rather than features. One to three minutes. Any product, service, or cause, real or invented.</p>
+        <summary>What exactly am I making?</summary>
+        <p>A one to three minute festive brand film on the theme Malaysia, Stories That Unite. Pick any brand, then tell a Malaysia Day story through it.</p>
       </details>
       <details>
-        <summary>Can I come on my own?</summary>
-        <p>Yes. Compete solo, or find a team at check-in. Plenty of people arrive alone.</p>
+        <summary>Can I come without a team?</summary>
+        <p>Come anyway. Teams are two to four people, and the check-in session exists to pair up people who arrive alone.</p>
       </details>
       <details>
         <summary>Do I need to know these tools already?</summary>
@@ -1210,7 +1336,7 @@
       <a class="btn" href="#register">Register your team</a>
       <a class="btn ghost" href="#schedule">Run of day</a>
     </div>
-    <p class="hero-note" style="margin-top:1.2rem;">Free to enter &middot; Teams of 1 to 4 &middot; AWS Office KL</p>
+    <p class="hero-note" style="margin-top:1.2rem;">Free to enter &middot; Teams of 2 to 4 &middot; AWS Office KL</p>
   </div>
 </section>
 
