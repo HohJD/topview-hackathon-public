@@ -419,6 +419,40 @@
   .ticks li { display: grid; grid-template-columns: 1.1rem minmax(0, 1fr); gap: 0.35rem; font-size: 0.875rem; color: var(--ink-2); }
   .ticks li::before { content: ""; width: 5px; height: 5px; margin-top: 0.6rem; background: var(--accent); }
 
+
+  /* ---------- graphics ---------- */
+
+  /* The eight pointed star is the Petronas floor plan, two squares rotated
+     45 degrees, so the section markers and the hero object share a motif. */
+  .eyebrow::before {
+    content: ""; width: 11px; height: 11px; flex: none;
+    background: var(--accent);
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2.1'%3E%3Crect x='5.2' y='5.2' width='13.6' height='13.6'/%3E%3Crect x='5.2' y='5.2' width='13.6' height='13.6' transform='rotate(45 12 12)'/%3E%3C/svg%3E") center / contain no-repeat;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2.1'%3E%3Crect x='5.2' y='5.2' width='13.6' height='13.6'/%3E%3Crect x='5.2' y='5.2' width='13.6' height='13.6' transform='rotate(45 12 12)'/%3E%3C/svg%3E") center / contain no-repeat;
+  }
+  .close .eyebrow::before { background: #fff; }
+
+  .ico { width: 18px; height: 18px; flex: none; }
+
+  .facts .ico { color: var(--accent); margin-bottom: 0.9rem; }
+
+  /* what we provide, one line icon per item */
+  .kit { list-style: none; margin: 1.25rem 0 0; padding: 0; display: grid; gap: 0.85rem; }
+  .kit li { display: grid; grid-template-columns: 18px minmax(0, 1fr); gap: 0.75rem; align-items: start;
+            font-size: 0.875rem; color: var(--ink-2); }
+  .kit .ico { color: var(--accent); margin-top: 0.1rem; }
+
+  /* Ten segments, all filled: every criterion carries the same weight. */
+  /* box-sizing is border-box, so spacing here has to be margin, not padding */
+  .meter {
+    height: 5px; margin-top: auto;
+    background: var(--accent);
+    -webkit-mask: repeating-linear-gradient(to right, #000 0 calc(10% - 3px), transparent calc(10% - 3px) 10%);
+    mask: repeating-linear-gradient(to right, #000 0 calc(10% - 3px), transparent calc(10% - 3px) 10%);
+  }
+  .cells.c3 > li { display: flex; flex-direction: column; }
+  .cells.c3 > li > p { margin-bottom: 1.5rem; }
+
   /* ---------- timeline ---------- */
 
   .track-shell { overflow-x: auto; padding-bottom: 0.5rem; }
@@ -603,18 +637,22 @@
 
 <dl class="facts">
   <div>
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
     <dt>Date</dt>
     <dd>Sunday 6 September<span>2026</span></dd>
   </div>
   <div>
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5.3l3.5 2"/></svg>
     <dt>Hours</dt>
     <dd>9am to 6pm<span>Doors 8:45am</span></dd>
   </div>
   <div>
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
     <dt>Venue</dt>
     <dd>AWS Office<span>Kuala Lumpur</span></dd>
   </div>
   <div>
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 4h10v5a5 5 0 0 1-10 0z"/><path d="M7 6H4v1a4 4 0 0 0 3 3.9M17 6h3v1a4 4 0 0 1-3 3.9"/><path d="M12 14v4M9 21h6"/></svg>
     <dt>Prize pool</dt>
     <dd>RM3,500<span>Split three ways</span></dd>
   </div>
@@ -625,7 +663,7 @@
     <div class="sec-head" data-r>
       <p class="eyebrow"><span class="num">01</span> The brief</p>
       <h2>Malaysia, stories that unite</h2>
-      <p class="lead">An original AI generated festive film for a brand of your choice. It lands in Merdeka and Malaysia Day season, so the films that work will be the ones that feel like home.</p>
+      <p class="lead">An original AI generated festive film for a brand of your choice. It lands in Merdeka and Malaysia Day season, so make something that feels like home.</p>
     </div>
 
     <ol class="cells c4" data-r>
@@ -646,8 +684,8 @@
       </li>
       <li>
         <span class="idx">04</span>
-        <h3>Make it ring true</h3>
-        <p>Malaysian spirit, inclusivity, and authentic storytelling.</p>
+        <h3>Keep it Malaysian</h3>
+        <p>Inclusive, respectful, and recognisably Malaysian.</p>
       </li>
     </ol>
 
@@ -735,7 +773,7 @@
       </li>
       <li class="key">
         <span class="tc">10:45 &rarr; 13:00</span>
-        <span class="what">Build sprint begins<em>Mentors circulating. No programming, no interruptions.</em></span>
+        <span class="what">Build sprint begins<em>Mentors on the floor. No talks, no interruptions.</em></span>
         <span class="dur">2 hr 15</span>
       </li>
       <li>
@@ -750,7 +788,7 @@
       </li>
       <li class="key">
         <span class="tc">16:00</span>
-        <span class="what">Project submissions close<em>Nothing uploaded after this screens.</em></span>
+        <span class="what">Project submissions close<em>Anything later will not be screened.</em></span>
         <span class="dur">Locked</span>
       </li>
       <li>
@@ -777,7 +815,7 @@
     <div class="sec-head" data-r>
       <p class="eyebrow"><span class="num">04</span> Prize money</p>
       <h2>RM3,500, split three ways</h2>
-      <p class="lead">Paid to the team, split however you agree between yourselves.</p>
+      <p class="lead">Paid to the team, split however you agree.</p>
     </div>
 
     <div class="cells c3 purse" data-r>
@@ -802,7 +840,7 @@
   <div class="wrap">
     <div class="sec-head" data-r>
       <p class="eyebrow"><span class="num">05</span> How it is judged</p>
-      <h2>Fifty points, five ways</h2>
+      <h2>Fifty points, five criteria</h2>
       <p class="lead">Ten points each, nothing weighted above anything else. Judged on the final cut.</p>
     </div>
 
@@ -811,26 +849,31 @@
         <span class="idx">10 pts</span>
         <h3>Storytelling &amp; Narrative</h3>
         <p>Clear, original and emotionally engaging Malaysia Day story.</p>
+        <div class="meter" aria-hidden="true"></div>
       </li>
       <li>
         <span class="idx">10 pts</span>
         <h3>Creative Direction &amp; Craft</h3>
         <p>Strong visuals, pacing, editing and effective use of AI.</p>
+        <div class="meter" aria-hidden="true"></div>
       </li>
       <li>
         <span class="idx">10 pts</span>
         <h3>Brand Integration</h3>
         <p>Natural and relevant connection between the brand and the story.</p>
+        <div class="meter" aria-hidden="true"></div>
       </li>
       <li>
         <span class="idx">10 pts</span>
         <h3>Malaysia Relevance &amp; Authenticity</h3>
         <p>Respectful, inclusive and recognisably Malaysian representation.</p>
+        <div class="meter" aria-hidden="true"></div>
       </li>
       <li>
         <span class="idx">10 pts</span>
         <h3>Impact &amp; Engagement</h3>
         <p>A compelling opening and a memorable finish.</p>
+        <div class="meter" aria-hidden="true"></div>
       </li>
     </ul>
   </div>
@@ -846,7 +889,7 @@
     <div class="cells c2" data-r>
       <div>
         <span class="idx">Who it is for</span>
-        <h3>Taste, but never the budget for a production crew.</h3>
+        <h3>For people with taste and no production budget.</h3>
         <p>Teams of two to four. Come alone and we will pair you up.</p>
         <ul class="ticks">
           <li>Marketers who have always wanted to shoot the idea in their head</li>
@@ -860,12 +903,12 @@
       <div>
         <span class="idx">What we provide</span>
         <h3>Bring a laptop and headphones. The rest is on us.</h3>
-        <ul class="ticks">
-          <li>Topview AI Video Agent credits for every team</li>
-          <li>Desk space, power, and wifi at AWS Office KL</li>
-          <li>Lunch and coffee all day</li>
-          <li>Mentors on the floor through both sprints</li>
-          <li>A screening setup with proper sound</li>
+        <ul class="kit">
+          <li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.5c.8 6.4 3.1 8.7 9.5 9.5-6.4.8-8.7 3.1-9.5 9.5-.8-6.4-3.1-8.7-9.5-9.5 6.4-.8 8.7-3.1 9.5-9.5z"/></svg><span>Topview AI Video Agent credits for every team</span></li>
+          <li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 8.5a15 15 0 0 1 19 0M5.5 12a10.5 10.5 0 0 1 13 0M8.5 15.5a6 6 0 0 1 7 0"/><circle cx="12" cy="19" r="1"/></svg><span>Desk space, power, and wifi at AWS Office KL</span></li>
+          <li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h13v6a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5z"/><path d="M17 9h1.5a2.5 2.5 0 0 1 0 5H17"/><path d="M7 2.5v2.5M11 2.5v2.5"/></svg><span>Lunch and coffee all day</span></li>
+          <li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3 20a6 6 0 0 1 12 0"/><path d="M16 5.2a3.2 3.2 0 0 1 0 5.6M17.5 14.5A6 6 0 0 1 21 20"/></svg><span>Mentors on the floor through both sprints</span></li>
+          <li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="4" width="19" height="12" rx="2"/><path d="M9 20h6M12 16v4"/></svg><span>A screening setup with proper sound</span></li>
         </ul>
       </div>
     </div>
@@ -894,7 +937,7 @@
       </details>
       <details>
         <summary>Do I have to use Topview?</summary>
-        <p>Your team gets credits, so you are strongly encouraged to. Other tools are fine alongside.</p>
+        <p>Yes. Topview is the AI video agent you will be building with, and every team gets credits for it. The morning workshop takes you from a blank project to a finished cut, so you do not need to arrive knowing it. Other tools are fine alongside.</p>
       </details>
       <details>
         <summary>Can I turn up with work already done?</summary>
@@ -902,7 +945,7 @@
       </details>
       <details>
         <summary>Who owns what we make?</summary>
-        <p>You do. Entering lets us show your film in recaps and on social. Nothing more.</p>
+        <p>You do. Entering lets us show your film in recaps and on social, and nothing else.</p>
       </details>
       <details>
         <summary>How many places are there?</summary>
@@ -915,7 +958,7 @@
 <section class="section close" id="register">
   <div class="wrap">
     <p class="eyebrow" data-r><span class="num">08</span> Register</p>
-    <h2 data-r style="--d:60ms">Nine hours. Then it either plays or it does not.</h2>
+    <h2 data-r style="--d:60ms">Nine hours to make one film</h2>
     <p class="lead" data-r style="--d:120ms">Sunday 6 September 2026, 9am to 6pm, AWS Office Kuala Lumpur. Free to enter.</p>
     <div class="hero-cta" data-r style="--d:180ms">
       <a class="btn btn-primary" href="https://luma.com/9z2e5zfv" target="_blank" rel="noopener noreferrer">Register on Luma <span class="ar" aria-hidden="true">&rarr;</span></a>
