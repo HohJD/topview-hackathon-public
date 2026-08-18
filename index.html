@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Topview AI Video Hackathon</title>
-<meta name="description" content="AI Video Hackathon by Topview AI. Sunday 6 September 2026, 9am to 6pm, AWS Office Kuala Lumpur. Build a Malaysia Day brand film in a day. Teams of 2 to 4. RM3,500 in prizes.">
+<meta name="description" content="AI Video Hackathon by Topview, the AI video agent. Sunday 6 September 2026, 9am to 6pm, AWS Office Kuala Lumpur. Build a Malaysia Day brand film in a day. Teams of 2 to 4. RM3,500 in prizes.">
 <meta name="theme-color" content="#09090B">
 <meta property="og:title" content="Topview AI Video Hackathon">
 <meta property="og:description" content="Sun 6 Sep 2026, 9am to 6pm, AWS Office KL. Build a Malaysia Day brand film in a day. RM3,500 in prizes.">
@@ -15,6 +15,22 @@
 <link rel="icon" href="/favicon-32.png?v=3" sizes="32x32" type="image/png">
 <link rel="icon" href="/favicon-192.png?v=3" sizes="192x192" type="image/png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=3">
+<script>
+  /* Runs before anything paints: stop the browser restoring the old scroll
+     position, and on a reload drop any #hash so it cannot pull us back down
+     the page. A hash on a fresh visit is left alone, so shared deep links
+     such as /#schedule still work. */
+  (function () {
+    if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }
+    var nav = performance.getEntriesByType && performance.getEntriesByType('navigation')[0];
+    var reloaded = nav ? nav.type === 'reload'
+                       : (performance.navigation && performance.navigation.type === 1);
+    if (reloaded && location.hash) {
+      history.replaceState(null, '', location.pathname + location.search);
+    }
+    window.__tvReloaded = !!reloaded;
+  })();
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400..800&family=JetBrains+Mono:wght@400..600&display=swap">
@@ -204,6 +220,16 @@
   .lockup { display: inline-flex; align-items: center; gap: 0.5rem; flex: none; }
   .lk-icon { width: 26px; height: 26px; border-radius: var(--r-sm); }
   .lk-word { height: 14px; width: auto; }
+  .lockup .tag {
+    display: none;
+    font-family: var(--mono); font-size: 0.5625rem; font-weight: 500;
+    letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-3);
+    padding-left: 0.6rem; border-left: 1px solid var(--line);
+    white-space: nowrap; transition: color 0.15s ease;
+  }
+  @media (min-width: 700px) { .lockup .tag { display: block; } }
+  footer.site .lockup .tag { display: block; }
+  .lockup:hover .tag { color: var(--ink-2); }
   .lk-word { filter: invert(1); }
   :root[data-theme="light"] .lk-word { filter: none; }
 
@@ -512,9 +538,10 @@
 
 <header class="site">
   <div class="wrap">
-    <a class="lockup" href="#top" aria-label="Topview home">
+    <a class="lockup" href="https://www.topview.ai/" target="_blank" rel="noopener noreferrer" aria-label="Topview AI Video Agent, opens topview.ai">
       <img class="lk-icon" src="/topview-icon.png" width="256" height="256" alt="">
       <img class="lk-word" src="/topview-word.png" width="535" height="132" alt="Topview">
+      <span class="tag">AI Video Agent</span>
     </a>
     <nav class="navlinks">
       <a href="#brief">Brief</a>
@@ -557,8 +584,9 @@
     <p class="theme-line" data-r style="--d:120ms">Theme: <b>Malaysia, Stories That Unite</b></p>
 
     <p class="lead" data-r style="--d:180ms">
-      Build a Malaysia Day brand film in nine hours, start to final cut.
-      RM3,500 in prizes. No filmmaking experience needed, the morning teaches you the tools.
+      Build a Malaysia Day brand film in nine hours with Seedance 2.5 on Topview.
+      Learn the tools in the morning, then create for a chance to win from a RM3,500
+      prize pool. Workshop, F&amp;B and credits are on us.
     </p>
 
     <div class="hero-cta" data-r style="--d:300ms">
@@ -838,7 +866,7 @@
         <h3>Bring a laptop and headphones. The rest is on us.</h3>
         <p>Turn up at 08:45 and the room is ready.</p>
         <ul class="ticks">
-          <li>Topview AI credits for every team</li>
+          <li>Topview AI Video Agent credits for every team</li>
           <li>Desk space, power, and wifi at AWS Office KL</li>
           <li>Lunch and coffee all day</li>
           <li>Mentors on the floor through both sprints</li>
@@ -904,9 +932,10 @@
 
 <footer class="site">
   <div class="wrap">
-    <a class="lockup" href="#top" aria-label="Topview">
+    <a class="lockup" href="https://www.topview.ai/" target="_blank" rel="noopener noreferrer" aria-label="Topview AI Video Agent, opens topview.ai">
       <img class="lk-icon" src="/topview-icon.png" width="256" height="256" alt="">
       <img class="lk-word" src="/topview-word.png" width="535" height="132" alt="Topview">
+      <span class="tag">AI Video Agent</span>
     </a>
     <div class="meta">
       <span>AI Video Hackathon</span>
@@ -929,10 +958,25 @@
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var root = document.documentElement;
 
-  if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }
-  window.addEventListener('load', function () {
-    if (!location.hash) { window.scrollTo(0, 0); }
-  });
+  /* html has scroll-behavior:smooth, which would animate these jumps and can
+     be interrupted, so each one is done with smooth scrolling switched off. */
+  function jumpTop() {
+    var prev = root.style.scrollBehavior;
+    root.style.scrollBehavior = 'auto';
+    window.scrollTo(0, 0);
+    root.style.scrollBehavior = prev;
+  }
+
+  function startAtTop() {
+    if (location.hash && !window.__tvReloaded) { return; }  /* honour a real deep link */
+    jumpTop();
+  }
+
+  startAtTop();
+  document.addEventListener('DOMContentLoaded', startAtTop);
+  window.addEventListener('load', startAtTop);
+  /* coming back through the bfcache counts too */
+  window.addEventListener('pageshow', function (e) { if (e.persisted) { jumpTop(); } });
 
   /* ---- theme: light is the default, the system preference is not consulted ---- */
   var DEFAULT_THEME = 'dark';
