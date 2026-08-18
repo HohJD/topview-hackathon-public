@@ -51,6 +51,12 @@
     --accent-line: #E2D2FF;
     --on-accent: #FFFFFF;
     --gold:    #A16207;
+    --ok-ink:  #15803D;
+    --ok-bg:   #F0FDF4;
+    --ok-line: #BBF7D0;
+    --ok-dot:  #22C55E;
+    --viz-line:#731DFB;
+    --viz-dot: #A855F7;
 
     --r:    4px;
     --r-sm: 3px;
@@ -81,6 +87,12 @@
     --accent-bg: #17102B;
     --accent-line: #2E1D57;
     --gold:    #FBBF24;
+    --ok-ink:  #4ADE80;
+    --ok-bg:   #0C2417;
+    --ok-line: #16532F;
+    --ok-dot:  #22C55E;
+    --viz-line:#8B3BFF;
+    --viz-dot: #C4A5FF;
   }
 
   * { box-sizing: border-box; }
@@ -243,32 +255,46 @@
     opacity: 0.5;
   }
   :root[data-theme="dark"] .hero::after { opacity: 0.7; }
-  .hero .wrap { position: relative; z-index: 1; }
+  .hero .wrap { position: relative; z-index: 2; }
+
+  /* WebGL wireframe geode, Three.js, purely decorative */
+  .viz {
+    position: absolute; z-index: 1; pointer-events: none;
+    top: 48%; right: -5rem; transform: translateY(-50%);
+    width: min(40rem, 44vw); aspect-ratio: 1;
+  }
+  .viz canvas { width: 100% !important; height: 100% !important; display: block; }
+  @media (max-width: 1023px) {
+    /* corner accent only, it must never sit over the body copy */
+    .viz { top: -3rem; right: -26%; width: 18rem; opacity: 0.3; transform: none; }
+  }
 
   /* the status strip: registration state and the date, side by side */
   .status {
-    display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem 1rem;
-    margin-bottom: 2rem;
+    display: flex; flex-direction: column; align-items: flex-start;
+    gap: 1rem; margin-bottom: 2.25rem;
   }
   .status .live {
     display: inline-flex; align-items: center; gap: 0.5rem;
     font-family: var(--mono); font-size: 0.625rem; font-weight: 600;
     letter-spacing: 0.16em; text-transform: uppercase;
-    color: var(--accent-ink);
-    background: var(--accent-bg); border: 1px solid var(--accent-line);
-    border-radius: var(--r); padding: 0.35rem 0.6rem;
+    color: var(--ok-ink);
+    background: var(--ok-bg); border: 1px solid var(--ok-line);
+    border-radius: var(--r); padding: 0.4rem 0.65rem;
   }
   .status .live i {
-    width: 6px; height: 6px; border-radius: 50%; background: var(--accent);
+    width: 7px; height: 7px; border-radius: 50%; background: var(--ok-dot);
     animation: blink 1.8s ease-in-out infinite;
   }
   @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.2; } }
   .status .where {
-    display: inline-flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 0.75rem;
-    font-family: var(--mono); font-size: 0.6875rem; font-weight: 500;
-    letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink);
+    display: flex; flex-wrap: wrap; align-items: center; gap: 0.35rem 0.85rem;
+    font-family: var(--mono); font-weight: 600;
+    font-size: clamp(0.875rem, 1.8vw, 1.3rem);
+    letter-spacing: 0.02em; text-transform: uppercase; color: var(--ink);
+    line-height: 1.25;
   }
-  .status .where s { width: 10px; height: 1px; background: var(--ink-3); flex: none; }
+  .status .where s { width: 14px; height: 1px; background: var(--ink-3); flex: none; }
 
   .hero h1 { margin-bottom: 1.75rem; }
   .hero h1 .l2 { color: var(--accent); }
@@ -281,32 +307,32 @@
   }
   .theme-line b { color: var(--accent-ink); font-weight: 500; }
 
-  .hero .lead { margin-bottom: 2.5rem; }
+  .hero .lead { margin-bottom: 2.5rem; max-width: 34em; }
 
   /* ---------- countdown ---------- */
 
-  .cd-block { border: 1px solid var(--line); border-radius: var(--r); background: var(--bg-2); }
+  .cd-block { border: 1px solid var(--line); border-radius: var(--r); background: var(--bg-2); max-width: 30rem; }
   .cd-top {
     display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 1rem;
-    padding: 0.7rem 1rem; border-bottom: 1px solid var(--line);
-    font-family: var(--mono); font-size: 0.625rem; font-weight: 500;
+    padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--line);
+    font-family: var(--mono); font-size: 0.5625rem; font-weight: 500;
     letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-3);
   }
   .cd-top .to { color: var(--ink); }
   .cd { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
-  .cd > div { padding: 1.4rem 0.5rem 1.2rem; text-align: center; border-left: 1px solid var(--line); }
+  .cd > div { padding: 0.85rem 0.5rem 0.75rem; text-align: center; border-left: 1px solid var(--line); }
   .cd > div:first-child { border-left: 0; }
   .cd .v {
     display: block;
     font-family: var(--mono); font-weight: 500;
-    font-size: clamp(1.9rem, 6vw, 3.5rem);
-    line-height: 1; letter-spacing: -0.05em;
+    font-size: clamp(1.25rem, 3vw, 1.75rem);
+    line-height: 1; letter-spacing: -0.04em;
     font-variant-numeric: tabular-nums; color: var(--ink);
   }
   .cd .k {
-    display: block; margin-top: 0.65rem;
-    font-family: var(--mono); font-size: 0.5625rem; font-weight: 500;
-    letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-3);
+    display: block; margin-top: 0.4rem;
+    font-family: var(--mono); font-size: 0.5rem; font-weight: 500;
+    letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-3);
   }
 
   .hero-cta { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.5rem; }
@@ -323,7 +349,7 @@
 
   .facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid var(--line); }
   @media (min-width: 900px) { .facts { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
-  .facts > div { padding: 1.5rem var(--gutter); border-left: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .facts > div { padding: 1.85rem var(--gutter); border-left: 1px solid var(--line); border-bottom: 1px solid var(--line); }
   .facts > div:nth-child(odd) { border-left: 0; }
   @media (min-width: 900px) { .facts > div:nth-child(odd) { border-left: 1px solid var(--line); } .facts > div:first-child { border-left: 0; } }
   .facts dt {
@@ -331,8 +357,8 @@
     letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-3);
     margin-bottom: 0.5rem;
   }
-  .facts dd { margin: 0; font-size: 1.0625rem; font-weight: 700; letter-spacing: -0.03em; }
-  .facts dd span { display: block; font-family: var(--mono); font-size: 0.6875rem; font-weight: 400; letter-spacing: 0; color: var(--ink-3); margin-top: 0.2rem; text-transform: none; }
+  .facts dd { margin: 0; font-size: clamp(1.2rem, 2.3vw, 1.65rem); font-weight: 700; letter-spacing: -0.035em; line-height: 1.15; }
+  .facts dd span { display: block; font-family: var(--mono); font-size: 0.75rem; font-weight: 400; letter-spacing: 0; color: var(--ink-3); margin-top: 0.35rem; text-transform: none; }
 
   /* ---------- grid cells ---------- */
 
@@ -507,6 +533,7 @@
 </header>
 
 <section class="hero" id="top">
+  <div class="viz" id="viz" aria-hidden="true"></div>
   <div class="wrap">
 
     <div class="status" data-r>
@@ -1000,6 +1027,115 @@
     }, { threshold: 0.35 });
     tio.observe(shell);
   } else if (shell) { shell.classList.add('playing'); }
+})();
+</script>
+
+<script type="importmap">
+{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.min.js" } }
+</script>
+<script type="module">
+/* A wireframe geode in the hero. Decorative only: if WebGL or the import
+   map is unavailable the page loses nothing but this object. */
+import * as THREE from 'three';
+
+(function () {
+  var host = document.getElementById('viz');
+  if (!host) return;
+
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var root = document.documentElement;
+
+  var renderer;
+  try {
+    renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: 'low-power' });
+  } catch (e) { return; }
+
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+  host.appendChild(renderer.domElement);
+
+  var scene = new THREE.Scene();
+  var camera = new THREE.PerspectiveCamera(42, 1, 0.1, 100);
+  camera.position.z = 4.6;
+
+  var group = new THREE.Group();
+  scene.add(group);
+
+  var shellGeo = new THREE.IcosahedronGeometry(1.62, 2);
+  var shellMat = new THREE.LineBasicMaterial({ transparent: true, opacity: 0.3 });
+  var shell = new THREE.LineSegments(new THREE.WireframeGeometry(shellGeo), shellMat);
+  group.add(shell);
+
+  var dotMat = new THREE.PointsMaterial({ size: 0.045, transparent: true, opacity: 0.8, sizeAttenuation: true });
+  var dots = new THREE.Points(shellGeo, dotMat);
+  group.add(dots);
+
+  var coreMat = new THREE.LineBasicMaterial({ transparent: true, opacity: 0.95 });
+  var core = new THREE.LineSegments(
+    new THREE.WireframeGeometry(new THREE.IcosahedronGeometry(0.92, 0)),
+    coreMat
+  );
+  group.add(core);
+
+  /* colours come from the theme tokens, so the toggle drives them too */
+  function syncTheme() {
+    var cs = getComputedStyle(root);
+    var line = cs.getPropertyValue('--viz-line').trim() || '#731DFB';
+    var dot = cs.getPropertyValue('--viz-dot').trim() || '#A855F7';
+    shellMat.color.set(line);
+    coreMat.color.set(line);
+    dotMat.color.set(dot);
+  }
+  syncTheme();
+  new MutationObserver(syncTheme).observe(root, { attributes: true, attributeFilter: ['data-theme'] });
+
+  function resize() {
+    var w = host.clientWidth, h = host.clientHeight;
+    if (!w || !h) return;
+    renderer.setSize(w, h, false);
+    camera.aspect = w / h;
+    camera.updateProjectionMatrix();
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  var tx = 0, ty = 0, px = 0, py = 0;
+  if (!reduce) {
+    window.addEventListener('pointermove', function (e) {
+      tx = e.clientX / window.innerWidth - 0.5;
+      ty = e.clientY / window.innerHeight - 0.5;
+    }, { passive: true });
+  }
+
+  /* only run while the hero is on screen and the tab is visible */
+  var onScreen = true, visible = true;
+  document.addEventListener('visibilitychange', function () { visible = !document.hidden; });
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (es) { onScreen = es[0].isIntersecting; }, { threshold: 0 }).observe(host);
+  }
+
+  var t0 = performance.now();
+  function frame(now) {
+    requestAnimationFrame(frame);
+    if (!onScreen || !visible) return;
+    var t = (now - t0) * 0.001;
+    px += (tx - px) * 0.05;
+    py += (ty - py) * 0.05;
+    group.rotation.y = t * 0.11 + px * 0.55;
+    group.rotation.x = Math.sin(t * 0.17) * 0.13 + py * 0.35;
+    core.rotation.y = -t * 0.28;
+    core.rotation.z = t * 0.14;
+    var s = 1 + Math.sin(t * 0.55) * 0.03;
+    shell.scale.setScalar(s);
+    dots.scale.setScalar(s);
+    renderer.render(scene, camera);
+  }
+
+  if (reduce) {
+    group.rotation.set(0.2, 0.6, 0);
+    renderer.render(scene, camera);
+  } else {
+    requestAnimationFrame(frame);
+  }
 })();
 </script>
 </body>
