@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Topview AI Video Hackathon</title>
 <meta name="description" content="AI Video Hackathon by Topview AI. Sunday 6 September 2026, 9am to 6pm, AWS Office Kuala Lumpur. Build a Malaysia Day brand film in a day. Teams of 2 to 4. RM3,500 in prizes.">
-<meta name="theme-color" content="#FFFFFF">
+<meta name="theme-color" content="#09090B">
 <meta property="og:title" content="Topview AI Video Hackathon">
 <meta property="og:description" content="Sun 6 Sep 2026, 9am to 6pm, AWS Office KL. Build a Malaysia Day brand film in a day. RM3,500 in prizes.">
 <meta property="og:type" content="website">
@@ -34,43 +34,6 @@
      ============================================================ */
 
   :root {
-    color-scheme: light;
-
-    --bg:      #FFFFFF;
-    --bg-2:    #FAFAFA;
-    --bg-3:    #F4F4F5;
-    --ink:     #09090B;
-    --ink-2:   #52525B;
-    --ink-3:   #A1A1AA;
-    --line:    #E4E4E7;
-    --line-2:  #F1F1F3;
-    --accent:  #731DFB;
-    --accent-2:#5B12CE;
-    --accent-ink: #5B12CE;
-    --accent-bg: #F6F1FF;
-    --accent-line: #E2D2FF;
-    --on-accent: #FFFFFF;
-    --gold:    #A16207;
-    --ok-ink:  #15803D;
-    --ok-bg:   #F0FDF4;
-    --ok-line: #BBF7D0;
-    --ok-dot:  #22C55E;
-    --viz-line:#731DFB;
-    --viz-dot: #A855F7;
-
-    --r:    4px;
-    --r-sm: 3px;
-
-    --font: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
-    --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-
-    --max: 78rem;
-    --gutter: 1.25rem;
-    --nav-h: 3.75rem;
-  }
-  @media (min-width: 768px) { :root { --gutter: 2rem; } }
-
-  :root[data-theme="dark"] {
     color-scheme: dark;
 
     --bg:      #09090B;
@@ -86,6 +49,7 @@
     --accent-ink: #C4A5FF;
     --accent-bg: #17102B;
     --accent-line: #2E1D57;
+    --on-accent: #FFFFFF;
     --gold:    #FBBF24;
     --ok-ink:  #4ADE80;
     --ok-bg:   #0C2417;
@@ -93,6 +57,42 @@
     --ok-dot:  #22C55E;
     --viz-line:#8B3BFF;
     --viz-dot: #C4A5FF;
+
+    --r:    4px;
+    --r-sm: 3px;
+
+    --font: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+    --max: 78rem;
+    --gutter: 1.25rem;
+    --nav-h: 3.75rem;
+  }
+  @media (min-width: 768px) { :root { --gutter: 2rem; } }
+
+  :root[data-theme="light"] {
+    color-scheme: light;
+
+    --bg:      #FFFFFF;
+    --bg-2:    #FAFAFA;
+    --bg-3:    #F4F4F5;
+    --ink:     #09090B;
+    --ink-2:   #52525B;
+    --ink-3:   #A1A1AA;
+    --line:    #E4E4E7;
+    --line-2:  #F1F1F3;
+    --accent:  #731DFB;
+    --accent-2:#5B12CE;
+    --accent-ink: #5B12CE;
+    --accent-bg: #F6F1FF;
+    --accent-line: #E2D2FF;
+    --gold:    #A16207;
+    --ok-ink:  #15803D;
+    --ok-bg:   #F0FDF4;
+    --ok-line: #BBF7D0;
+    --ok-dot:  #22C55E;
+    --viz-line:#731DFB;
+    --viz-dot: #A855F7;
   }
 
   * { box-sizing: border-box; }
@@ -204,7 +204,8 @@
   .lockup { display: inline-flex; align-items: center; gap: 0.5rem; flex: none; }
   .lk-icon { width: 26px; height: 26px; border-radius: var(--r-sm); }
   .lk-word { height: 14px; width: auto; }
-  :root[data-theme="dark"] .lk-word { filter: invert(1); }
+  .lk-word { filter: invert(1); }
+  :root[data-theme="light"] .lk-word { filter: none; }
 
   .navlinks {
     display: none; gap: 1.6rem; margin-left: 2.25rem;
@@ -233,9 +234,9 @@
   }
   .themer:hover { color: var(--ink); border-color: var(--ink); }
   .themer svg { width: 14px; height: 14px; }
-  .themer .sun { display: none; }
-  :root[data-theme="dark"] .themer .sun { display: block; }
-  :root[data-theme="dark"] .themer .moon { display: none; }
+  .themer .moon { display: none; }
+  :root[data-theme="light"] .themer .moon { display: block; }
+  :root[data-theme="light"] .themer .sun { display: none; }
 
   /* ---------- hero ---------- */
 
@@ -258,7 +259,8 @@
     background: radial-gradient(closest-side, color-mix(in srgb, var(--accent) 22%, transparent), transparent);
     opacity: 0.5;
   }
-  :root[data-theme="dark"] .hero::after { opacity: 0.7; }
+  .hero::after { opacity: 0.7; }
+  :root[data-theme="light"] .hero::after { opacity: 0.5; }
   .hero .wrap { position: relative; z-index: 2; }
 
   /* WebGL wireframe geode, Three.js, purely decorative */
@@ -933,7 +935,7 @@
   });
 
   /* ---- theme: light is the default, the system preference is not consulted ---- */
-  var DEFAULT_THEME = 'light';
+  var DEFAULT_THEME = 'dark';
   var btn = document.getElementById('themer');
   try {
     var saved = localStorage.getItem('tv-theme');

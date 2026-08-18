@@ -35,8 +35,8 @@ back from the template's values.
 
 ## Theme
 
-Light is the default and the system colour-scheme preference is deliberately not
-consulted. The toggle in the header switches to dark and the choice is remembered
+Dark is the default and the system colour-scheme preference is deliberately not
+consulted. The toggle in the header switches to light and the choice is remembered
 in `localStorage` under `tv-theme`.
 
 ## Local preview
