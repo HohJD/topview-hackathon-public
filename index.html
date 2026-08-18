@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Topview AI Video Hackathon</title>
 <meta name="description" content="Malaysia, Stories That Unite. An AI Video Hackathon by Topview AI at the AWS Office KL, Sunday 6 September 2026, 9am to 6pm. Build a Malaysia themed festive brand film in a day. Teams of 2 to 4. RM3,500 in prizes.">
-<meta name="theme-color" content="#08050F">
+<meta name="theme-color" content="#F5F2FC">
 <meta property="og:title" content="Topview AI Video Hackathon">
 <meta property="og:description" content="Malaysia, Stories That Unite. AWS Office KL, Sunday 6 September 2026, 9am to 6pm. Build a Malaysia themed festive brand film in a day. RM3,500 in prizes.">
 <meta property="og:type" content="website">
@@ -15,6 +15,9 @@
 <link rel="icon" href="/favicon-32.png?v=3" sizes="32x32" type="image/png">
 <link rel="icon" href="/favicon-192.png?v=3" sizes="192x192" type="image/png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=3">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400..900&amp;family=Inter:wght@400..600&amp;family=JetBrains+Mono:wght@400..500&amp;display=swap">
 <style>
   /* ============================================================
      Topview AI Video Hackathon
@@ -24,29 +27,38 @@
      ============================================================ */
 
   :root {
-    color-scheme: dark;
+    color-scheme: light;
 
     --violet:      #731DFB;
-    --violet-lift: #A67CFF;
-    --violet-soft: #D0BCFF;
+    --violet-lift: #6512D8;
+    --violet-soft: #4A0FAE;
     --violet-deep: #43119B;
-    --warm:        #FFC24D;
+    --violet-hover:#5C11C4;
+    --warm:        #9A6B00;
 
-    --ground:   #08050F;
-    --surface:  #110A22;
-    --surface-2:#1A0F33;
-    --ink:      #F0ECFF;
-    --ink-2:    #A99CD4;
-    --ink-3:    #766C99;
-    --rule:     #2A1B4D;
+    --ground:   #F5F2FC;
+    --surface:  #FFFFFF;
+    --surface-2:#EAE3FA;
+    --ink:      #0B0518;
+    --ink-2:    #514777;
+    --ink-3:    #7E7599;
+    --rule:     #DDD3F2;
     --rule-soft:#17133034;
     --on-violet:#FFFFFF;
 
-    --display: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    --body: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
-    --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+    --gold:        #FFC24D;
+    --on-gold:     #1B1200;
+    --learn-bg:    #E6DAFB;
+    --learn-fg:    #3C0E8C;
 
-    --fs-poster: clamp(3.1rem, 13.5vw, 12rem);
+    --lift: 0 1px 2px rgba(11, 5, 24, 0.04), 0 14px 34px -20px rgba(11, 5, 24, 0.22);
+    --lift-hi: 0 2px 4px rgba(11, 5, 24, 0.05), 0 22px 48px -22px rgba(67, 17, 155, 0.34);
+
+    --display: "Archivo", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    --mono: "JetBrains Mono", ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+
+    --fs-poster: clamp(2.9rem, 12.4vw, 11rem);
     --fs-h2:     clamp(2rem, 5.2vw, 4.2rem);
     --fs-h3:     clamp(1.15rem, 2vw, 1.6rem);
     --fs-lead:   clamp(1.05rem, 1.55vw, 1.3rem);
@@ -57,34 +69,25 @@
     --nav-h: 62px;
   }
 
-  :root[data-theme="light"] {
-    color-scheme: light;
-    --violet-lift: #6512D8;
-    --violet-soft: #4A0FAE;
-    --ground:   #F5F2FC;
-    --surface:  #FFFFFF;
-    --surface-2:#EAE3FA;
-    --ink:      #0B0518;
-    --ink-2:    #514777;
-    --ink-3:    #7E7599;
-    --rule:     #DDD3F2;
-    --warm:     #9A6B00;
-  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --violet-lift: #A67CFF;
+    --violet-soft: #D0BCFF;
+    --violet-hover:#8B3BFF;
+    --warm:     #FFC24D;
+    --ground:   #08050F;
+    --surface:  #110A22;
+    --surface-2:#1A0F33;
+    --ink:      #F0ECFF;
+    --ink-2:    #A99CD4;
+    --ink-3:    #766C99;
+    --rule:     #2A1B4D;
 
-  @media (prefers-color-scheme: light) {
-    :root:not([data-theme="dark"]) {
-      color-scheme: light;
-      --violet-lift: #6355FF;
-      --violet-soft: #4034C4;
-      --ground:   #F2F1FA;
-      --surface:  #FFFFFF;
-      --surface-2:#E7E5F7;
-      --ink:      #08061A;
-      --ink-2:    #4E4979;
-      --ink-3:    #7B7599;
-      --rule:     #D6D2EE;
-      --warm:     #9A6B00;
-    }
+    --learn-bg: #43119B;
+    --learn-fg: #D0BCFF;
+
+    --lift: none;
+    --lift-hi: none;
   }
 
   * { box-sizing: border-box; }
@@ -190,7 +193,7 @@
   }
   .btn:hover {
     transform: translateY(-2px);
-    background: #5F51FF;
+    background: var(--violet-hover);
     box-shadow: 0 10px 34px -10px var(--violet);
   }
   .btn.ghost {
@@ -206,33 +209,10 @@
 
   .lockup { display: inline-flex; align-items: center; gap: 0.6rem; }
   .lk-icon { width: 32px; height: 32px; display: block; border-radius: 9px; }
-  .lk-word { height: 18px; width: auto; display: block; filter: invert(1); }
-  :root[data-theme="light"] .lk-word { filter: none; }
-  @media (prefers-color-scheme: light) {
-    :root:not([data-theme="dark"]) .lk-word { filter: none; }
-  }
+  .lk-word { height: 18px; width: auto; display: block; }
+  :root[data-theme="dark"] .lk-word { filter: invert(1); }
   footer .lk-icon { width: 28px; height: 28px; border-radius: 8px; }
   footer .lk-word { height: 16px; }
-
-  /* ---------- proposal bar ---------- */
-
-  .proposal-bar {
-    background: var(--violet);
-    color: #fff;
-    position: relative;
-    z-index: 60;
-  }
-  .proposal-bar .wrap {
-    padding-block: 0.5rem;
-    display: flex;
-    justify-content: center;
-  }
-  .proposal-bar span {
-    font-family: var(--mono);
-    font-size: 0.66rem;
-    letter-spacing: 0.28em;
-    text-transform: uppercase;
-  }
 
   /* ---------- nav ---------- */
 
@@ -318,9 +298,10 @@
         color-mix(in srgb, var(--violet) 13%, transparent) 0%,
         transparent 62%),
       color-mix(in srgb, var(--surface) 88%, transparent);
-    transition: border-color 0.2s ease, transform 0.2s ease;
+    box-shadow: var(--lift);
+    transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
   }
-  .whenwhere > div:hover { border-color: var(--violet); transform: translateY(-2px); }
+  .whenwhere > div:hover { border-color: var(--violet); transform: translateY(-2px); box-shadow: var(--lift-hi); }
   .whenwhere svg {
     width: 21px; height: 21px; flex: none;
     color: var(--violet-lift);
@@ -400,6 +381,7 @@
     padding: 0.7rem 0.5rem 0.6rem;
     min-width: 62px;
     text-align: center;
+    box-shadow: var(--lift);
   }
   .countdown .v {
     display: block;
@@ -424,13 +406,10 @@
   }
   .themer:hover { color: var(--violet-lift); border-color: var(--violet-lift); }
   .themer svg { width: 16px; height: 16px; display: block; }
-  .themer .moon { display: none; }
-  :root[data-theme="light"] .themer .moon { display: block; }
-  :root[data-theme="light"] .themer .sun { display: none; }
-  @media (prefers-color-scheme: light) {
-    :root:not([data-theme="dark"]) .themer .moon { display: block; }
-    :root:not([data-theme="dark"]) .themer .sun { display: none; }
-  }
+  .themer .sun { display: none; }
+  .themer .moon { display: block; }
+  :root[data-theme="dark"] .themer .sun { display: block; }
+  :root[data-theme="dark"] .themer .moon { display: none; }
   .nav-right { display: flex; align-items: center; gap: 0.6rem; }
 
   /* ---------- marquee ---------- */
@@ -493,6 +472,7 @@
     border: 1px solid var(--rule); border-radius: 16px;
     background: var(--surface);
     padding: clamp(1.5rem, 3.5vw, 2.25rem);
+    box-shadow: var(--lift);
   }
   .rules-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.5rem; }
   @media (min-width: 760px) { .rules-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.5rem; } }
@@ -512,9 +492,10 @@
     padding: clamp(1.6rem, 3vw, 2.4rem);
     display: flex; flex-direction: column; gap: 1rem;
     overflow: hidden;
-    transition: border-color 0.2s ease, transform 0.2s ease;
+    box-shadow: var(--lift);
+    transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
   }
-  .shop:hover { border-color: var(--violet); transform: translateY(-3px); }
+  .shop:hover { border-color: var(--violet); transform: translateY(-3px); box-shadow: var(--lift-hi); }
   .shop::before {
     content: "";
     position: absolute; inset: -40% 55% 40% -10%;
@@ -561,12 +542,12 @@
   .seg b { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 400; white-space: nowrap; }
   .seg-build { background: var(--violet); }
   .seg-build b { color: #fff; }
-  .seg-learn { background: var(--violet-deep); }
-  .seg-learn b { color: var(--violet-soft); }
-  .seg-show { background: var(--warm); }
-  .seg-show b { color: #1B1200; }
+  .seg-learn { background: var(--learn-bg); }
+  .seg-learn b { color: var(--learn-fg); }
+  .seg-show { background: var(--gold); }
+  .seg-show b { color: var(--on-gold); }
   .seg-rest { background: var(--surface-2); }
-  .seg-rest b { color: var(--ink-3); }
+  .seg-rest b { color: var(--ink-2); }
 
   .playhead { position: absolute; top: 0; bottom: 0; width: 2px; background: var(--ink); left: 0; }
   .track-shell.playing .playhead { animation: sweep 2.4s cubic-bezier(0.32, 0.08, 0.18, 1) forwards; }
@@ -597,6 +578,7 @@
     background: var(--surface);
     display: flex; flex-direction: column; gap: 0.5rem;
     position: relative; overflow: hidden;
+    box-shadow: var(--lift);
   }
   .purse .place { font-family: var(--mono); font-size: var(--fs-micro); letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-3); }
   .purse .amount {
@@ -609,6 +591,7 @@
   .purse article.first {
     background: linear-gradient(150deg, var(--violet) 0%, #5A16C8 60%, #3D0B92 100%);
     border-color: transparent; color: #fff;
+    box-shadow: var(--lift-hi);
   }
   .purse article.first .place { color: rgba(255,255,255,0.7); }
   .purse article.first .amount { font-size: clamp(3.4rem, 10vw, 5.6rem); }
@@ -621,7 +604,7 @@
 
   /* ---------- criteria ---------- */
 
-  .criteria { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: 1px; background: var(--rule); border: 1px solid var(--rule); border-radius: 14px; overflow: hidden; }
+  .criteria { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: 1px; background: var(--rule); border: 1px solid var(--rule); border-radius: 14px; overflow: hidden; box-shadow: var(--lift); }
   @media (min-width: 620px) {
     .criteria { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .criteria li:last-child { grid-column: 1 / -1; }
@@ -645,118 +628,6 @@
     font-size: 0.95rem; color: var(--ink-2);
   }
   .ticks li::before { content: ""; width: 8px; height: 8px; border-radius: 2px; background: var(--violet); margin-top: 0.58rem; }
-
-  /* ---------- team ---------- */
-
-  .crew { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.25rem; }
-  @media (min-width: 860px) { .crew { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-  .track-record { margin-top: clamp(3rem, 6vw, 4.5rem); }
-
-  .person {
-    background: var(--surface);
-    border: 1px solid var(--rule);
-    border-radius: 18px;
-    padding: clamp(1.6rem, 3vw, 2.3rem);
-    display: flex; flex-direction: column; gap: 0.9rem;
-  }
-  .person .name { font-family: var(--display); font-weight: 800; font-size: clamp(1.5rem, 3vw, 2rem); letter-spacing: -0.03em; text-transform: uppercase; line-height: 1; margin: 0; }
-  .person .role { font-family: var(--mono); font-size: var(--fs-micro); letter-spacing: 0.16em; text-transform: uppercase; color: var(--violet-lift); margin: 0 0 0.5rem; }
-  .person ul { list-style: none; margin: 0.2rem 0 0; padding: 0; display: grid; gap: 0.55rem; }
-  .person li { display: grid; grid-template-columns: 1.1rem minmax(0, 1fr); gap: 0.4rem; font-size: 0.94rem; color: var(--ink-2); }
-  .person li::before { content: ""; width: 7px; height: 7px; border-radius: 2px; background: var(--violet); margin-top: 0.58rem; }
-
-  /* ---------- event timeline ---------- */
-
-  .tline { list-style: none; margin: 0; padding: 0; }
-  .tline li {
-    display: grid; grid-template-columns: minmax(0, 1fr); gap: 0.3rem;
-    padding: 0 0 2rem 1.75rem;
-    position: relative;
-    border-left: 1px solid var(--rule);
-    margin-left: 0.35rem;
-  }
-  @media (min-width: 760px) {
-    .tline li { grid-template-columns: 8.5rem minmax(0, 1fr); gap: 0.3rem 2rem; align-items: start; }
-  }
-  .tline li:last-child { border-left-color: transparent; padding-bottom: 0; }
-  .tline li::before {
-    content: ""; position: absolute; left: -5px; top: 0.45rem;
-    width: 9px; height: 9px; border-radius: 50%;
-    background: var(--violet); border: 2px solid var(--ground);
-  }
-  .tline li.up::before { background: var(--warm); }
-  .tline .when {
-    font-family: var(--mono); font-size: 0.76rem; letter-spacing: 0.1em;
-    text-transform: uppercase; color: var(--violet-lift); padding-top: 0.15rem;
-  }
-  .tline li.up .when { color: var(--warm); }
-  .tline .ev h3 { font-size: 1.15rem; margin-bottom: 0.3rem; }
-  .tline .ev p { font-size: 0.94rem; color: var(--ink-2); margin: 0; }
-  .tline .ev a.src {
-    display: inline-block; margin-top: 0.5rem;
-    font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.06em;
-    color: var(--violet-lift); text-decoration: underline; text-underline-offset: 3px;
-  }
-  .tline .tag {
-    display: inline-block; margin-left: 0.5rem; vertical-align: 0.15em;
-    font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.12em;
-    text-transform: uppercase; color: var(--warm);
-    border: 1px solid currentColor; border-radius: 999px; padding: 0.15em 0.6em;
-  }
-
-  /* ---------- gallery ---------- */
-
-  .gallery {
-    display: grid; gap: 0.6rem;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    margin-top: clamp(2.5rem, 5vw, 3.5rem);
-  }
-  @media (min-width: 620px) { .gallery { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
-  @media (min-width: 960px) { .gallery { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
-  .gallery figure { margin: 0; aspect-ratio: 1; overflow: hidden; border-radius: 10px; background: var(--surface-2); }
-  .gallery img {
-    width: 100%; height: 100%; object-fit: cover; display: block;
-    transition: transform 0.4s cubic-bezier(0.2, 0.7, 0.3, 1);
-  }
-  .gallery figure:hover img { transform: scale(1.05); }
-  .gallery-note {
-    font-family: var(--mono); font-size: var(--fs-micro);
-    letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-3);
-    margin-top: 1rem;
-  }
-
-  .socials { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: auto; padding-top: 0.6rem; }
-  .socials a {
-    display: inline-flex; align-items: center; gap: 0.45rem;
-    border: 1px solid var(--rule); border-radius: 999px;
-    padding: 0.4rem 0.85rem;
-    font-family: var(--mono); font-size: 0.68rem;
-    letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-2);
-    transition: color 0.15s ease, border-color 0.15s ease;
-  }
-  .socials a:hover { color: var(--violet-lift); border-color: var(--violet-lift); }
-  .socials svg { width: 13px; height: 13px; flex: none; }
-
-  .refnote {
-    display: inline-flex; align-items: center; gap: 0.55rem;
-    border: 1px dashed var(--warm); border-radius: 999px;
-    padding: 0.4rem 0.95rem; margin-top: 1.25rem;
-    font-family: var(--mono); font-size: 0.66rem;
-    letter-spacing: 0.14em; text-transform: uppercase; color: var(--warm);
-  }
-  .refnote::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--warm); flex: none; }
-
-  .person-head { display: flex; align-items: center; gap: 1rem; }
-  .avatar {
-    width: 78px; height: 78px; flex: none;
-    border-radius: 50%; overflow: hidden;
-    background: linear-gradient(150deg, var(--violet) 0%, var(--violet-deep) 100%);
-    display: flex; align-items: center; justify-content: center;
-    font-family: var(--display); font-weight: 800; font-size: 1.25rem;
-    letter-spacing: 0.01em; color: #fff;
-    border: 1px solid var(--rule);
-  }
-  .avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
   /* ---------- faq ---------- */
 
@@ -816,10 +687,6 @@
 </head>
 <body>
 
-<div class="proposal-bar">
-  <div class="wrap"><span>Event Proposal</span></div>
-</div>
-
 <nav class="top">
   <div class="wrap">
     <a class="lockup" href="#top" aria-label="Topview home">
@@ -831,7 +698,6 @@
       <a href="#workshops">Workshops</a>
       <a href="#schedule">Schedule</a>
       <a href="#prizes">Prizes</a>
-      <a href="#team">Team</a>
       <a href="#faq">FAQ</a>
     </div>
     <div class="nav-right">
@@ -1221,118 +1087,6 @@
   </div>
 </section>
 
-<section class="section" id="team">
-  <div class="wrap">
-    <div class="sec-head" data-reveal>
-      <p class="eyebrow">The team behind it</p>
-      <h2>Run by people who<br>fill these rooms.</h2>
-      <p class="lead" style="margin-top:1.4rem;">This is not a first attempt. Four events across KL in the past year, every one of them oversubscribed.</p>
-      <p class="refnote">Reference only, remove before launch</p>
-    </div>
-
-    <div class="crew">
-      <article class="person" data-reveal>
-        <div class="person-head">
-          <div class="avatar"><img src="/jd.jpg" width="360" height="360" alt="JD" loading="lazy"></div>
-          <div>
-            <p class="role">Organiser</p>
-            <p class="name">JD</p>
-          </div>
-        </div>
-        <ul>
-          <li>Ambassador, Devin by Cognition</li>
-          <li>Former Lovable Ambassador</li>
-          <li>Programme Director, ADLP x Codex 2026 for Axiata Foundation</li>
-          <li>Serial hackathon winner, more than 40 wins at university</li>
-        </ul>
-        <div class="socials">
-          <a href="https://www.linkedin.com/in/hohjd/" target="_blank" rel="noopener noreferrer">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.5c0-1.3-.03-3-1.83-3-1.83 0-2.11 1.43-2.11 2.9V21H9z"/></svg>
-            LinkedIn
-          </a>
-          <a href="https://www.instagram.com/hohjiada/" target="_blank" rel="noopener noreferrer">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4"/><circle cx="17.6" cy="6.4" r="1.2" fill="currentColor" stroke="none"/></svg>
-            Instagram
-          </a>
-        </div>
-      </article>
-
-      <article class="person" data-reveal>
-        <div class="person-head">
-          <div class="avatar"><img src="/sherlyn.jpg" width="360" height="360" alt="Sherlyn Heon" loading="lazy"></div>
-          <div>
-            <p class="role">Co-host</p>
-            <p class="name">Sherlyn Heon</p>
-          </div>
-        </div>
-        <ul>
-          <li>PhD in AI at UPM</li>
-          <li>Content creator</li>
-          <li>Speaker at multiple AI events</li>
-        </ul>
-        <div class="socials">
-          <a href="https://www.linkedin.com/in/hi-teng/" target="_blank" rel="noopener noreferrer">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.5c0-1.3-.03-3-1.83-3-1.83 0-2.11 1.43-2.11 2.9V21H9z"/></svg>
-            LinkedIn
-          </a>
-          <a href="https://www.instagram.com/sherlynheon/" target="_blank" rel="noopener noreferrer">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4"/><circle cx="17.6" cy="6.4" r="1.2" fill="currentColor" stroke="none"/></svg>
-            Instagram
-          </a>
-        </div>
-      </article>
-    </div>
-
-    <div class="track-record" data-reveal>
-      <p class="eyebrow" style="margin-bottom:1.75rem;">Track record</p>
-      <ol class="tline">
-        <li>
-          <span class="when">24 May 2026</span>
-          <div class="ev">
-            <h3>Lovable Vibeathon KL</h3>
-            <p>300 sign ups in two days. 150 attended, capped by venue size.</p>
-            <a class="src" href="https://vibeathonkl.lovable.app" target="_blank" rel="noopener noreferrer">vibeathonkl.lovable.app</a>
-          </div>
-        </li>
-        <li>
-          <span class="when">25 May 2026</span>
-          <div class="ev">
-            <h3>OpenClaw Monthly Meetup x Lovable</h3>
-            <p>200 attended at the Microsoft KL office.</p>
-          </div>
-        </li>
-        <li class="up">
-          <span class="when">23 Aug 2026</span>
-          <div class="ev">
-            <h3>Devin AI Hackathon <span class="tag">Upcoming</span></h3>
-            <p>Over 500 sign ups. The waiting list had to be closed.</p>
-          </div>
-        </li>
-        <li class="up">
-          <span class="when">9 to 13 Sep 2026</span>
-          <div class="ev">
-            <h3>ADLP x Codex 2026 <span class="tag">Upcoming</span></h3>
-            <p>A five day AI bootcamp for Axiata Foundation. JD is programme director.</p>
-            <a class="src" href="https://emergingleadersasia.com/adlp-for-girls" target="_blank" rel="noopener noreferrer">emergingleadersasia.com</a>
-          </div>
-        </li>
-      </ol>
-
-      <div class="gallery">
-        <figure><img src="/events/e1.jpg" width="600" height="600" alt="A full room watching a talk at a past event" loading="lazy"></figure>
-        <figure><img src="/events/e2.jpg" width="600" height="600" alt="Teams working at long tables" loading="lazy"></figure>
-        <figure><img src="/events/e3.jpg" width="600" height="600" alt="Two hosts presenting from a podium" loading="lazy"></figure>
-        <figure><img src="/events/e4.jpg" width="600" height="600" alt="Participants at laptops in a venue" loading="lazy"></figure>
-        <figure><img src="/events/e5.jpg" width="600" height="600" alt="JD speaking with a microphone" loading="lazy"></figure>
-        <figure><img src="/events/e6.jpg" width="600" height="600" alt="A team mid build at a table" loading="lazy"></figure>
-        <figure><img src="/events/e7.jpg" width="600" height="600" alt="Three participants after their demo" loading="lazy"></figure>
-        <figure><img src="/events/e8.jpg" width="600" height="600" alt="Judges listening to a pitch" loading="lazy"></figure>
-      </div>
-      <p class="gallery-note">Scenes from past events</p>
-    </div>
-  </div>
-</section>
-
 <section class="section" id="faq">
   <div class="wrap">
     <div class="sec-head" data-reveal>
@@ -1412,17 +1166,16 @@
   var root = document.documentElement;
   var btn = document.getElementById('themer');
 
-  function systemTheme() {
-    return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
-  }
+  /* light is the default; the system preference is deliberately not consulted */
+  var DEFAULT_THEME = 'light';
 
   try {
     var saved = localStorage.getItem('tv-theme');
     if (saved === 'light' || saved === 'dark') { root.setAttribute('data-theme', saved); }
-  } catch (e) { /* storage blocked, fall back to system */ }
+  } catch (e) { /* storage blocked, fall back to the default */ }
 
   btn.addEventListener('click', function () {
-    var current = root.getAttribute('data-theme') || systemTheme();
+    var current = root.getAttribute('data-theme') || DEFAULT_THEME;
     var next = current === 'dark' ? 'light' : 'dark';
     root.setAttribute('data-theme', next);
     try { localStorage.setItem('tv-theme', next); } catch (e) { /* ignore */ }
@@ -1528,7 +1281,7 @@
     ctx.clearRect(0, 0, W, H);
     var violet = css('--violet') || '#731DFB';
     var lift = css('--violet-lift') || '#A67CFF';
-    var light = (root.getAttribute('data-theme') || systemTheme()) === 'light';
+    var light = (root.getAttribute('data-theme') || DEFAULT_THEME) === 'light';
 
     ctx.lineJoin = 'round';
     ctx.lineCap = 'round';
