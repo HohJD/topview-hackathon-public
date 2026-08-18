@@ -13,7 +13,8 @@ Public facing. Static single-file site (`index.html`), no build step.
 The only external dependency is Google Fonts (Inter, Roboto Mono), loaded over
 CDN. Everything else is inline.
 
-Registration links are still placeholders pointing at `#register`.
+Registration goes to Luma: https://luma.com/9z2e5zfv (nav button, hero
+announcement pill, hero CTA and closing CTA all point there).
 
 ## Design
 

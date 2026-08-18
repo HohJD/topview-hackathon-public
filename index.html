@@ -172,11 +172,16 @@
   .muted { color: var(--ink-2); }
 
   .grad {
-    background: linear-gradient(to right, var(--brand-500) 10%, var(--brand-400) 90%);
+    background: linear-gradient(100deg,
+      var(--brand-600) 0%, var(--brand-500) 22%, #B983FF 38%,
+      var(--brand-400) 52%, var(--brand-500) 72%, var(--brand-600) 100%);
+    background-size: 220% 100%;
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
+    animation: gradsweep 7s linear infinite;
   }
+  @keyframes gradsweep { from { background-position: 0% 0; } to { background-position: -220% 0; } }
 
   .eyebrow {
     font-family: var(--mono);
@@ -311,24 +316,98 @@
 
   /* ---------- hero ---------- */
 
-  .hero { position: relative; padding-top: 8rem; padding-bottom: 3rem; }
-  @media (min-width: 768px) { .hero { padding-top: 10rem; padding-bottom: 5rem; } }
+  .hero { position: relative; padding-top: 7.5rem; padding-bottom: 3rem; }
+  @media (min-width: 768px) { .hero { padding-top: 9.5rem; padding-bottom: 5rem; } }
 
   .hero-head { max-width: var(--measure); margin-inline: auto; text-align: center; }
 
-  .hero-chips {
-    display: flex; flex-wrap: wrap; justify-content: center;
-    align-items: center; gap: 0.4rem 0.9rem;
-    padding-block: 0.7rem; margin-bottom: 1.5rem;
-  }
-  .hero-chips span {
-    font-family: var(--mono); font-size: 0.7rem; font-weight: 500;
-    letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-3);
-  }
-  .hero-chips .dot { width: 3px; height: 3px; border-radius: 50%; background: var(--gray-300); }
-  .hero-chips .on { color: var(--accent-ink); }
+  /* the hero content sits inside a viewfinder, because it is a video hackathon */
+  .frame { position: relative; padding: 2.75rem 0.25rem 2.25rem; }
+  @media (min-width: 640px) { .frame { padding: 3rem 1.5rem 2.5rem; } }
 
-  .hero h1 { padding-block: 1.5rem; margin-bottom: 1.5rem; }
+  .vf { position: absolute; inset: 0; pointer-events: none; }
+  .vf-c { position: absolute; width: 16px; height: 16px; border: 2px solid var(--brand-400); opacity: 0.7; }
+  .vf-tl { top: 0; left: 0; border-right: 0; border-bottom: 0; border-top-left-radius: 4px; }
+  .vf-tr { top: 0; right: 0; border-left: 0; border-bottom: 0; border-top-right-radius: 4px; }
+  .vf-bl { bottom: 0; left: 0; border-right: 0; border-top: 0; border-bottom-left-radius: 4px; }
+  .vf-br { bottom: 0; right: 0; border-left: 0; border-top: 0; border-bottom-right-radius: 4px; }
+
+  .vf-tag {
+    position: absolute; top: -0.15rem;
+    font-family: var(--mono); font-size: 0.6rem; font-weight: 500;
+    letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-3);
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    white-space: nowrap;
+  }
+  .vf-rec { left: 1.6rem; color: var(--accent-ink); }
+  .vf-rec i {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--brand-500);
+    animation: recblink 1.8s ease-in-out infinite;
+  }
+  @keyframes recblink { 0%, 100% { opacity: 1; } 50% { opacity: 0.25; } }
+  .vf-spec { right: 1.6rem; }
+  @media (max-width: 560px) { .vf-spec { display: none; } }
+
+  /* announcement pill, the whole thing is the registration link */
+  .announce {
+    position: relative;
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    padding: 0.4rem 0.85rem;
+    border-radius: 999px;
+    background: var(--panel);
+    box-shadow: var(--shadow);
+    font-size: 0.8125rem; font-weight: 500; color: var(--ink-2);
+    margin-bottom: 1.75rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .announce::before {
+    content: ""; position: absolute; inset: 0;
+    border-radius: inherit; padding: 1px;
+    background: linear-gradient(var(--line-2), var(--line));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+  .announce:hover { transform: translateY(-1px); box-shadow: var(--shadow-lg); }
+  .announce > * { position: relative; }
+  .announce .pulse { width: 7px; height: 7px; flex: none; border-radius: 50%; background: var(--brand-500); }
+  .announce .pulse::after {
+    content: ""; position: absolute; inset: 0;
+    border-radius: 50%; background: var(--brand-500);
+    animation: ping 2.2s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
+  @keyframes ping { 0% { transform: scale(1); opacity: 0.55; } 100% { transform: scale(3); opacity: 0; } }
+  .announce .bar { width: 1px; height: 0.85rem; background: var(--line); flex: none; }
+  .announce .dim { color: var(--ink-3); }
+  .announce .arw { color: var(--brand-500); margin-left: 0.1rem; }
+  .announce:hover .arw { transform: translateX(2px); }
+
+  .hero h1 {
+    font-size: clamp(2.75rem, 7.4vw, 5.5rem);
+    line-height: 0.96;
+    letter-spacing: -0.042em;
+    padding-block: 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+  .hero h1 .l1, .hero h1 .l2 { display: block; }
+  .hero h1 .l2 { padding-bottom: 0.06em; }
+
+  .theme-line {
+    display: inline-flex; align-items: center; gap: 0.55rem;
+    font-family: var(--mono); font-size: 0.72rem; font-weight: 500;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--accent-ink);
+    margin-bottom: 1.5rem;
+  }
+  @media (max-width: 430px) { .theme-line { font-size: 0.64rem; letter-spacing: 0.14em; gap: 0.4rem; } }
+  .theme-line .star {
+    width: 13px; height: 13px; flex: none;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 1C12.9 8.2 15.8 11.1 23 12C15.8 12.9 12.9 15.8 12 23C11.1 15.8 8.2 12.9 1 12C8.2 11.1 11.1 8.2 12 1Z' fill='%23731DFB'/%3E%3C/svg%3E") center / contain no-repeat;
+  }
+
   .hero .lead { margin-bottom: 2rem; }
   .hero-actions { padding-block: 1.5rem; }
   .hero-note { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.08em; color: var(--ink-3); margin-top: 1.25rem; }
@@ -670,7 +749,7 @@
             <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>
           </svg>
         </button>
-        <a class="btn-sm btn-primary" href="#register">Register</a>
+        <a class="btn-sm btn-primary" href="https://luma.com/9z2e5zfv" target="_blank" rel="noopener noreferrer">Register</a>
       </div>
     </div>
   </div>
@@ -686,32 +765,48 @@
 
   <div class="wrap">
     <div class="hero-head">
+      <div class="frame">
 
-      <div class="hero-chips hair" data-aos="zoom-y-out">
-        <span class="on">Topview AI</span>
-        <span class="dot" aria-hidden="true"></span>
-        <span>Malaysia Day</span>
-        <span class="dot" aria-hidden="true"></span>
-        <span>AWS Office KL</span>
-      </div>
-
-      <h1 class="hair" data-aos="zoom-y-out" style="--d:150ms">
-        AI Video <span class="grad">Hackathon</span>
-      </h1>
-
-      <p class="lead" data-aos="zoom-y-out" style="--d:300ms">
-        Celebrate Malaysia through an AI generated festive film, built in a day.
-        One theme, nine hours, and RM3,500 for the teams that pull it off.
-      </p>
-
-      <div class="hero-actions hair" data-aos="zoom-y-out" style="--d:450ms">
-        <div class="btn-row">
-          <a class="btn btn-primary" href="#register">Register your team <span class="arw" aria-hidden="true">-&gt;</span></a>
-          <a class="btn btn-ghost" href="#schedule">See the run of day</a>
+        <div class="vf" aria-hidden="true">
+          <span class="vf-c vf-tl"></span><span class="vf-c vf-tr"></span>
+          <span class="vf-c vf-bl"></span><span class="vf-c vf-br"></span>
+          <span class="vf-tag vf-rec"><i></i>Rec</span>
+          <span class="vf-tag vf-spec">01:00 &ndash; 03:00 final cut</span>
         </div>
-      </div>
 
-      <p class="hero-note" data-aos="zoom-y-out" style="--d:550ms">Free to enter &middot; Teams of 2 to 4 &middot; Theme: Malaysia, Stories That Unite</p>
+        <a class="announce" href="https://luma.com/9z2e5zfv" target="_blank" rel="noopener noreferrer" data-aos="zoom-y-out">
+          <span class="pulse" aria-hidden="true"></span>
+          Registration open
+          <span class="bar" aria-hidden="true"></span>
+          <span class="dim">Sun 6 Sep 2026</span>
+          <span class="arw" aria-hidden="true">-&gt;</span>
+        </a>
+
+        <h1 class="hair" data-aos="zoom-y-out" style="--d:150ms">
+          <span class="l1">AI Video</span>
+          <span class="l2 grad">Hackathon</span>
+        </h1>
+
+        <p class="theme-line" data-aos="zoom-y-out" style="--d:250ms">
+          <span class="star" aria-hidden="true"></span>
+          Theme: Malaysia, Stories That Unite
+        </p>
+
+        <p class="lead" data-aos="zoom-y-out" style="--d:350ms">
+          A one day AI film sprint. Nine hours from blank project to final cut,
+          a Malaysia Day story for the brand of your choice, and RM3,500 for the
+          teams that pull it off.
+        </p>
+
+        <div class="hero-actions hair" data-aos="zoom-y-out" style="--d:450ms">
+          <div class="btn-row">
+            <a class="btn btn-primary" href="https://luma.com/9z2e5zfv" target="_blank" rel="noopener noreferrer">Register your team <span class="arw" aria-hidden="true">-&gt;</span></a>
+            <a class="btn btn-ghost" href="#schedule">See the run of day</a>
+          </div>
+        </div>
+
+        <p class="hero-note" data-aos="zoom-y-out" style="--d:550ms">Free to enter &middot; Teams of 2 to 4 &middot; AWS&nbsp;Office&nbsp;KL</p>
+      </div>
     </div>
 
     <div class="console-outer" data-aos="zoom-y-out" style="--d:600ms">
@@ -1080,10 +1175,10 @@
         <p class="eyebrow">6 September 2026 &middot; 9am to 6pm</p>
         <h2>Nine hours. Then it either plays or it does not.</h2>
         <div class="btn-row">
-          <a class="btn btn-primary" href="#register">Register your team <span class="arw" aria-hidden="true">-&gt;</span></a>
+          <a class="btn btn-primary" href="https://luma.com/9z2e5zfv" target="_blank" rel="noopener noreferrer">Register your team <span class="arw" aria-hidden="true">-&gt;</span></a>
           <a class="btn btn-ghost" href="#schedule">Run of day</a>
         </div>
-        <p class="hero-note">Free to enter &middot; Teams of 2 to 4 &middot; AWS Office KL</p>
+        <p class="hero-note">Free to enter &middot; Teams of 2 to 4 &middot; AWS&nbsp;Office&nbsp;KL</p>
       </div>
     </div>
   </div>
