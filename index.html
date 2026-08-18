@@ -138,6 +138,10 @@
     text-transform: uppercase;
     font-weight: 800;
   }
+  /* forced breaks are a desktop nicety only */
+  .nb { display: none; }
+  @media (min-width: 640px) { .nb { display: inline; } }
+
   h3 { font-size: 1rem; line-height: 1.35; letter-spacing: -0.018em; font-weight: 600; }
 
   p { margin: 0 0 0.9rem; }
@@ -260,13 +264,23 @@
   /* WebGL wireframe geode, Three.js, purely decorative */
   .viz {
     position: absolute; z-index: 1; pointer-events: none;
-    top: 48%; right: -5rem; transform: translateY(-50%);
-    width: min(40rem, 44vw); aspect-ratio: 1;
+    top: 50%; right: 3rem; transform: translateY(-50%);
+    width: min(36rem, 40vw); aspect-ratio: 1;
   }
   .viz canvas { width: 100% !important; height: 100% !important; display: block; }
   @media (max-width: 1023px) {
     /* corner accent only, it must never sit over the body copy */
     .viz { top: -3rem; right: -26%; width: 18rem; opacity: 0.3; transform: none; }
+  }
+  /* below 700px there is no clear space beside the copy, so it gets its own row */
+  @media (max-width: 700px) {
+    .hero { display: flex; flex-direction: column; }
+    .hero .wrap { order: 1; }
+    .viz {
+      order: 2; position: relative;
+      top: auto; right: auto; transform: none;
+      width: 16rem; margin: 0.25rem auto 1rem; opacity: 0.9;
+    }
   }
 
   /* the status strip: registration state and the date, side by side */
@@ -295,6 +309,13 @@
     line-height: 1.25;
   }
   .status .where s { width: 14px; height: 1px; background: var(--ink-3); flex: none; }
+  .status .where > span { white-space: nowrap; }
+  /* on a phone the separators orphan onto their own line, so stack instead */
+  @media (max-width: 700px) {
+    .status .where { display: block; }
+    .status .where s { display: none; }
+    .status .where > span { display: block; }
+  }
 
   .hero h1 { margin-bottom: 1.75rem; }
   .hero h1 .l2 { color: var(--accent); }
@@ -308,32 +329,6 @@
   .theme-line b { color: var(--accent-ink); font-weight: 500; }
 
   .hero .lead { margin-bottom: 2.5rem; max-width: 34em; }
-
-  /* ---------- countdown ---------- */
-
-  .cd-block { border: 1px solid var(--line); border-radius: var(--r); background: var(--bg-2); max-width: 30rem; }
-  .cd-top {
-    display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 1rem;
-    padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--line);
-    font-family: var(--mono); font-size: 0.5625rem; font-weight: 500;
-    letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-3);
-  }
-  .cd-top .to { color: var(--ink); }
-  .cd { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
-  .cd > div { padding: 0.85rem 0.5rem 0.75rem; text-align: center; border-left: 1px solid var(--line); }
-  .cd > div:first-child { border-left: 0; }
-  .cd .v {
-    display: block;
-    font-family: var(--mono); font-weight: 500;
-    font-size: clamp(1.25rem, 3vw, 1.75rem);
-    line-height: 1; letter-spacing: -0.04em;
-    font-variant-numeric: tabular-nums; color: var(--ink);
-  }
-  .cd .k {
-    display: block; margin-top: 0.4rem;
-    font-family: var(--mono); font-size: 0.5rem; font-weight: 500;
-    letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-3);
-  }
 
   .hero-cta { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.5rem; }
   .hero-cta .btn { flex: 1 1 auto; }
@@ -372,6 +367,16 @@
     letter-spacing: 0.14em; color: var(--accent); margin-bottom: 1rem;
   }
   .cells p { color: var(--ink-2); margin: 0.5rem 0 0; font-size: 0.875rem; }
+
+  /* the two legal guidelines, deliberately quiet */
+  .rules { list-style: none; margin: 1.5rem 0 0; padding: 0; display: grid; gap: 0.5rem; }
+  @media (min-width: 760px) { .rules { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.5rem 2rem; } }
+  .rules li { font-size: 0.8125rem; line-height: 1.5; color: var(--ink-3); }
+  .rules b {
+    font-family: var(--mono); font-size: 0.625rem; font-weight: 600;
+    letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-2);
+    margin-right: 0.5rem;
+  }
 
   .ticks { list-style: none; margin: 1.25rem 0 0; padding: 0; display: grid; gap: 0.6rem; }
   .ticks li { display: grid; grid-template-columns: 1.1rem minmax(0, 1fr); gap: 0.35rem; font-size: 0.875rem; color: var(--ink-2); }
@@ -539,34 +544,20 @@
     <div class="status" data-r>
       <span class="live"><i aria-hidden="true"></i>Registration open</span>
       <span class="where">
-        Sun 6 Sep 2026 <s aria-hidden="true"></s>
-        09:00 &ndash; 18:00 <s aria-hidden="true"></s>
-        AWS Office KL
+        <span>Sun 6 Sep 2026</span><s aria-hidden="true"></s>
+        <span>09:00 to 18:00</span><s aria-hidden="true"></s>
+        <span>AWS Office KL</span>
       </span>
     </div>
 
     <h1 data-r style="--d:60ms"><span class="l1">AI Video</span> <span class="l2">Hackathon</span></h1>
 
-    <p class="theme-line" data-r style="--d:120ms">Theme <b>&mdash; Malaysia, Stories That Unite</b></p>
+    <p class="theme-line" data-r style="--d:120ms">Theme: <b>Malaysia, Stories That Unite</b></p>
 
     <p class="lead" data-r style="--d:180ms">
-      A one day AI film sprint. Nine hours from blank project to final cut, a
-      Malaysia Day story for the brand of your choice, and RM3,500 for the teams
-      that pull it off. No filmmaking experience needed, the morning teaches you the tools.
+      Build a Malaysia Day brand film in nine hours, start to final cut.
+      RM3,500 in prizes. No filmmaking experience needed, the morning teaches you the tools.
     </p>
-
-    <div class="cd-block" data-r style="--d:240ms">
-      <div class="cd-top">
-        <span id="cdLabel">Doors open in</span>
-        <span class="to">Sun 6 Sep 2026, 08:45 MYT</span>
-      </div>
-      <div class="cd">
-        <div><span class="v" data-cd="d">00</span><span class="k">Days</span></div>
-        <div><span class="v" data-cd="h">00</span><span class="k">Hrs</span></div>
-        <div><span class="v" data-cd="m">00</span><span class="k">Min</span></div>
-        <div><span class="v" data-cd="s">00</span><span class="k">Sec</span></div>
-      </div>
-    </div>
 
     <div class="hero-cta" data-r style="--d:300ms">
       <a class="btn btn-primary" href="https://luma.com/9z2e5zfv" target="_blank" rel="noopener noreferrer">Register on Luma <span class="ar" aria-hidden="true">&rarr;</span></a>
@@ -601,7 +592,7 @@
     <div class="sec-head" data-r>
       <p class="eyebrow"><span class="num">01</span> The brief</p>
       <h2>Malaysia, stories that unite</h2>
-      <p class="lead">Celebrate Malaysia's diversity, culture and shared spirit through an original AI generated festive film for a brand of your choice. It lands in the Merdeka and Malaysia Day season, so the films that work will be the ones that feel like home: unity, culture and national pride, told honestly.</p>
+      <p class="lead">An original AI generated festive film for a brand of your choice. It lands in Merdeka and Malaysia Day season, so the films that work will be the ones that feel like home.</p>
     </div>
 
     <ol class="cells c4" data-r>
@@ -627,18 +618,11 @@
       </li>
     </ol>
 
-    <div class="cells c2" style="margin-top:1.5rem" data-r>
-      <div>
-        <span class="idx">Rule</span>
-        <h3>The Jalur Gemilang</h3>
-        <p>If the flag features in your film, it must be portrayed respectfully and in accordance with Malaysian flag etiquette.</p>
-      </div>
-      <div>
-        <span class="idx">Rule</span>
-        <h3>The 3R matters</h3>
-        <p>Do not include or comment on race, religion and royalty, in accordance with Malaysian law.</p>
-      </div>
-    </div>
+    <ul class="rules" data-r>
+      <li><b>Jalur Gemilang</b> Portray the flag respectfully, per Malaysian flag etiquette.</li>
+      <li><b>3R</b> No race, religion or royalty, per Malaysian law.</li>
+    </ul>
+
   </div>
 </section>
 
@@ -646,15 +630,15 @@
   <div class="wrap">
     <div class="sec-head" data-r>
       <p class="eyebrow"><span class="num">02</span> Morning workshops</p>
-      <h2>Learn the tools first,<br>then start the clock</h2>
-      <p class="lead">One session covering both tools, run before the sprint opens. Built for people opening them for the first time.</p>
+      <h2>Learn the tools first,<br class="nb">then start the clock</h2>
+      <p class="lead">Both tools in one session, before the sprint opens. Built for first timers.</p>
     </div>
 
     <div class="cells" data-r>
       <div>
         <span class="idx">09:30 &rarr; 10:45 &nbsp;&middot;&nbsp; 75 min</span>
         <h3 style="font-size:1.375rem;letter-spacing:-0.035em;text-transform:uppercase;font-weight:800">Topview &amp; Seedance 2.5</h3>
-        <p style="max-width:48em;margin-top:0.75rem">Blank project to finished cut, then how to get the shot you want rather than the shot you settle for.</p>
+        <p style="max-width:48em;margin-top:0.75rem">Blank project to finished cut, then how to get the shot you want.</p>
         <ul class="ticks" style="grid-template-columns:minmax(0,1fr)">
           <li>Generating, editing, and assembling inside Topview</li>
           <li>Automating the repetitive parts so you iterate in minutes</li>
@@ -672,8 +656,8 @@
   <div class="wrap">
     <div class="sec-head" data-r>
       <p class="eyebrow"><span class="num">03</span> Run of day</p>
-      <h2>Learn for two hours,<br>build for four and a half</h2>
-      <p class="lead">The morning gets you fluent. The rest of the day is a protected sprint, split by one real lunch, with a hard cutoff at 16:00 so demos start on time.</p>
+      <h2>Learn for two hours,<br class="nb">build for four and a half</h2>
+      <p class="lead">The morning gets you fluent. The rest is a protected sprint with a hard cutoff at 16:00, so demos start on time.</p>
     </div>
 
     <div class="track-shell" id="trackShell" data-r>
@@ -703,17 +687,17 @@
     <ol class="runsheet" data-r>
       <li>
         <span class="tc">08:45 &rarr; 09:00</span>
-        <span class="what">Check-in and team formation<em>Teams of 2 to 4. Come without one and leave with one, facilitated rather than left to chance.</em></span>
+        <span class="what">Check-in and team formation<em>Come without a team and leave with one.</em></span>
         <span class="dur">15 min</span>
       </li>
       <li>
         <span class="tc">09:00 &rarr; 09:30</span>
-        <span class="what">Opening session<em>The brief, the rules, how judging works, and what your credits cover.</em></span>
+        <span class="what">Opening session<em>The brief, the rules, judging, and what your credits cover.</em></span>
         <span class="dur">30 min</span>
       </li>
       <li>
         <span class="tc">09:30 &rarr; 10:45</span>
-        <span class="what">Topview and Seedance 2.5 workshop<em>Both tools in one session. Blank project to finished cut, then prompting for shots that actually work.</em></span>
+        <span class="what">Topview and Seedance 2.5 workshop<em>Blank project to finished cut, then prompting for shots that work.</em></span>
         <span class="dur">75 min</span>
       </li>
       <li class="key">
@@ -728,27 +712,27 @@
       </li>
       <li class="key">
         <span class="tc">13:45 &rarr; 16:00</span>
-        <span class="what">Sprint continues<em>Render queues get busy after 15:00. Plan your final export early.</em></span>
+        <span class="what">Sprint continues<em>Render queues get busy after 15:00. Export early.</em></span>
         <span class="dur">2 hr 15</span>
       </li>
       <li class="key">
         <span class="tc">16:00</span>
-        <span class="what">Project submissions close<em>Hard cutoff. Files uploaded by 16:00 or they do not screen.</em></span>
+        <span class="what">Project submissions close<em>Files uploaded by 16:00 or they do not screen.</em></span>
         <span class="dur">Locked</span>
       </li>
       <li>
         <span class="tc">16:00 &rarr; 17:00</span>
-        <span class="what">Judging and shortlist<em>Every submission is watched. Finalists are posted in the room at 17:00.</em></span>
+        <span class="what">Judging and shortlist<em>Every submission is watched. Finalists posted at 17:00.</em></span>
         <span class="dur">1 hr</span>
       </li>
       <li>
         <span class="tc">17:00 &rarr; 18:00</span>
-        <span class="what">Finalist demos<em>Play the video, then take questions. Three minutes on the clock per team.</em></span>
+        <span class="what">Finalist demos<em>Play the video, then take questions. Three minutes per team.</em></span>
         <span class="dur">1 hr</span>
       </li>
       <li class="key">
         <span class="tc">18:00</span>
-        <span class="what">Winners announced<em>Three prizes handed out on the floor, then everyone goes home.</em></span>
+        <span class="what">Winners announced<em>Three prizes handed out on the floor.</em></span>
         <span class="dur">Wrap</span>
       </li>
     </ol>
@@ -767,7 +751,7 @@
       <article class="first">
         <span class="idx">First place</span>
         <span class="amount">RM2,000</span>
-        <p>Highest score of the day across the five criteria below.</p>
+        <p>Highest score across the five criteria below.</p>
       </article>
       <article>
         <span class="idx">Second</span>
@@ -788,7 +772,7 @@
     <div class="sec-head" data-r>
       <p class="eyebrow"><span class="num">05</span> How it is judged</p>
       <h2>Fifty points, five ways</h2>
-      <p class="lead">Each criterion carries ten points. Nothing is weighted above anything else, so a film has to hold up on all five. <span class="tbc">TBC</span> Panel to be confirmed.</p>
+      <p class="lead">Ten points each. Nothing is weighted above anything else, so a film has to hold up on all five.</p>
     </div>
 
     <ul class="cells c3" data-r>
@@ -815,12 +799,12 @@
       <li>
         <span class="idx">10 pts</span>
         <h3>Impact &amp; Engagement</h3>
-        <p>A compelling opening and memorable overall impression.</p>
+        <p>A compelling opening and a memorable finish.</p>
       </li>
       <li>
         <span class="idx">Total</span>
         <h3>50 points</h3>
-        <p>Judged on the final cut alone. Finalists also take three minutes of questions.</p>
+        <p>Judged on the final cut. Finalists take three minutes of questions.</p>
       </li>
     </ul>
   </div>
@@ -830,27 +814,27 @@
   <div class="wrap">
     <div class="sec-head" data-r>
       <p class="eyebrow"><span class="num">06</span> Who and what</p>
-      <h2>Built for creatives,<br>kitted out by us</h2>
+      <h2>Built for creatives,<br class="nb">kitted out by us</h2>
     </div>
 
     <div class="cells c2" data-r>
       <div>
         <span class="idx">Who it is for</span>
-        <h3>If you have taste but never had the budget for a production crew, this is your day.</h3>
-        <p>Teams of two to four, and you do not need to know anyone before you arrive.</p>
+        <h3>Taste, but never the budget for a production crew.</h3>
+        <p>Teams of two to four. You do not need to know anyone before you arrive.</p>
         <ul class="ticks">
-          <li>Marketers and brand people who have always wanted to shoot the idea in their head</li>
+          <li>Marketers who have always wanted to shoot the idea in their head</li>
           <li>Copywriters, art directors, and creative strategists</li>
           <li>Editors, motion designers, and filmmakers</li>
-          <li>Content creators who want a bigger canvas than a phone</li>
+          <li>Content creators who want a bigger canvas</li>
           <li>Engineers who want to chain models into a pipeline</li>
           <li>Students and first timers. Team forming at 08:45 is for you</li>
         </ul>
       </div>
       <div>
         <span class="idx">What we provide</span>
-        <h3>Bring a laptop and headphones. Everything else is on us.</h3>
-        <p>Turn up at 08:45 and the room is ready for you.</p>
+        <h3>Bring a laptop and headphones. The rest is on us.</h3>
+        <p>Turn up at 08:45 and the room is ready.</p>
         <ul class="ticks">
           <li>Topview AI credits for every team</li>
           <li>Desk space, power, and wifi at AWS Office KL</li>
@@ -873,11 +857,11 @@
     <div class="faq" data-r>
       <details>
         <summary>What exactly am I making?</summary>
-        <p>A one to three minute festive brand film on the theme Malaysia, Stories That Unite. Pick any brand, then tell a Malaysia Day story through it.</p>
+        <p>A one to three minute festive brand film. Pick any brand, then tell a Malaysia Day story through it.</p>
       </details>
       <details>
         <summary>Can I come without a team?</summary>
-        <p>Come anyway. Teams are two to four people, and the check-in session exists to pair up people who arrive alone.</p>
+        <p>Come anyway. Check-in at 08:45 pairs up people who arrive alone.</p>
       </details>
       <details>
         <summary>Do I need to know these tools already?</summary>
@@ -885,15 +869,15 @@
       </details>
       <details>
         <summary>Do I have to use Topview?</summary>
-        <p>Your team gets credits and the stack is open all day, so you are strongly encouraged to. Bring other tools alongside it if you want.</p>
+        <p>Your team gets credits, so you are strongly encouraged to. Bring other tools alongside it if you want.</p>
       </details>
       <details>
         <summary>Can I turn up with work already done?</summary>
-        <p>No footage, edits, or renders made before 10:45. Ideas, scripts, and storyboards are fine, and you should arrive with a plan.</p>
+        <p>No footage, edits or renders made before 10:45. Ideas, scripts and storyboards are fine.</p>
       </details>
       <details>
         <summary>Who owns what we make?</summary>
-        <p>You do. Entering lets us show your film in event recaps and on social. Nothing more.</p>
+        <p>You do. Entering lets us show your film in recaps and on social. Nothing more.</p>
       </details>
       <details>
         <summary>How many places are there?</summary>
@@ -907,7 +891,7 @@
   <div class="wrap">
     <p class="eyebrow" data-r><span class="num">08</span> Register</p>
     <h2 data-r style="--d:60ms">Nine hours. Then it either plays or it does not.</h2>
-    <p class="lead" data-r style="--d:120ms">Sunday 6 September 2026, 9am to 6pm, AWS Office Kuala Lumpur. Free to enter, teams of two to four.</p>
+    <p class="lead" data-r style="--d:120ms">Sunday 6 September 2026, 9am to 6pm, AWS Office Kuala Lumpur. Free to enter.</p>
     <div class="hero-cta" data-r style="--d:180ms">
       <a class="btn btn-primary" href="https://luma.com/9z2e5zfv" target="_blank" rel="noopener noreferrer">Register on Luma <span class="ar" aria-hidden="true">&rarr;</span></a>
       <a class="btn btn-ghost" href="#schedule">Run of day</a>
@@ -963,36 +947,6 @@
     var meta = document.querySelector('meta[name="theme-color"]');
     if (meta) { meta.setAttribute('content', next === 'dark' ? '#09090B' : '#FFFFFF'); }
   });
-
-  /* ---- countdown to doors, 6 Sep 2026 08:45 Malaysia time (UTC+8) ---- */
-  var doors = new Date('2026-09-06T08:45:00+08:00').getTime();
-  var cdEls = {
-    d: document.querySelector('[data-cd="d"]'),
-    h: document.querySelector('[data-cd="h"]'),
-    m: document.querySelector('[data-cd="m"]'),
-    s: document.querySelector('[data-cd="s"]')
-  };
-  var cdLabel = document.getElementById('cdLabel');
-  function pad(n) { return n < 10 ? '0' + n : '' + n; }
-
-  function tickCountdown() {
-    var left = doors - Date.now();
-    if (left <= 0) {
-      cdLabel.textContent = 'The doors are open';
-      cdEls.d.textContent = '00'; cdEls.h.textContent = '00';
-      cdEls.m.textContent = '00'; cdEls.s.textContent = '00';
-      return false;
-    }
-    var secs = Math.floor(left / 1000);
-    cdEls.d.textContent = pad(Math.floor(secs / 86400));
-    cdEls.h.textContent = pad(Math.floor(secs / 3600) % 24);
-    cdEls.m.textContent = pad(Math.floor(secs / 60) % 60);
-    cdEls.s.textContent = pad(secs % 60);
-    return true;
-  }
-  if (tickCountdown()) {
-    var t = setInterval(function () { if (!tickCountdown()) { clearInterval(t); } }, 1000);
-  }
 
   /* ---- entrance ---- */
   var items = document.querySelectorAll('[data-r]');
