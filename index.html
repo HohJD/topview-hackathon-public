@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Topview AI Video Hackathon</title>
-<meta name="description" content="AI Video Hackathon by Topview, the AI video agent. Sunday 6 September 2026, 9am to 6pm, AWS Office Kuala Lumpur. Build a Malaysia Day brand film in a day. Teams of 2 to 4. RM3,500 in prizes.">
+<title>AI Video Hackathon KL</title>
+<meta name="description" content="AI Video Hackathon KL by Topview, the AI video agent. Sunday 6 September 2026, 9am to 6pm, AWS Office Kuala Lumpur. Build a Malaysia Day brand film in a day. Teams of 2 to 4. RM3,500 in prizes.">
 <meta name="theme-color" content="#09090B">
-<meta property="og:title" content="Topview AI Video Hackathon">
+<meta property="og:title" content="AI Video Hackathon KL">
 <meta property="og:description" content="Sun 6 Sep 2026, 9am to 6pm, AWS Office KL. Build a Malaysia Day brand film in a day. RM3,500 in prizes.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="/og.jpg">
@@ -36,7 +36,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400..800&family=JetBrains+Mono:wght@400..600&display=swap">
 <style>
   /* ============================================================
-     Topview AI Video Hackathon
+     AI Video Hackathon KL
 
      Control room aesthetic: hairlines instead of shadows, 4px
      corners instead of pills, monospace for every label and every
@@ -141,7 +141,9 @@
   h1, h2, h3 { margin: 0; font-weight: 700; letter-spacing: -0.035em; }
 
   h1 {
-    font-size: clamp(2.6rem, 8.2vw, 6rem);
+    /* HACKATHON KL measures 7.58x its font size, so the vw term is set to keep
+       it on one line from 320px up rather than orphaning KL onto a third. */
+    font-size: clamp(2.2rem, 11.2vw, 6rem);
     line-height: 0.9;
     letter-spacing: -0.045em;
     text-transform: uppercase;
@@ -347,6 +349,8 @@
 
   .hero h1 { margin-bottom: 1.75rem; }
   .hero h1 .l2 { color: var(--accent); }
+  /* KL is part of the name, so it stays in the headline but sits back a little */
+  .hero h1 .kl { color: var(--ink); }
   @media (min-width: 640px) { .hero h1 .l1, .hero h1 .l2 { display: block; } }
 
   .theme-line {
@@ -579,7 +583,7 @@
       </span>
     </div>
 
-    <h1 data-r style="--d:60ms"><span class="l1">AI Video</span> <span class="l2">Hackathon</span></h1>
+    <h1 data-r style="--d:60ms"><span class="l1">AI Video</span> <span class="l2">Hackathon <span class="kl">KL</span></span></h1>
 
     <p class="theme-line" data-r style="--d:120ms">Theme: <b>Malaysia, Stories That Unite</b></p>
 
@@ -938,7 +942,7 @@
       <span class="tag">AI Video Agent</span>
     </a>
     <div class="meta">
-      <span>AI Video Hackathon</span>
+      <span>AI Video Hackathon KL</span>
       <span>AWS Office KL</span>
       <span>Sun 6 Sep 2026</span>
     </div>

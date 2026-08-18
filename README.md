@@ -1,6 +1,6 @@
-# Topview AI Video Hackathon
+# AI Video Hackathon KL
 
-Public landing page for the AI Video Hackathon hosted by Topview AI at the AWS Office, Kuala Lumpur.
+Public landing page for AI Video Hackathon KL, hosted by Topview at the AWS Office, Kuala Lumpur.
 
 - **Date:** Sunday 6 September 2026
 - **Hours:** 08:45 to 18:00
