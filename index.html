@@ -391,7 +391,12 @@
 
   .cells { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; }
   @media (min-width: 640px) { .cells.c2 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-  @media (min-width: 900px) { .cells.c3 { grid-template-columns: repeat(3, minmax(0, 1fr)); } .cells.c4 { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+  @media (min-width: 900px) {
+    .cells.c3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .cells.c4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    /* five items in a three column grid would leave a hole in the last row */
+    .cells.c3 > *:nth-child(5):last-child { grid-column: span 2; }
+  }
   .cells > * { background: var(--bg); padding: 1.5rem; margin: 0; }
   @media (min-width: 768px) { .cells > * { padding: 1.75rem; } }
   .cells .idx {
@@ -413,12 +418,6 @@
   .ticks { list-style: none; margin: 1.25rem 0 0; padding: 0; display: grid; gap: 0.6rem; }
   .ticks li { display: grid; grid-template-columns: 1.1rem minmax(0, 1fr); gap: 0.35rem; font-size: 0.875rem; color: var(--ink-2); }
   .ticks li::before { content: ""; width: 5px; height: 5px; margin-top: 0.6rem; background: var(--accent); }
-
-  .tbc {
-    display: inline-block; font-family: var(--mono); font-size: 0.5625rem; font-weight: 600;
-    letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold);
-    border: 1px solid currentColor; border-radius: var(--r-sm); padding: 0.1em 0.4em; vertical-align: 0.12em;
-  }
 
   /* ---------- timeline ---------- */
 
@@ -638,7 +637,7 @@
       <li>
         <span class="idx">02</span>
         <h3>Make the film with Topview</h3>
-        <p>An original Malaysia themed festive film, built on the day.</p>
+        <p>Built on the day, nothing before 10:45.</p>
       </li>
       <li>
         <span class="idx">03</span>
@@ -665,7 +664,7 @@
     <div class="sec-head" data-r>
       <p class="eyebrow"><span class="num">02</span> Morning workshops</p>
       <h2>Learn the tools first,<br class="nb">then start the clock</h2>
-      <p class="lead">Both tools in one session, before the sprint opens. Built for first timers.</p>
+      <p class="lead">Both tools in one session. Built for first timers.</p>
     </div>
 
     <div class="cells" data-r>
@@ -691,7 +690,7 @@
     <div class="sec-head" data-r>
       <p class="eyebrow"><span class="num">03</span> Run of day</p>
       <h2>Learn for two hours,<br class="nb">build for four and a half</h2>
-      <p class="lead">The morning gets you fluent. The rest is a protected sprint with a hard cutoff at 16:00, so demos start on time.</p>
+      <p class="lead">A protected sprint with a hard cutoff at 16:00, so demos start on time.</p>
     </div>
 
     <div class="track-shell" id="trackShell" data-r>
@@ -726,7 +725,7 @@
       </li>
       <li>
         <span class="tc">09:00 &rarr; 09:30</span>
-        <span class="what">Opening session<em>The brief, the rules, judging, and what your credits cover.</em></span>
+        <span class="what">Opening session<em>The brief, the rules, and your credits.</em></span>
         <span class="dur">30 min</span>
       </li>
       <li>
@@ -741,7 +740,7 @@
       </li>
       <li>
         <span class="tc">13:00 &rarr; 13:45</span>
-        <span class="what">Lunch provided<em>Take it away from your laptop if you can.</em></span>
+        <span class="what">Lunch provided</span>
         <span class="dur">45 min</span>
       </li>
       <li class="key">
@@ -751,12 +750,12 @@
       </li>
       <li class="key">
         <span class="tc">16:00</span>
-        <span class="what">Project submissions close<em>Files uploaded by 16:00 or they do not screen.</em></span>
+        <span class="what">Project submissions close<em>Nothing uploaded after this screens.</em></span>
         <span class="dur">Locked</span>
       </li>
       <li>
         <span class="tc">16:00 &rarr; 17:00</span>
-        <span class="what">Judging and shortlist<em>Every submission is watched. Finalists posted at 17:00.</em></span>
+        <span class="what">Judging and shortlist<em>Every submission is watched.</em></span>
         <span class="dur">1 hr</span>
       </li>
       <li>
@@ -766,7 +765,7 @@
       </li>
       <li class="key">
         <span class="tc">18:00</span>
-        <span class="what">Winners announced<em>Three prizes handed out on the floor.</em></span>
+        <span class="what">Winners announced</span>
         <span class="dur">Wrap</span>
       </li>
     </ol>
@@ -785,17 +784,15 @@
       <article class="first">
         <span class="idx">First place</span>
         <span class="amount">RM2,000</span>
-        <p>Highest score across the five criteria below.</p>
+        <p>Highest score across the five criteria.</p>
       </article>
       <article>
         <span class="idx">Second</span>
         <span class="amount">RM1,000</span>
-        <p>Runner up.</p>
       </article>
       <article>
         <span class="idx">Third</span>
         <span class="amount">RM500</span>
-        <p>Third place.</p>
       </article>
     </div>
   </div>
@@ -806,7 +803,7 @@
     <div class="sec-head" data-r>
       <p class="eyebrow"><span class="num">05</span> How it is judged</p>
       <h2>Fifty points, five ways</h2>
-      <p class="lead">Ten points each. Nothing is weighted above anything else, so a film has to hold up on all five.</p>
+      <p class="lead">Ten points each, nothing weighted above anything else. Judged on the final cut.</p>
     </div>
 
     <ul class="cells c3" data-r>
@@ -835,11 +832,6 @@
         <h3>Impact &amp; Engagement</h3>
         <p>A compelling opening and a memorable finish.</p>
       </li>
-      <li>
-        <span class="idx">Total</span>
-        <h3>50 points</h3>
-        <p>Judged on the final cut. Finalists take three minutes of questions.</p>
-      </li>
     </ul>
   </div>
 </section>
@@ -855,7 +847,7 @@
       <div>
         <span class="idx">Who it is for</span>
         <h3>Taste, but never the budget for a production crew.</h3>
-        <p>Teams of two to four. You do not need to know anyone before you arrive.</p>
+        <p>Teams of two to four. Come alone and we will pair you up.</p>
         <ul class="ticks">
           <li>Marketers who have always wanted to shoot the idea in their head</li>
           <li>Copywriters, art directors, and creative strategists</li>
@@ -868,7 +860,6 @@
       <div>
         <span class="idx">What we provide</span>
         <h3>Bring a laptop and headphones. The rest is on us.</h3>
-        <p>Turn up at 08:45 and the room is ready.</p>
         <ul class="ticks">
           <li>Topview AI Video Agent credits for every team</li>
           <li>Desk space, power, and wifi at AWS Office KL</li>
@@ -903,7 +894,7 @@
       </details>
       <details>
         <summary>Do I have to use Topview?</summary>
-        <p>Your team gets credits, so you are strongly encouraged to. Bring other tools alongside it if you want.</p>
+        <p>Your team gets credits, so you are strongly encouraged to. Other tools are fine alongside.</p>
       </details>
       <details>
         <summary>Can I turn up with work already done?</summary>
@@ -915,7 +906,7 @@
       </details>
       <details>
         <summary>How many places are there?</summary>
-        <p><span class="tbc">TBC</span> Registration closes once the room is full. Teams are confirmed by email.</p>
+        <p>Registration closes once the room is full. Teams are confirmed by email.</p>
       </details>
     </div>
   </div>
@@ -930,7 +921,6 @@
       <a class="btn btn-primary" href="https://luma.com/9z2e5zfv" target="_blank" rel="noopener noreferrer">Register on Luma <span class="ar" aria-hidden="true">&rarr;</span></a>
       <a class="btn btn-ghost" href="#schedule">Run of day</a>
     </div>
-    <p class="hero-foot" data-r style="--d:220ms">Registration closes once the room is full</p>
   </div>
 </section>
 
@@ -1058,36 +1048,201 @@ import * as THREE from 'three';
   host.appendChild(renderer.domElement);
 
   var scene = new THREE.Scene();
-  var camera = new THREE.PerspectiveCamera(42, 1, 0.1, 100);
-  camera.position.z = 4.6;
+  var camera = new THREE.PerspectiveCamera(40, 1, 0.1, 100);
+  camera.position.set(0, 0.42, 5.5);
 
   var group = new THREE.Group();
   scene.add(group);
 
-  var shellGeo = new THREE.IcosahedronGeometry(1.62, 2);
-  var shellMat = new THREE.LineBasicMaterial({ transparent: true, opacity: 0.3 });
-  var shell = new THREE.LineSegments(new THREE.WireframeGeometry(shellGeo), shellMat);
-  group.add(shell);
+  /* ------------------------------------------------------------------
+     The Petronas Towers, drawn as a wireframe.
 
-  var dotMat = new THREE.PointsMaterial({ size: 0.045, transparent: true, opacity: 0.8, sizeAttenuation: true });
-  var dots = new THREE.Points(shellGeo, dotMat);
-  group.add(dots);
+     The floor plan is a Rub el Hizb: two squares rotated 45 degrees to
+     each other, giving eight points, with a circular lobe set into each
+     of the eight notches. Both are solved in polar form and unioned by
+     taking whichever radius is greatest at each angle.
+     ------------------------------------------------------------------ */
 
-  var coreMat = new THREE.LineBasicMaterial({ transparent: true, opacity: 0.95 });
-  var core = new THREE.LineSegments(
-    new THREE.WireframeGeometry(new THREE.IcosahedronGeometry(0.92, 0)),
-    coreMat
-  );
-  group.add(core);
+  var SEG = 96;                 /* points around one floor ring */
+  var TIP = 1 / Math.SQRT1_2;   /* a square of apothem 1 reaches this at its corner */
+
+  function square(th, rot) {
+    var t = th - rot;
+    return 1 / Math.max(Math.abs(Math.cos(t)), Math.abs(Math.sin(t)));
+  }
+
+  /* a circle of radius c centred at distance d, in polar form about the origin */
+  function lobe(th, phi, d, c) {
+    var a = th - phi;
+    var s = d * Math.sin(a);
+    var k = c * c - s * s;
+    return k <= 0 ? 0 : d * Math.cos(a) + Math.sqrt(k);
+  }
+
+  function planRadius(th) {
+    var r = Math.max(square(th, 0), square(th, Math.PI / 4));
+    for (var i = 0; i < 8; i++) {
+      /* the notches sit midway between the eight points */
+      var phi = (Math.PI / 8) + i * (Math.PI / 4);
+      r = Math.max(r, lobe(th, phi, 0.95, 0.30));
+    }
+    return r;
+  }
+
+  var PLAN = [];
+  for (var i = 0; i < SEG; i++) {
+    var th = (i / SEG) * Math.PI * 2;
+    var r = planRadius(th);
+    PLAN.push([Math.cos(th) * r, Math.sin(th) * r]);
+  }
+  /* normalise so the widest point of the plan is 1 */
+  var maxR = 0;
+  PLAN.forEach(function (p) { maxR = Math.max(maxR, Math.hypot(p[0], p[1])); });
+  PLAN = PLAN.map(function (p) { return [p[0] / maxR, p[1] / maxR]; });
+
+  /* the stepped crown: each pair is a height and the plan scale at it, and a
+     repeated height with a smaller scale is a setback */
+  var PROFILE = [
+    [0.000, 1.000], [0.600, 0.905],
+    [0.600, 0.815], [0.686, 0.775],
+    [0.686, 0.690], [0.760, 0.655],
+    [0.760, 0.570], [0.822, 0.540],
+    [0.822, 0.450], [0.872, 0.425],
+    [0.872, 0.330], [0.912, 0.310],
+    [0.912, 0.215], [0.944, 0.200],
+    [0.944, 0.120], [0.966, 0.110],
+    [0.966, 0.055], [0.980, 0.050]
+  ];
+
+  function scaleAt(y) {
+    for (var k = 0; k < PROFILE.length - 1; k++) {
+      var a = PROFILE[k], b = PROFILE[k + 1];
+      if (y >= a[0] && y <= b[0]) {
+        if (b[0] === a[0]) return b[1];
+        var t = (y - a[0]) / (b[0] - a[0]);
+        return a[1] + (b[1] - a[1]) * t;
+      }
+    }
+    return PROFILE[PROFILE.length - 1][1];
+  }
+
+  var H = 3.5;          /* tower height in scene units */
+  var W = 0.46;         /* plan half width */
+  var GAP = 0.82;       /* half the distance between the two towers */
+  var BASE = -1.9;      /* y of the ground */
+
+  var verts = [];
+  function line(x1, y1, z1, x2, y2, z2) { verts.push(x1, y1, z1, x2, y2, z2); }
+
+  function ring(cx, y, s, step) {
+    step = step || 1;
+    for (var j = 0; j < SEG; j += step) {
+      var p = PLAN[j], q = PLAN[(j + step) % SEG];
+      line(cx + p[0] * W * s, y, p[1] * W * s,
+           cx + q[0] * W * s, y, q[1] * W * s);
+    }
+  }
+
+  /* the sixteen structural angles: eight points and eight notches */
+  var SPINE = [];
+  for (var a = 0; a < 16; a++) { SPINE.push(Math.round(a * SEG / 16) % SEG); }
+
+  function tower(cx) {
+    /* floor rings, denser through the crown so the setbacks read */
+    for (var y = 0; y <= 0.98; y += 0.0235) {
+      ring(cx, BASE + y * H, scaleAt(y), 1);
+    }
+    /* a heavier ring at every setback */
+    PROFILE.forEach(function (p) { ring(cx, BASE + p[0] * H, p[1], 1); });
+
+    /* verticals, broken at each setback so the steps stay crisp */
+    for (var k = 0; k < PROFILE.length - 1; k++) {
+      var A = PROFILE[k], B = PROFILE[k + 1];
+      if (B[0] === A[0]) continue;
+      SPINE.forEach(function (idx) {
+        var p = PLAN[idx];
+        line(cx + p[0] * W * A[1], BASE + A[0] * H, p[1] * W * A[1],
+             cx + p[0] * W * B[1], BASE + B[0] * H, p[1] * W * B[1]);
+      });
+    }
+
+    /* the pinnacle */
+    var tipY = BASE + 1.30 * H, mastY = BASE + 0.98 * H;
+    var ms = 0.05;
+    for (var m = 0; m < 8; m++) {
+      var th = m * Math.PI / 4;
+      line(cx + Math.cos(th) * W * ms, mastY, Math.sin(th) * W * ms, cx, tipY, 0);
+    }
+    for (var r2 = 0; r2 < 5; r2++) {
+      var t2 = r2 / 5;
+      ring(cx, mastY + (tipY - mastY) * t2, ms * (1 - t2) + 0.004, 12);
+    }
+  }
+
+  tower(-GAP);
+  tower(GAP);
+
+  /* the skybridge, two storeys at the 41st and 42nd floors */
+  var bY = BASE + 0.415 * H;
+  var bIn = W * scaleAt(0.415) * 0.30;
+  [-0.045, 0.045].forEach(function (dz) {
+    [0, 0.075].forEach(function (dy) {
+      line(-GAP + bIn, bY + dy * H * 0.1, dz, GAP - bIn, bY + dy * H * 0.1, dz);
+    });
+  });
+  line(-GAP + bIn, bY, -0.045, -GAP + bIn, bY + 0.0075 * H, -0.045);
+  line(GAP - bIn, bY, -0.045, GAP - bIn, bY + 0.0075 * H, -0.045);
+
+  /* the two legs that brace the bridge from below */
+  var legY = BASE + 0.295 * H;
+  [-0.02, 0.02].forEach(function (dz) {
+    line(-GAP + bIn * 1.4, legY, dz, -0.02, bY, dz);
+    line(GAP - bIn * 1.4, legY, dz, 0.02, bY, dz);
+  });
+
+  var geo = new THREE.BufferGeometry();
+  geo.setAttribute('position', new THREE.Float32BufferAttribute(verts, 3));
+
+  var lineMat = new THREE.LineBasicMaterial({ transparent: true, opacity: 0.62 });
+  var towers = new THREE.LineSegments(geo, lineMat);
+  group.add(towers);
+
+  /* a faint ground grid so the towers are standing on something */
+  var gv = [], GR = 7, GN = 14;
+  for (var g = 0; g <= GN; g++) {
+    var t3 = (g / GN) * 2 - 1;
+    gv.push(-GR, BASE, t3 * GR, GR, BASE, t3 * GR);
+    gv.push(t3 * GR, BASE, -GR, t3 * GR, BASE, GR);
+  }
+  var gridGeo = new THREE.BufferGeometry();
+  gridGeo.setAttribute('position', new THREE.Float32BufferAttribute(gv, 3));
+  var gridMat = new THREE.LineBasicMaterial({ transparent: true, opacity: 0.11 });
+  var grid = new THREE.LineSegments(gridGeo, gridMat);
+  group.add(grid);
+
+  /* points at the eight corners of every setback, to catch the light */
+  var pv = [];
+  [-GAP, GAP].forEach(function (cx) {
+    PROFILE.forEach(function (p) {
+      for (var n = 0; n < 8; n++) {
+        var q = PLAN[Math.round(n * SEG / 8) % SEG];
+        pv.push(cx + q[0] * W * p[1], BASE + p[0] * H, q[1] * W * p[1]);
+      }
+    });
+  });
+  var ptGeo = new THREE.BufferGeometry();
+  ptGeo.setAttribute('position', new THREE.Float32BufferAttribute(pv, 3));
+  var ptMat = new THREE.PointsMaterial({ size: 0.035, transparent: true, opacity: 0.9, sizeAttenuation: true });
+  group.add(new THREE.Points(ptGeo, ptMat));
 
   /* colours come from the theme tokens, so the toggle drives them too */
   function syncTheme() {
     var cs = getComputedStyle(root);
-    var line = cs.getPropertyValue('--viz-line').trim() || '#731DFB';
-    var dot = cs.getPropertyValue('--viz-dot').trim() || '#A855F7';
-    shellMat.color.set(line);
-    coreMat.color.set(line);
-    dotMat.color.set(dot);
+    var line = cs.getPropertyValue('--viz-line').trim() || '#8B3BFF';
+    var dot = cs.getPropertyValue('--viz-dot').trim() || '#C4A5FF';
+    lineMat.color.set(line);
+    gridMat.color.set(line);
+    ptMat.color.set(dot);
   }
   syncTheme();
   new MutationObserver(syncTheme).observe(root, { attributes: true, attributeFilter: ['data-theme'] });
@@ -1124,18 +1279,14 @@ import * as THREE from 'three';
     var t = (now - t0) * 0.001;
     px += (tx - px) * 0.05;
     py += (ty - py) * 0.05;
-    group.rotation.y = t * 0.11 + px * 0.55;
-    group.rotation.x = Math.sin(t * 0.17) * 0.13 + py * 0.35;
-    core.rotation.y = -t * 0.28;
-    core.rotation.z = t * 0.14;
-    var s = 1 + Math.sin(t * 0.55) * 0.03;
-    shell.scale.setScalar(s);
-    dots.scale.setScalar(s);
+    /* a slow turn, so the plan reads as an eight pointed star as it comes round */
+    group.rotation.y = t * 0.16 + px * 0.5;
+    group.rotation.x = -0.06 + Math.sin(t * 0.21) * 0.045 + py * 0.16;
     renderer.render(scene, camera);
   }
 
   if (reduce) {
-    group.rotation.set(0.2, 0.6, 0);
+    group.rotation.set(-0.06, 0.62, 0);
     renderer.render(scene, camera);
   } else {
     requestAnimationFrame(frame);
