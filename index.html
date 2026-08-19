@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>AI Video Hackathon KL</title>
-<meta name="description" content="AI Video Hackathon KL by Topview, the AI video agent. Sunday 6 September 2026, 9am to 6pm, AWS Office Kuala Lumpur. Build a Malaysia Day brand film in a day. Teams of 2 to 4. RM3,500 in prizes.">
+<meta name="description" content="AI Video Hackathon KL. Sunday, 6 September 2026, 9:00am to 6:00pm, AWS Office Kuala Lumpur. Create an original Malaysia Day brand film in one day using Topview and Seedance 2.5. Free to enter, teams of 2 to 4, RM3,500 prize pool.">
 <meta name="theme-color" content="#09090B">
 <meta property="og:title" content="AI Video Hackathon KL">
 <meta property="og:description" content="Sun 6 Sep 2026, 9am to 6pm, AWS Office KL. Build a Malaysia Day brand film in a day. RM3,500 in prizes.">
@@ -268,8 +268,8 @@
 
   /* ---------- hero ---------- */
 
-  .hero { position: relative; overflow: hidden; padding-block: 3.5rem 0; }
-  @media (min-width: 768px) { .hero { padding-block: 5rem 0; } }
+  .hero { position: relative; overflow: hidden; padding-block: 3.5rem 4rem; }
+  @media (min-width: 768px) { .hero { padding-block: 5rem 6rem; } }
 
   /* the grid and the single violet bloom are the only background events */
   .hero::before {
@@ -314,10 +314,7 @@
   }
 
   /* the status strip: registration state and the date, side by side */
-  .status {
-    display: flex; flex-direction: column; align-items: flex-start;
-    gap: 1rem; margin-bottom: 2.25rem;
-  }
+  .status { display: flex; align-items: center; margin-bottom: 1.5rem; }
   .status .live {
     display: inline-flex; align-items: center; gap: 0.5rem;
     font-family: var(--mono); font-size: 0.625rem; font-weight: 600;
@@ -331,20 +328,20 @@
     animation: blink 1.8s ease-in-out infinite;
   }
   @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.2; } }
-  .status .where {
-    display: flex; flex-wrap: wrap; align-items: center; gap: 0.35rem 0.85rem;
+  .where {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 0.3rem 0.8rem;
     font-family: var(--mono); font-weight: 600;
-    font-size: clamp(0.875rem, 1.8vw, 1.3rem);
+    font-size: clamp(0.8125rem, 1.45vw, 1.1rem);
     letter-spacing: 0.02em; text-transform: uppercase; color: var(--ink);
-    line-height: 1.25;
+    line-height: 1.3; margin: 0 0 1.5rem;
   }
-  .status .where s { width: 14px; height: 1px; background: var(--ink-3); flex: none; }
-  .status .where > span { white-space: nowrap; }
+  .where s { width: 14px; height: 1px; background: var(--ink-3); flex: none; }
+  .where > span { white-space: nowrap; }
   /* on a phone the separators orphan onto their own line, so stack instead */
-  @media (max-width: 700px) {
-    .status .where { display: block; }
-    .status .where s { display: none; }
-    .status .where > span { display: block; }
+  @media (max-width: 760px) {
+    .where { display: block; }
+    .where s { display: none; }
+    .where > span { display: block; }
   }
 
   .hero h1 { margin-bottom: 1.75rem; }
@@ -360,17 +357,17 @@
   }
   .theme-line b { color: var(--accent-ink); font-weight: 500; }
 
-  .hero .lead { margin-bottom: 2.5rem; max-width: 34em; }
+  .hero .lead { margin-bottom: 1.5rem; max-width: 36em; }
+  .hero .lead p + p { margin-top: 0.9rem; }
 
-  .hero-cta { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.5rem; }
+  .hero-cta { display: flex; flex-wrap: wrap; gap: 0.6rem; }
   .hero-cta .btn { flex: 1 1 auto; }
   @media (min-width: 560px) { .hero-cta .btn { flex: 0 0 auto; } }
-  .hero-foot {
-    font-family: var(--mono); font-size: 0.625rem; font-weight: 500;
+  .hero-note {
+    font-family: var(--mono); font-size: 0.65rem; font-weight: 500;
     letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-3);
-    margin-top: 1.25rem; padding-bottom: 4rem;
+    margin: 0 0 1.75rem;
   }
-  @media (min-width: 768px) { .hero-foot { padding-bottom: 6rem; } }
 
   /* ---------- facts strip ---------- */
 
@@ -407,13 +404,22 @@
 
   /* the two legal guidelines, deliberately quiet */
   .rules { list-style: none; margin: 1.5rem 0 0; padding: 0; display: grid; gap: 0.5rem; }
-  @media (min-width: 760px) { .rules { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.5rem 2rem; } }
-  .rules li { font-size: 0.8125rem; line-height: 1.5; color: var(--ink-3); }
+  @media (min-width: 860px) { .rules { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.5rem 2rem; } }
+  .rules li { font-size: 0.8125rem; line-height: 1.5; color: var(--ink-3);
+              display: grid; grid-template-columns: 0.9rem minmax(0, 1fr); gap: 0.3rem; }
+  .rules li::before { content: ""; width: 4px; height: 4px; margin-top: 0.55rem; background: var(--ink-3); }
   .rules b {
     font-family: var(--mono); font-size: 0.625rem; font-weight: 600;
     letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-2);
     margin-right: 0.5rem;
   }
+
+  /* the workshop syllabus, two columns once there is room */
+  .shop-list { list-style: none; margin: 1.1rem 0 0; padding: 0; display: grid; gap: 0.6rem; }
+  @media (min-width: 700px) { .shop-list { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 2.5rem; } }
+  .shop-list li { display: grid; grid-template-columns: 1.1rem minmax(0, 1fr); gap: 0.35rem;
+                  font-size: 0.875rem; color: var(--ink-2); }
+  .shop-list li::before { content: ""; width: 5px; height: 5px; margin-top: 0.6rem; background: var(--accent); }
 
   .ticks { list-style: none; margin: 1.25rem 0 0; padding: 0; display: grid; gap: 0.6rem; }
   .ticks li { display: grid; grid-template-columns: 1.1rem minmax(0, 1fr); gap: 0.35rem; font-size: 0.875rem; color: var(--ink-2); }
@@ -524,13 +530,12 @@
   .close .eyebrow { color: color-mix(in srgb, #fff 70%, transparent); }
   .close .eyebrow::after { background: color-mix(in srgb, #fff 30%, transparent); }
   .close .eyebrow .num { color: #fff; }
-  .close h2 { max-width: 16ch; }
-  .close .lead { color: color-mix(in srgb, #fff 82%, transparent); margin-top: 1.25rem; }
+  .close h2 { max-width: 20ch; margin-bottom: 1.25rem; }
+  .close .lead { color: color-mix(in srgb, #fff 82%, transparent); margin: 0 0 2rem; }
   .close .btn-primary { background: #fff; color: var(--accent); }
   .close .btn-primary:hover { background: color-mix(in srgb, #fff 88%, transparent); }
   .close .btn-ghost { border-color: color-mix(in srgb, #fff 42%, transparent); color: #fff; }
   .close .btn-ghost:hover { border-color: #fff; }
-  .close .hero-foot { color: color-mix(in srgb, #fff 65%, transparent); padding-bottom: 0; }
 
   /* ---------- dock bar ---------- */
 
@@ -609,29 +614,31 @@
 
     <div class="status" data-r>
       <span class="live"><i aria-hidden="true"></i>Registration open</span>
-      <span class="where">
-        <span>Sun 6 Sep 2026</span><s aria-hidden="true"></s>
-        <span>09:00 to 18:00</span><s aria-hidden="true"></s>
-        <span>AWS Office KL</span>
-      </span>
     </div>
 
     <h1 data-r style="--d:60ms"><span class="l1">AI Video</span> <span class="l2">Hackathon <span class="kl">KL</span></span></h1>
 
     <p class="theme-line" data-r style="--d:120ms">Theme: <b>Malaysia, Stories That Unite</b></p>
 
-    <p class="lead" data-r style="--d:180ms">
-      Build a Malaysia Day brand film in nine hours with Seedance 2.5 on Topview.
-      Learn the tools in the morning, then create for a chance to win from a RM3,500
-      prize pool. Workshop, F&amp;B and credits are on us.
+    <p class="where" data-r style="--d:160ms">
+      <span>Sunday, 6 September 2026</span><s aria-hidden="true"></s>
+      <span>9:00am&ndash;6:00pm</span><s aria-hidden="true"></s>
+      <span>AWS Office, Kuala Lumpur</span>
     </p>
+
+    <div class="lead" data-r style="--d:200ms">
+      <p>Create an original Malaysia Day brand film in one day using Topview and Seedance 2.5.</p>
+      <p>Start with a practical morning workshop, then team up to turn an idea into a 1&ndash;3 minute film.
+         Bring your perspective, your curiosity, and your laptop. We provide the tools, credits, food,
+         mentors, and space to create.</p>
+    </div>
+
+    <p class="hero-note" data-r style="--d:260ms">Free to enter &middot; Teams of 2&ndash;4 &middot; RM3,500 prize pool</p>
 
     <div class="hero-cta" data-r style="--d:300ms">
       <a class="btn btn-primary" href="https://luma.com/9z2e5zfv" target="_blank" rel="noopener noreferrer">Register on Luma <span class="ar" aria-hidden="true">&rarr;</span></a>
-      <a class="btn btn-ghost" href="#schedule">See the run of day</a>
+      <a class="btn btn-ghost" href="#schedule">View the schedule <span class="ar" aria-hidden="true">&rarr;</span></a>
     </div>
-
-    <p class="hero-foot" data-r style="--d:340ms">Free to enter &middot; Teams of 2 to 4 &middot; Final cut 1 to 3 minutes</p>
   </div>
 </section>
 
@@ -639,12 +646,12 @@
   <div>
     <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
     <dt>Date</dt>
-    <dd>Sunday 6 September<span>2026</span></dd>
+    <dd>Sunday, 6 September<span>2026</span></dd>
   </div>
   <div>
     <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5.3l3.5 2"/></svg>
     <dt>Hours</dt>
-    <dd>9am to 6pm<span>Doors 8:45am</span></dd>
+    <dd>9:00am&ndash;6:00pm<span>Check-in from 8:45am</span></dd>
   </div>
   <div>
     <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
@@ -654,7 +661,7 @@
   <div>
     <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 4h10v5a5 5 0 0 1-10 0z"/><path d="M7 6H4v1a4 4 0 0 0 3 3.9M17 6h3v1a4 4 0 0 1-3 3.9"/><path d="M12 14v4M9 21h6"/></svg>
     <dt>Prize pool</dt>
-    <dd>RM3,500<span>Split three ways</span></dd>
+    <dd>RM3,500<span>Awarded to teams</span></dd>
   </div>
 </dl>
 
@@ -662,61 +669,61 @@
   <div class="wrap">
     <div class="sec-head" data-r>
       <p class="eyebrow"><span class="num">01</span> The brief</p>
-      <h2>Malaysia, stories that unite</h2>
-      <p class="lead">An original AI generated festive film for a brand of your choice. It lands in Merdeka and Malaysia Day season, so make something that feels like home.</p>
+      <h2>Malaysia, Stories That Unite</h2>
+      <p class="lead">Create an original AI-generated festive film for a brand of your choice. Set during the Merdeka and Malaysia Day season, your film should feel authentic to Malaysia: thoughtful, inclusive, distinctive, and made with respect for the many communities that call it home.</p>
     </div>
 
     <ol class="cells c4" data-r>
       <li>
         <span class="idx">01</span>
-        <h3>Form a team and pick a brand</h3>
-        <p>Two to four people. Any brand you like.</p>
+        <h3>Form a team and choose a brand</h3>
+        <p>Teams can have two to four people. Come with a team, or join one during team formation.</p>
       </li>
       <li>
         <span class="idx">02</span>
-        <h3>Make the film with Topview</h3>
-        <p>Built on the day, nothing before 10:45.</p>
+        <h3>Create your film with Topview</h3>
+        <p>All production must take place during the event, after the workshop ends at 10:45am.</p>
       </li>
       <li>
         <span class="idx">03</span>
         <h3>Submit one final cut</h3>
-        <p>Between one and three minutes, uploaded by 16:00.</p>
+        <p>Your completed film should be between one and three minutes long and submitted by 4:00pm.</p>
       </li>
       <li>
         <span class="idx">04</span>
-        <h3>Keep it Malaysian</h3>
-        <p>Inclusive, respectful, and recognisably Malaysian.</p>
+        <h3>Keep it recognisably Malaysian</h3>
+        <p>Aim for representation that is respectful, inclusive, and grounded in the spirit of Malaysia Day.</p>
       </li>
     </ol>
 
     <ul class="rules" data-r>
-      <li><b>Jalur Gemilang</b> Portray the flag respectfully, per Malaysian flag etiquette.</li>
-      <li><b>3R</b> No race, religion or royalty, per Malaysian law.</li>
+      <li>Portray the Jalur Gemilang respectfully and in line with Malaysian flag etiquette.</li>
+      <li>Avoid sensitive 3R content relating to race, religion, and royalty.</li>
+      <li>Follow applicable Malaysian laws and community standards.</li>
     </ul>
-
   </div>
 </section>
 
 <section class="section" id="workshops">
   <div class="wrap">
     <div class="sec-head" data-r>
-      <p class="eyebrow"><span class="num">02</span> Morning workshops</p>
-      <h2>Learn the tools first,<br class="nb">then start the clock</h2>
-      <p class="lead">Both tools in one session. Built for first timers.</p>
+      <p class="eyebrow"><span class="num">02</span> Morning workshop</p>
+      <h2>Learn the tools, then bring your idea to life</h2>
+      <p class="lead">No prior experience with Topview or Seedance is needed. The workshop is designed to help first-time users get from a blank project to a finished video.</p>
     </div>
 
     <div class="cells" data-r>
       <div>
-        <span class="idx">09:30 &rarr; 10:45 &nbsp;&middot;&nbsp; 75 min</span>
+        <span class="idx">9:30am &ndash; 10:45am &nbsp;&middot;&nbsp; 75 minutes</span>
         <h3 style="font-size:1.375rem;letter-spacing:-0.035em;text-transform:uppercase;font-weight:800">Topview &amp; Seedance 2.5</h3>
-        <p style="max-width:48em;margin-top:0.75rem">Blank project to finished cut, then how to get the shot you want.</p>
-        <ul class="ticks" style="grid-template-columns:minmax(0,1fr)">
-          <li>Generating, editing, and assembling inside Topview</li>
-          <li>Automating the repetitive parts so you iterate in minutes</li>
-          <li>Where your credits go furthest</li>
-          <li>Prompting Seedance 2.5 for motion that reads on screen</li>
-          <li>Holding a character steady across cuts</li>
-          <li>The failure modes, and how to shoot around them</li>
+        <p style="max-width:48em;margin-top:0.6rem">You will learn how to:</p>
+        <ul class="shop-list">
+          <li>Build a video from concept to final cut in Topview</li>
+          <li>Generate, edit, and assemble scenes efficiently</li>
+          <li>Use your credits thoughtfully while iterating quickly</li>
+          <li>Prompt Seedance 2.5 for movement and visuals that read well on screen</li>
+          <li>Maintain consistent characters and visual direction across scenes</li>
+          <li>Recognise common generation issues and work around them creatively</li>
         </ul>
       </div>
     </div>
@@ -727,27 +734,26 @@
   <div class="wrap">
     <div class="sec-head" data-r>
       <p class="eyebrow"><span class="num">03</span> Run of day</p>
-      <h2>Learn for two hours,<br class="nb">build for four and a half</h2>
-      <p class="lead">A protected sprint with a hard cutoff at 16:00, so demos start on time.</p>
+      <h2>Learn together. Build together.<br class="nb">Screen your work.</h2>
     </div>
 
     <div class="track-shell" id="trackShell" data-r>
       <div class="track-inner">
         <div class="ruler" aria-hidden="true">
-          <span style="width:2.70%">08:45</span>
-          <span style="width:18.92%">09:00</span>
-          <span style="width:24.32%">10:45</span>
-          <span style="width:8.11%">13:00</span>
-          <span style="width:24.32%">13:45</span>
-          <span style="width:10.81%">16:00</span>
-          <span style="width:10.81%">17:00</span>
+          <span style="width:2.70%">8:45a</span>
+          <span style="width:18.92%">9:00a</span>
+          <span style="width:24.32%">10:45a</span>
+          <span style="width:8.11%">1:00p</span>
+          <span style="width:24.32%">1:45p</span>
+          <span style="width:10.81%">4:00p</span>
+          <span style="width:10.81%">5:00p</span>
         </div>
-        <div class="tl" role="img" aria-label="Timeline of the day: check-in 15 minutes, opening session and workshops 1 hour 45, build sprint 2 hours 15, lunch 45 minutes, sprint continues 2 hours 15, judging 1 hour, finalist demos 1 hour.">
+        <div class="tl" role="img" aria-label="Timeline of the day: check-in 15 minutes, opening session and workshop 1 hour 45, build sprint 1 for 2 hours 15, lunch 45 minutes, build sprint 2 for 2 hours 15, judging 1 hour, finalist screenings 1 hour.">
           <div class="seg seg-rest"  style="width:2.70%"><b>In</b></div>
           <div class="seg seg-learn" style="width:18.92%"><b>Workshop</b></div>
-          <div class="seg seg-build" style="width:24.32%"><b>Sprint 01</b></div>
+          <div class="seg seg-build" style="width:24.32%"><b>Sprint 1</b></div>
           <div class="seg seg-rest"  style="width:8.11%"><b>Lunch</b></div>
-          <div class="seg seg-build" style="width:24.32%"><b>Sprint 02</b></div>
+          <div class="seg seg-build" style="width:24.32%"><b>Sprint 2</b></div>
           <div class="seg seg-rest"  style="width:10.81%"><b>Judging</b></div>
           <div class="seg seg-show"  style="width:10.81%"><b>Demos</b></div>
           <div class="playhead" aria-hidden="true"></div>
@@ -757,52 +763,52 @@
 
     <ol class="runsheet" data-r>
       <li>
-        <span class="tc">08:45 &rarr; 09:00</span>
-        <span class="what">Check-in and team formation<em>Come without a team and leave with one.</em></span>
+        <span class="tc">8:45am &rarr; 9:00am</span>
+        <span class="what">Check-in and team formation<em>Come on your own or with friends. This is the time to meet potential teammates.</em></span>
         <span class="dur">15 min</span>
       </li>
       <li>
-        <span class="tc">09:00 &rarr; 09:30</span>
-        <span class="what">Opening session<em>The brief, the rules, and your credits.</em></span>
+        <span class="tc">9:00am &rarr; 9:30am</span>
+        <span class="what">Opening session<em>A quick introduction to the brief, rules, schedule, and available credits.</em></span>
         <span class="dur">30 min</span>
       </li>
       <li>
-        <span class="tc">09:30 &rarr; 10:45</span>
-        <span class="what">Topview and Seedance 2.5 workshop<em>Blank project to finished cut, then prompting for shots that work.</em></span>
+        <span class="tc">9:30am &rarr; 10:45am</span>
+        <span class="what">Topview &amp; Seedance 2.5 workshop<em>A hands-on walkthrough from blank project to final cut, plus prompting techniques for stronger shots.</em></span>
         <span class="dur">75 min</span>
       </li>
       <li class="key">
-        <span class="tc">10:45 &rarr; 13:00</span>
-        <span class="what">Build sprint begins<em>Mentors on the floor. No talks, no interruptions.</em></span>
+        <span class="tc">10:45am &rarr; 1:00pm</span>
+        <span class="what">Build sprint 1<em>Start creating. Mentors will be available throughout the sprint.</em></span>
         <span class="dur">2 hr 15</span>
       </li>
       <li>
-        <span class="tc">13:00 &rarr; 13:45</span>
-        <span class="what">Lunch provided</span>
+        <span class="tc">1:00pm &rarr; 1:45pm</span>
+        <span class="what">Lunch<em>Lunch is provided.</em></span>
         <span class="dur">45 min</span>
       </li>
       <li class="key">
-        <span class="tc">13:45 &rarr; 16:00</span>
-        <span class="what">Sprint continues<em>Render queues get busy after 15:00. Export early.</em></span>
+        <span class="tc">1:45pm &rarr; 4:00pm</span>
+        <span class="what">Build sprint 2<em>Refine your film, export early, and leave time for final checks. Render queues may become busier later in the afternoon.</em></span>
         <span class="dur">2 hr 15</span>
       </li>
       <li class="key">
-        <span class="tc">16:00</span>
-        <span class="what">Project submissions close<em>Anything later will not be screened.</em></span>
+        <span class="tc">4:00pm</span>
+        <span class="what">Submissions close<em>All final films must be submitted by this time.</em></span>
         <span class="dur">Locked</span>
       </li>
       <li>
-        <span class="tc">16:00 &rarr; 17:00</span>
-        <span class="what">Judging and shortlist<em>Every submission is watched.</em></span>
+        <span class="tc">4:00pm &rarr; 5:00pm</span>
+        <span class="what">Judging and shortlist<em>Every submission will be reviewed by the judging panel.</em></span>
         <span class="dur">1 hr</span>
       </li>
       <li>
-        <span class="tc">17:00 &rarr; 18:00</span>
-        <span class="what">Finalist demos<em>Play the video, then take questions. Three minutes per team.</em></span>
-        <span class="dur">1 hr</span>
+        <span class="tc">5:00pm &rarr; 6:00pm</span>
+        <span class="what">Finalist screenings and demos<em>Selected teams will screen their films and answer a few questions.</em></span>
+        <span class="dur">3 min each</span>
       </li>
       <li class="key">
-        <span class="tc">18:00</span>
+        <span class="tc">6:00pm</span>
         <span class="what">Winners announced</span>
         <span class="dur">Wrap</span>
       </li>
@@ -813,23 +819,23 @@
 <section class="section" id="prizes">
   <div class="wrap">
     <div class="sec-head" data-r>
-      <p class="eyebrow"><span class="num">04</span> Prize money</p>
-      <h2>RM3,500, split three ways</h2>
-      <p class="lead">Paid to the team, split however you agree.</p>
+      <p class="eyebrow"><span class="num">04</span> Prize pool</p>
+      <h2>RM3,500 in prizes</h2>
+      <p class="lead">Prizes are awarded to teams and may be divided among team members however the team agrees.</p>
     </div>
 
     <div class="cells c3 purse" data-r>
       <article class="first">
         <span class="idx">First place</span>
         <span class="amount">RM2,000</span>
-        <p>Highest score across the five criteria.</p>
+        <p>Awarded to the highest-scoring final submission.</p>
       </article>
       <article>
-        <span class="idx">Second</span>
+        <span class="idx">Second place</span>
         <span class="amount">RM1,000</span>
       </article>
       <article>
-        <span class="idx">Third</span>
+        <span class="idx">Third place</span>
         <span class="amount">RM500</span>
       </article>
     </div>
@@ -839,40 +845,40 @@
 <section class="section">
   <div class="wrap">
     <div class="sec-head" data-r>
-      <p class="eyebrow"><span class="num">05</span> How it is judged</p>
-      <h2>Fifty points, five criteria</h2>
-      <p class="lead">Ten points each, nothing weighted above anything else. Judged on the final cut.</p>
+      <p class="eyebrow"><span class="num">05</span> How your film will be judged</p>
+      <h2>50 points across five criteria</h2>
+      <p class="lead">Each category is worth 10 points. Judging is based on the submitted final cut.</p>
     </div>
 
     <ul class="cells c3" data-r>
       <li>
         <span class="idx">10 pts</span>
         <h3>Storytelling &amp; Narrative</h3>
-        <p>Clear, original and emotionally engaging Malaysia Day story.</p>
+        <p>Is the story clear, original, and emotionally engaging?</p>
         <div class="meter" aria-hidden="true"></div>
       </li>
       <li>
         <span class="idx">10 pts</span>
         <h3>Creative Direction &amp; Craft</h3>
-        <p>Strong visuals, pacing, editing and effective use of AI.</p>
+        <p>Are the visuals, pacing, editing, and use of AI purposeful and well executed?</p>
         <div class="meter" aria-hidden="true"></div>
       </li>
       <li>
         <span class="idx">10 pts</span>
         <h3>Brand Integration</h3>
-        <p>Natural and relevant connection between the brand and the story.</p>
+        <p>Does the chosen brand connect naturally and meaningfully to the story?</p>
         <div class="meter" aria-hidden="true"></div>
       </li>
       <li>
         <span class="idx">10 pts</span>
         <h3>Malaysia Relevance &amp; Authenticity</h3>
-        <p>Respectful, inclusive and recognisably Malaysian representation.</p>
+        <p>Does the film feel respectful, inclusive, and recognisably Malaysian?</p>
         <div class="meter" aria-hidden="true"></div>
       </li>
       <li>
         <span class="idx">10 pts</span>
         <h3>Impact &amp; Engagement</h3>
-        <p>A compelling opening and a memorable finish.</p>
+        <p>Does it capture attention early and leave a lasting impression?</p>
         <div class="meter" aria-hidden="true"></div>
       </li>
     </ul>
@@ -882,33 +888,33 @@
 <section class="section">
   <div class="wrap">
     <div class="sec-head" data-r>
-      <p class="eyebrow"><span class="num">06</span> Who and what</p>
-      <h2>Built for creatives,<br class="nb">kitted out by us</h2>
+      <p class="eyebrow"><span class="num">06</span> Who it is for</p>
+      <h2>For curious creators with ideas worth bringing to screen</h2>
+      <p class="lead">This hackathon welcomes people from different creative and technical backgrounds, whether you are experienced with video production or trying AI video tools for the first time.</p>
     </div>
 
     <div class="cells c2" data-r>
       <div>
         <span class="idx">Who it is for</span>
-        <h3>For people with taste and no production budget.</h3>
-        <p>Teams of two to four. Come alone and we will pair you up.</p>
-        <ul class="ticks">
-          <li>Marketers who have always wanted to shoot the idea in their head</li>
+        <ul class="ticks" style="margin-top:0">
+          <li>Marketers ready to turn a campaign idea into a film</li>
           <li>Copywriters, art directors, and creative strategists</li>
           <li>Editors, motion designers, and filmmakers</li>
-          <li>Content creators who want a bigger canvas</li>
-          <li>Engineers who want to chain models into a pipeline</li>
-          <li>Students and first timers. Team forming at 08:45 is for you</li>
+          <li>Content creators looking to explore a bigger storytelling canvas</li>
+          <li>Engineers interested in building creative AI workflows</li>
+          <li>Students, first-time creators, and anyone excited to learn</li>
         </ul>
+        <p style="margin-top:1.25rem">Come with a team or meet one at check-in.</p>
       </div>
       <div>
         <span class="idx">What we provide</span>
-        <h3>Bring a laptop and headphones. The rest is on us.</h3>
+        <h3>Bring a laptop and headphones. We take care of the rest.</h3>
         <ul class="kit">
           <li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.5c.8 6.4 3.1 8.7 9.5 9.5-6.4.8-8.7 3.1-9.5 9.5-.8-6.4-3.1-8.7-9.5-9.5 6.4-.8 8.7-3.1 9.5-9.5z"/></svg><span>Topview AI Video Agent credits for every team</span></li>
-          <li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 8.5a15 15 0 0 1 19 0M5.5 12a10.5 10.5 0 0 1 13 0M8.5 15.5a6 6 0 0 1 7 0"/><circle cx="12" cy="19" r="1"/></svg><span>Desk space, power, and wifi at AWS Office KL</span></li>
-          <li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h13v6a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5z"/><path d="M17 9h1.5a2.5 2.5 0 0 1 0 5H17"/><path d="M7 2.5v2.5M11 2.5v2.5"/></svg><span>Lunch and coffee all day</span></li>
-          <li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3 20a6 6 0 0 1 12 0"/><path d="M16 5.2a3.2 3.2 0 0 1 0 5.6M17.5 14.5A6 6 0 0 1 21 20"/></svg><span>Mentors on the floor through both sprints</span></li>
-          <li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="4" width="19" height="12" rx="2"/><path d="M9 20h6M12 16v4"/></svg><span>A screening setup with proper sound</span></li>
+          <li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 8.5a15 15 0 0 1 19 0M5.5 12a10.5 10.5 0 0 1 13 0M8.5 15.5a6 6 0 0 1 7 0"/><circle cx="12" cy="19" r="1"/></svg><span>Workspace, power, and Wi-Fi at AWS Office KL</span></li>
+          <li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h13v6a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5z"/><path d="M17 9h1.5a2.5 2.5 0 0 1 0 5H17"/><path d="M7 2.5v2.5M11 2.5v2.5"/></svg><span>Lunch, coffee, and refreshments</span></li>
+          <li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3 20a6 6 0 0 1 12 0"/><path d="M16 5.2a3.2 3.2 0 0 1 0 5.6M17.5 14.5A6 6 0 0 1 21 20"/></svg><span>Mentors available during both build sprints</span></li>
+          <li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="4" width="19" height="12" rx="2"/><path d="M9 20h6M12 16v4"/></svg><span>A screening setup with quality sound</span></li>
         </ul>
       </div>
     </div>
@@ -918,38 +924,38 @@
 <section class="section" id="faq">
   <div class="wrap">
     <div class="sec-head" data-r>
-      <p class="eyebrow"><span class="num">07</span> Questions</p>
-      <h2>Everything else</h2>
+      <p class="eyebrow"><span class="num">07</span> FAQ</p>
+      <h2>Frequently asked questions</h2>
     </div>
 
     <div class="faq" data-r>
       <details>
         <summary>What exactly am I making?</summary>
-        <p>A one to three minute festive brand film. Pick any brand, then tell a Malaysia Day story through it.</p>
+        <p>An original, AI-generated brand film inspired by the theme: Malaysia, Stories That Unite.</p>
       </details>
       <details>
         <summary>Can I come without a team?</summary>
-        <p>Come anyway. Check-in at 08:45 pairs up people who arrive alone.</p>
+        <p>Yes. Team formation takes place during check-in from 8:45am.</p>
       </details>
       <details>
-        <summary>Do I need to know these tools already?</summary>
-        <p>No. That is what the morning workshops are for.</p>
+        <summary>Do I need prior experience with these tools?</summary>
+        <p>No. The morning workshop is designed for beginners as well as experienced creators.</p>
       </details>
       <details>
         <summary>Do I have to use Topview?</summary>
-        <p>Yes. Topview is the AI video agent you will be building with, and every team gets credits for it. The morning workshop takes you from a blank project to a finished cut, so you do not need to arrive knowing it. Other tools are fine alongside.</p>
+        <p>Yes. Topview is the official creation platform for the hackathon.</p>
       </details>
       <details>
-        <summary>Can I turn up with work already done?</summary>
-        <p>No footage, edits or renders made before 10:45. Ideas, scripts and storyboards are fine.</p>
+        <summary>Can I bring work made before the event?</summary>
+        <p>No. All work submitted for the competition must be created during the event, beginning after 10:45am.</p>
       </details>
       <details>
-        <summary>Who owns what we make?</summary>
-        <p>You do. Entering lets us show your film in recaps and on social, and nothing else.</p>
+        <summary>Who owns the work we create?</summary>
+        <p>Please refer to the event terms for ownership and usage details.</p>
       </details>
       <details>
-        <summary>How many places are there?</summary>
-        <p>Registration closes once the room is full. Teams are confirmed by email.</p>
+        <summary>How many places are available?</summary>
+        <p>Places are limited. Register early to secure your spot.</p>
       </details>
     </div>
   </div>
@@ -958,11 +964,11 @@
 <section class="section close" id="register">
   <div class="wrap">
     <p class="eyebrow" data-r><span class="num">08</span> Register</p>
-    <h2 data-r style="--d:60ms">Nine hours to make one film</h2>
-    <p class="lead" data-r style="--d:120ms">Sunday 6 September 2026, 9am to 6pm, AWS Office Kuala Lumpur. Free to enter.</p>
+    <h2 data-r style="--d:60ms">Nine hours. One film.<br class="nb">A story worth sharing.</h2>
+    <p class="lead" data-r style="--d:120ms">Sunday, 6 September 2026 &middot; 9:00am&ndash;6:00pm<br>AWS Office, Kuala Lumpur. Free to enter.</p>
     <div class="hero-cta" data-r style="--d:180ms">
       <a class="btn btn-primary" href="https://luma.com/9z2e5zfv" target="_blank" rel="noopener noreferrer">Register on Luma <span class="ar" aria-hidden="true">&rarr;</span></a>
-      <a class="btn btn-ghost" href="#schedule">Run of day</a>
+      <a class="btn btn-ghost" href="#schedule">View the schedule <span class="ar" aria-hidden="true">&rarr;</span></a>
     </div>
   </div>
 </section>
