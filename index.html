@@ -462,36 +462,6 @@
   .cells.c3 > li > p { margin-bottom: 1.5rem; }
 
 
-  /* Four national day motifs, drawn rather than illustrated, so they sit with
-     the line work everywhere else. The Jalur Gemilang is deliberately absent:
-     the brief asks entrants to treat it with flag etiquette, so the page does
-     not render a decorative version of it. */
-  .motifs {
-    display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1px; background: var(--line);
-    border: 1px solid var(--line); border-radius: var(--r);
-    overflow: hidden; margin-bottom: 1.5rem;
-  }
-  @media (min-width: 760px) { .motifs { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
-  .motifs figure {
-    margin: 0; background: var(--bg);
-    padding: 1.5rem 1.25rem 1.35rem;
-    display: flex; flex-direction: column; align-items: center; gap: 0.9rem;
-    text-align: center;
-  }
-  .motifs svg { width: 46px; height: 46px; color: var(--accent); }
-  .motifs figcaption { display: block; }
-  .motifs b {
-    display: block;
-    font-family: var(--mono); font-size: 0.6875rem; font-weight: 600;
-    letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink);
-  }
-  .motifs span {
-    display: block; margin-top: 0.3rem;
-    font-size: 0.75rem; color: var(--ink-3);
-  }
-
-
   /* ---------- showcase reels ---------- */
 
   .reels {
@@ -719,29 +689,6 @@
       <p class="eyebrow"><span class="num">01</span> The brief</p>
       <h2>Malaysia, Stories That Unite</h2>
       <p class="lead">Create an original AI-generated festive film inspired by the spirit of Merdeka and Malaysia Day. Set during this national season of reflection and celebration, your film should feel authentically Malaysian: thoughtful, inclusive, distinctive, and made with respect for the many communities that call it home.</p>
-    </div>
-
-    <div class="motifs" data-r>
-      <figure>
-        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4"
-             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M24 24C19 16 19 8.5 24 5.5C29 8.5 29 16 24 24Z" transform="rotate(0 24 24)"/><path d="M24 24C19 16 19 8.5 24 5.5C29 8.5 29 16 24 24Z" transform="rotate(72 24 24)"/><path d="M24 24C19 16 19 8.5 24 5.5C29 8.5 29 16 24 24Z" transform="rotate(144 24 24)"/><path d="M24 24C19 16 19 8.5 24 5.5C29 8.5 29 16 24 24Z" transform="rotate(216 24 24)"/><path d="M24 24C19 16 19 8.5 24 5.5C29 8.5 29 16 24 24Z" transform="rotate(288 24 24)"/><path d="M24 24L33.5 33.5"/><circle cx="35" cy="33" r="1.3"/><circle cx="33" cy="35" r="1.3"/><circle cx="36.5" cy="36.5" r="1.3"/></svg>
-        <figcaption><b>Bunga Raya</b><span>The national flower</span></figcaption>
-      </figure>
-      <figure>
-        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4"
-             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M24 4C16 9 11 15.5 11 21C11 25 16 27 24 27C32 27 37 25 37 21C37 15.5 32 9 24 4Z"/><path d="M24 4L24 27"/><path d="M16 17.5C19 20 29 20 32 17.5"/><path d="M6.5 33C13 46.5 35 46.5 41.5 33C35 39.5 13 39.5 6.5 33Z"/></svg>
-        <figcaption><b>Wau Bulan</b><span>The moon kite</span></figcaption>
-      </figure>
-      <figure>
-        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4"
-             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M24 4.5L43.5 24L24 43.5L4.5 24Z"/><path d="M24 14L34 24L24 34L14 24Z"/><path d="M24 20.5L27.5 24L24 27.5L20.5 24Z"/><path d="M24 4.5L24 14M24 34L24 43.5M4.5 24L14 24M34 24L43.5 24"/></svg>
-        <figcaption><b>Songket</b><span>Woven in gold thread</span></figcaption>
-      </figure>
-      <figure>
-        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4"
-             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M24 4.5L43.5 24L24 43.5L4.5 24Z"/><path d="M14 14L34 34M34 14L14 34"/><path d="M24 9.5L38.5 24L24 38.5L9.5 24Z"/><path d="M19 9.5L38.5 29M29 9.5L9.5 29M19 38.5L38.5 19M29 38.5L9.5 19"/></svg>
-        <figcaption><b>Ketupat</b><span>Shared at every open house</span></figcaption>
-      </figure>
     </div>
 
     <ol class="cells c4" data-r>
