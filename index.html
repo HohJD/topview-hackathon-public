@@ -414,13 +414,6 @@
     margin-right: 0.5rem;
   }
 
-  /* the workshop syllabus, two columns once there is room */
-  .shop-list { list-style: none; margin: 1.1rem 0 0; padding: 0; display: grid; gap: 0.6rem; }
-  @media (min-width: 700px) { .shop-list { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 2.5rem; } }
-  .shop-list li { display: grid; grid-template-columns: 1.1rem minmax(0, 1fr); gap: 0.35rem;
-                  font-size: 0.875rem; color: var(--ink-2); }
-  .shop-list li::before { content: ""; width: 5px; height: 5px; margin-top: 0.6rem; background: var(--accent); }
-
   .ticks { list-style: none; margin: 1.25rem 0 0; padding: 0; display: grid; gap: 0.6rem; }
   .ticks li { display: grid; grid-template-columns: 1.1rem minmax(0, 1fr); gap: 0.35rem; font-size: 0.875rem; color: var(--ink-2); }
   .ticks li::before { content: ""; width: 5px; height: 5px; margin-top: 0.6rem; background: var(--accent); }
@@ -462,15 +455,70 @@
   .cells.c3 > li > p { margin-bottom: 1.5rem; }
 
 
+
+  /* ---------- workshop session ---------- */
+
+  .session { border: 1px solid var(--line); border-radius: var(--r); background: var(--bg-2); }
+  .session-head {
+    display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.6rem 1.25rem;
+    padding: 1.35rem 1.5rem; border-bottom: 1px solid var(--line);
+  }
+  .session-head h3 {
+    font-size: clamp(1.25rem, 2.4vw, 1.6rem); font-weight: 800;
+    letter-spacing: -0.035em; text-transform: uppercase; margin: 0;
+  }
+  .session-head .when {
+    display: inline-flex; align-items: center; gap: 0.5rem; margin-left: auto;
+    font-family: var(--mono); font-size: 0.6875rem; font-weight: 500;
+    letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-ink);
+    white-space: nowrap;
+  }
+  .session-head .when i { width: 5px; height: 5px; background: var(--accent); flex: none; }
+  .session-head .when em { font-style: normal; color: var(--ink-3); }
+
+  /* the syllabus numbers itself, so the list reads as a running order */
+  .syllabus { list-style: none; margin: 0; padding: 0; display: grid; counter-reset: syl; }
+  @media (min-width: 780px) { .syllabus { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  .syllabus li {
+    counter-increment: syl;
+    display: grid; grid-template-columns: 2.4rem minmax(0, 1fr);
+    align-items: baseline; gap: 0.5rem;
+    padding: 0.95rem 1.5rem;
+    border-top: 1px solid var(--line-2);
+    font-size: 0.875rem; color: var(--ink-2);
+  }
+  .syllabus li::before {
+    content: "0" counter(syl);
+    font-family: var(--mono); font-size: 0.6875rem; font-weight: 500;
+    letter-spacing: 0.1em; color: var(--accent);
+  }
+  /* the first item of each column sits flush against the header rule */
+  .syllabus li:first-child { border-top: 0; }
+  @media (min-width: 780px) {
+    .syllabus li:nth-child(2) { border-top: 0; }
+    .syllabus li:nth-child(even) { border-left: 1px solid var(--line-2); }
+  }
+
+  /* ---------- full bleed film strip ---------- */
+
+  .strip { margin-top: clamp(2.5rem, 5vw, 3.5rem); }
+  .strip-cap {
+    display: flex; align-items: center; gap: 0.85rem;
+    max-width: var(--max); margin: 0 auto 0.9rem; padding-inline: var(--gutter);
+    font-family: var(--mono); font-size: 0.625rem; font-weight: 500;
+    letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-3);
+  }
+  .strip-cap::after { content: ""; flex: 1 1 auto; height: 1px; background: var(--line); }
+
   /* ---------- showcase reels ---------- */
 
   .reels {
-    margin-top: 1.5rem;
     display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1px; background: var(--line);
-    border: 1px solid var(--line); border-radius: var(--r); overflow: hidden;
+    border-block: 1px solid var(--line);
   }
-  @media (min-width: 900px) { .reels { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+  @media (min-width: 680px)  { .reels { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+  @media (min-width: 1100px) { .reels { grid-template-columns: repeat(6, minmax(0, 1fr)); } }
   .reels figure { margin: 0; background: var(--bg-2); position: relative; overflow: hidden; }
   .reels video {
     display: block; width: 100%; aspect-ratio: 16 / 9;
@@ -645,10 +693,9 @@
     </p>
 
     <div class="lead" data-r style="--d:200ms">
-      <p>Create an original Malaysia Day film in one day using Topview and Seedance 2.5.</p>
-      <p>Start with a practical morning workshop, then team up to turn an idea into a 1&ndash;2 minute film.
-         Bring your perspective, your curiosity, and your laptop. We provide the tools, credits, food,
-         mentors, and space to create.</p>
+      <p>Create an original Malaysia Day film in one day with Topview and Seedance 2.5.</p>
+      <p>Learn the tools in a morning workshop, then turn an idea into a 1&ndash;2 minute film.
+         Bring your laptop and perspective. We provide credits, food, mentors, and space to create.</p>
     </div>
 
     <p class="hero-note" data-r style="--d:260ms">Free to enter &middot; Teams of 2&ndash;4 &middot; RM3,500 prize pool</p>
@@ -688,7 +735,7 @@
     <div class="sec-head" data-r>
       <p class="eyebrow"><span class="num">01</span> The brief</p>
       <h2>Malaysia, Stories That Unite</h2>
-      <p class="lead">Create an original AI-generated festive film inspired by the spirit of Merdeka and Malaysia Day. Set during this national season of reflection and celebration, your film should feel authentically Malaysian: thoughtful, inclusive, distinctive, and made with respect for the many communities that call it home.</p>
+      <p class="lead">Create an original 1&ndash;2 minute AI-generated film inspired by Merdeka and Malaysia Day. Make it thoughtful, inclusive, and authentically Malaysian.</p>
     </div>
 
     <ol class="cells c4" data-r>
@@ -730,23 +777,26 @@
       <p class="lead">No prior experience with Topview or Seedance is needed. The workshop is designed to help first-time users get from a blank project to a finished video.</p>
     </div>
 
-    <div class="cells" data-r>
-      <div>
-        <span class="idx">9:30am &ndash; 10:45am &nbsp;&middot;&nbsp; 75 minutes</span>
-        <h3 style="font-size:1.375rem;letter-spacing:-0.035em;text-transform:uppercase;font-weight:800">Topview &amp; Seedance 2.5</h3>
-        <p style="max-width:48em;margin-top:0.6rem">You will learn how to:</p>
-        <ul class="shop-list">
-          <li>Build a video from concept to final cut in Topview</li>
-          <li>Generate, edit, and assemble scenes efficiently</li>
-          <li>Use your credits thoughtfully while iterating quickly</li>
-          <li>Prompt Seedance 2.5 for movement and visuals that read well on screen</li>
-          <li>Maintain consistent characters and visual direction across scenes</li>
-          <li>Recognise common generation issues and work around them creatively</li>
-        </ul>
+    <div class="session" data-r>
+      <div class="session-head">
+        <h3>Topview &amp; Seedance 2.5</h3>
+        <span class="when"><i aria-hidden="true"></i>9:30am &ndash; 10:45am <em>75 min</em></span>
       </div>
+      <ol class="syllabus">
+        <li><span>Build a video from concept to final cut in Topview</span></li>
+        <li><span>Generate, edit, and assemble scenes efficiently</span></li>
+        <li><span>Use your credits thoughtfully while iterating quickly</span></li>
+        <li><span>Prompt Seedance 2.5 for movement and visuals that read well on screen</span></li>
+        <li><span>Maintain consistent characters and visual direction across scenes</span></li>
+        <li><span>Recognise common generation issues and work around them creatively</span></li>
+      </ol>
     </div>
 
-    <div class="reels" data-r>
+  </div>
+
+  <div class="strip" data-r>
+    <p class="strip-cap"><span>Made with Topview</span></p>
+    <div class="reels">
       <figure>
         <video class="reel" loop muted playsinline preload="none" poster="/reels/reel-1.jpg"
                aria-label="A short film made with Topview">
