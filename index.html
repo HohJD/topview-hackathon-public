@@ -449,12 +449,14 @@
   .kit .ico { color: var(--accent); margin-top: 0.1rem; }
 
   /* Ten segments, all filled: every criterion carries the same weight. */
-  /* box-sizing is border-box, so spacing here has to be margin, not padding */
+  /* Ten segments at a fixed size rather than a share of the cell, so every
+     bar is identical even though the last cell spans two columns.
+     box-sizing is border-box, so spacing here has to be margin, not padding. */
   .meter {
-    height: 5px; margin-top: auto;
+    width: 147px; height: 5px; margin-top: auto;
     background: var(--accent);
-    -webkit-mask: repeating-linear-gradient(to right, #000 0 calc(10% - 3px), transparent calc(10% - 3px) 10%);
-    mask: repeating-linear-gradient(to right, #000 0 calc(10% - 3px), transparent calc(10% - 3px) 10%);
+    -webkit-mask: repeating-linear-gradient(to right, #000 0 12px, transparent 12px 15px);
+    mask: repeating-linear-gradient(to right, #000 0 12px, transparent 12px 15px);
   }
   .cells.c3 > li { display: flex; flex-direction: column; }
   .cells.c3 > li > p { margin-bottom: 1.5rem; }
