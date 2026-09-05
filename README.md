@@ -13,8 +13,12 @@ Public facing. Static single-file site (`index.html`), no build step.
 The only external dependency is Google Fonts (Inter, Roboto Mono), loaded over
 CDN. Everything else is inline.
 
-Registration goes to Luma: https://luma.com/9z2e5zfv (nav button, hero
-announcement pill, hero CTA and closing CTA all point there).
+Registration is closed. The nav button, hero CTA, closing CTA and dock bar
+now point at Instagram, https://www.instagram.com/topviewaiofficial/, for
+future events. The hero announcement pill reads "Registration closed" and
+uses the neutral `.done` style rather than the green `.live` one, whose
+pulsing dot read as "happening now". The old Luma link was
+https://luma.com/9z2e5zfv.
 
 ## Design
 

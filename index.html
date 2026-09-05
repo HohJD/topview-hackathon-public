@@ -44,9 +44,9 @@
      inverted wholesale for dark, so both themes read equally sharp.
 
      Two things are never more than a glance away: WHEN it happens
-     and WHERE to register. The date sits in the header, above the
-     headline, inside the countdown, and in the dock bar; the
-     register button is in the header at all times.
+     and HOW to keep in touch. The date sits in the header, above the
+     headline, inside the countdown, and in the dock bar; registration
+     is closed, so the follow button is in the header at all times.
      ============================================================ */
 
   :root {
@@ -328,6 +328,19 @@
     animation: blink 1.8s ease-in-out infinite;
   }
   @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.2; } }
+  /* closed state: same shape as .live, but neutral and with a still dot,
+     because a pulsing dot reads as "happening now" */
+  .status .done {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    font-family: var(--mono); font-size: 0.625rem; font-weight: 600;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--ink-2);
+    background: var(--bg-3); border: 1px solid var(--line);
+    border-radius: var(--r); padding: 0.4rem 0.65rem;
+  }
+  .status .done i {
+    width: 7px; height: 7px; border-radius: 50%; background: var(--ink-3);
+  }
   .where {
     display: flex; flex-wrap: wrap; align-items: center; gap: 0.3rem 0.8rem;
     font-family: var(--mono); font-weight: 600;
@@ -579,6 +592,8 @@
   }
   .faq details[open] summary::after { transform: rotate(90deg); background: linear-gradient(var(--accent) 0 0) center / 100% 1.5px no-repeat; }
   .faq details p { padding: 0 2.5rem 1.2rem 0; color: var(--ink-2); font-size: 0.875rem; }
+  .faq details p a { color: var(--accent-ink); text-decoration: underline; text-underline-offset: 2px; }
+  .faq details p a:hover { color: var(--accent); }
 
   /* ---------- closing slab ---------- */
 
@@ -669,7 +684,7 @@
           <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>
         </svg>
       </button>
-      <a class="btn btn-primary btn-sm" href="https://luma.com/9z2e5zfv" target="_blank" rel="noopener noreferrer">Register <span class="ar" aria-hidden="true">&rarr;</span></a>
+      <a class="btn btn-primary btn-sm" href="https://www.instagram.com/topviewaiofficial/" target="_blank" rel="noopener noreferrer" aria-label="Follow Topview on Instagram for future events">Follow <span class="ar" aria-hidden="true">&rarr;</span></a>
     </div>
   </div>
 </header>
@@ -679,7 +694,7 @@
   <div class="wrap">
 
     <div class="status" data-r>
-      <span class="live"><i aria-hidden="true"></i>Registration open</span>
+      <span class="done"><i aria-hidden="true"></i>Registration closed</span>
     </div>
 
     <h1 data-r style="--d:60ms"><span class="l1">AI Video</span> <span class="l2">Hackathon <span class="kl">KL</span></span></h1>
@@ -701,7 +716,7 @@
     <p class="hero-note" data-r style="--d:260ms">Free to enter &middot; Teams of 2&ndash;4 &middot; RM3,500 prize pool</p>
 
     <div class="hero-cta" data-r style="--d:300ms">
-      <a class="btn btn-primary" href="https://luma.com/9z2e5zfv" target="_blank" rel="noopener noreferrer">Register on Luma <span class="ar" aria-hidden="true">&rarr;</span></a>
+      <a class="btn btn-primary" href="https://www.instagram.com/topviewaiofficial/" target="_blank" rel="noopener noreferrer">Follow on Instagram <span class="ar" aria-hidden="true">&rarr;</span></a>
       <a class="btn btn-ghost" href="#schedule">View the schedule <span class="ar" aria-hidden="true">&rarr;</span></a>
     </div>
   </div>
@@ -1060,8 +1075,8 @@
         <p>You do. Participants keep full ownership of the films they create, and all usage rights stay with the team.</p>
       </details>
       <details>
-        <summary>How many places are available?</summary>
-        <p>Places are limited. Register early to secure your spot.</p>
+        <summary>Can I still register?</summary>
+        <p>No, registration is closed. Follow <a href="https://www.instagram.com/topviewaiofficial/" target="_blank" rel="noopener noreferrer">@topviewaiofficial</a> on Instagram to hear about future events.</p>
       </details>
     </div>
   </div>
@@ -1069,11 +1084,11 @@
 
 <section class="section close" id="register">
   <div class="wrap">
-    <p class="eyebrow" data-r><span class="num">08</span> Register</p>
+    <p class="eyebrow" data-r><span class="num">08</span> Stay in touch</p>
     <h2 data-r style="--d:60ms">Nine hours. One film.<br class="nb">A story worth sharing.</h2>
-    <p class="lead" data-r style="--d:120ms">Sunday, 6 September 2026 &middot; 9:00am&ndash;6:00pm<br>AWS Office, Kuala Lumpur. Free to enter.</p>
+    <p class="lead" data-r style="--d:120ms">Sunday, 6 September 2026 &middot; 9:00am&ndash;6:00pm<br>AWS Office, Kuala Lumpur. Registration is closed.</p>
     <div class="hero-cta" data-r style="--d:180ms">
-      <a class="btn btn-primary" href="https://luma.com/9z2e5zfv" target="_blank" rel="noopener noreferrer">Register on Luma <span class="ar" aria-hidden="true">&rarr;</span></a>
+      <a class="btn btn-primary" href="https://www.instagram.com/topviewaiofficial/" target="_blank" rel="noopener noreferrer">Follow on Instagram <span class="ar" aria-hidden="true">&rarr;</span></a>
       <a class="btn btn-ghost" href="#schedule">View the schedule <span class="ar" aria-hidden="true">&rarr;</span></a>
     </div>
   </div>
@@ -1099,7 +1114,7 @@
     <b>Sun 6 Sep 2026</b>
     <span>AWS Office KL &middot; 9am to 6pm</span>
   </div>
-  <a class="btn btn-primary btn-sm" href="https://luma.com/9z2e5zfv" target="_blank" rel="noopener noreferrer">Register <span class="ar" aria-hidden="true">&rarr;</span></a>
+  <a class="btn btn-primary btn-sm" href="https://www.instagram.com/topviewaiofficial/" target="_blank" rel="noopener noreferrer" aria-label="Follow Topview on Instagram for future events">Follow <span class="ar" aria-hidden="true">&rarr;</span></a>
 </div>
 
 <script>
@@ -1156,7 +1171,7 @@
     for (var j = 0; j < items.length; j++) { io.observe(items[j]); }
   }
 
-  /* ---- the dock bar carries the date and the register button once the hero is gone ---- */
+  /* ---- the dock bar carries the date and the follow button once the hero is gone ---- */
   var dock = document.getElementById('dock');
   var hero = document.getElementById('top');
   if (dock && hero && 'IntersectionObserver' in window) {
